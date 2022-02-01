@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "prisma": "^3.8.1"
+  }
+}
