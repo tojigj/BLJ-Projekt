@@ -4,11 +4,17 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:luis123@localhost:3306/sitzungszimmerdb"
+  url      = "mysql://root:Alejor-4278@localhost:3306/sitzungszimmerdb"
 }
 
 model user {
-  id    Int     @id @default(autoincrement())
-  name  String? @db.VarChar(255)
-  email String  @unique(map: "email") @db.VarChar(255)
+  user_id  Int     @id
+  username String? @db.VarChar(35)
+  password String? @db.VarChar(30)
+}
+
+model stockwerke {
+  stockwerk_id   Int     @id
+  stockwerk_nr   Int?
+  stockwerk_name String? @db.VarChar(30)
 }

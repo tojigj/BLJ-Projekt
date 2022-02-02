@@ -1,0 +1,81 @@
+*{
+    font-family: sans-serif;
+}
+
+.btn{
+    display:inline-block;
+    flex-direction: row;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+    margin-right: 5px;
+    margin: 3vh;
+  
+    
+
+}
+
+.btn:hover{
+    background: greenyellow;
+}
+
+.requirements{
+    width: 50%;
+    margin: 80px auto;
+    height: 50%;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 10px 10px 15px silver;
+}
+
+.text_Fields{
+    margin-top: 3vh;
+}
+
+.Zeit_Buchung{
+    margin-top: 3vh;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.Search_Button{
+    margin-top: 5vh;
+    display:inline-block;
+    flex-direction: row;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+    margin-right: 5px;
+    background-color: black;
+}
+
+.Stockwerk_Options{
+    margin-top: 3vh;
+}
+
+.Header_Title{
+    height: 10vh;
+    width: 100%;
+    background-color: #FFFDD0;
+    color: black;
+
+}
+
+.Footer_Class{
+    height: 10vh;
+    width: 100%;
+    background-color: black;
+    color: black;
+    
+}
