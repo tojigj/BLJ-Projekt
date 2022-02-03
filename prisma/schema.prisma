@@ -8,13 +8,13 @@ datasource db {
 }
 
 model user {
-  user_id  Int     @id
+  user_id  Int     @id @default(autoincrement())
   username String? @db.VarChar(35)
   password String? @db.VarChar(30)
 }
 
 model stockwerke {
-  stockwerk_id   Int     @id
+  stockwerk_id   Int  @default(autoincrement())   @id
   stockwerk_nr   Int?
   stockwerk_name String? @db.VarChar(30)
 }
