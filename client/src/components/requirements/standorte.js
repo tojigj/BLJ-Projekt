@@ -1,10 +1,18 @@
 import React from "react";
 
 const standorte = () => {
-
-  function onPress (number) {
-    document.getElementById("standorte-button" + number).classList.add("pressed-button");
-  };
+  function onPress(number) {
+    if (number === 1) {
+      document
+        .getElementById("standorte-button2")
+        .classList.remove("pressed-button");
+    } else {
+      document.getElementById("standorte-button1").classList.remove("pressed-button");
+    } 
+    document
+      .getElementById("standorte-button" + number)
+      .classList.add("pressed-button");
+  }
 
   return (
     <div className="standorte-div">

@@ -4,7 +4,7 @@
 }
 
 html {
-    height: auto;
+    height: 100%;
     width: 100%;
 }
 
@@ -29,21 +29,24 @@ html {
     height: 30rem;
     border: 1px solid gray;
     box-shadow: 3px 3px 7px silver;
+    margin-bottom: 5rem;
 }
 
 .text_Fields{
     height: 2rem;
-    width: 80%;
+    width: 100%;
 }
 
-.Zeit_Buchung{
-    margin-top: 3vh;
-    margin-left: 5px;
-    margin-right: 5px;
+.Datum_Buchung{
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 3rem;
 }
 
 .Search_Button{
-    margin-top: 5vh;
     display:inline-block;
     flex-direction: row;
     color: white;
@@ -56,11 +59,14 @@ html {
     font-family: inherit;
     margin-right: 5px;
     background-color: black;
+    width: 90%;
+    position: relative;
+    top: 6rem;
 }
 
 .Stockwerk{
     height: 2rem;
-    width: 30%;
+    width: 100%;
 }
 
 .Header_Title{
@@ -78,6 +84,7 @@ html {
     width: 100%;
     background-color: black;
     color: black;
+    margin-top: 185px;
 }
 
 .standorte-button {
@@ -107,6 +114,9 @@ html {
 
 .standorte-div {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 13rem;
 }
 
 .home {
@@ -116,9 +126,7 @@ html {
 
 .search-part-box {
     display: flex;
-    margin-top: 2rem;
-    width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .active {
@@ -131,4 +139,25 @@ html {
     height: 9rem;
     width: 40%;
     background-color: #d1d5db;
+}
+
+.component-div {
+    width: 30%;
+}
+
+.zeit-buchung {
+    display: flex;
+    flex-direction: column;
+}
+
+.time-box {
+    margin: 5px;
+}
+
+.date-box {
+    height: 2rem;
+}
+
+.Such-Ausgabe {
+    width: 20rem;
 }
