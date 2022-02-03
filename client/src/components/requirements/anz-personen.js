@@ -1,12 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-function Anz_personen() {
+const Anz_personen = () => {
   return (
     <div>
-      <input className='text_Fields' placeholder='Anz. Pers'></input>
+      <input className='text_Fields' type='number' placeholder='Anz. Pers'></input>
     </div>
-
   );
 }
 

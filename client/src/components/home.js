@@ -1,18 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
 import Section from './section';
 
-function Home() {
-  return <Container>
+const Home = () => {
+  return <div className='home'>
       <Section />
-  </Container>;
+  </div>;
 }
 
 export default Home;
-
-const Container = styled.div`
-    height: 100vh;
-    width: 100vh;
-    
-
-`

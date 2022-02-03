@@ -1,5 +1,11 @@
 *{
     font-family: sans-serif;
+    margin: 0 auto;
+}
+
+html {
+    height: auto;
+    width: 100%;
 }
 
 .btn{
@@ -16,26 +22,18 @@
     font-family: inherit;
     margin-right: 5px;
     margin: 3vh;
-  
-    
-
-}
-
-.btn:hover{
-    background: greenyellow;
 }
 
 .requirements{
-    width: 50%;
-    margin: 80px auto;
-    height: 50%;
-    border: 1px solid black;
-    border-radius: 5px;
-    box-shadow: 10px 10px 15px silver;
+    width: 25rem;
+    height: 30rem;
+    border: 1px solid gray;
+    box-shadow: 3px 3px 7px silver;
 }
 
 .text_Fields{
-    margin-top: 3vh;
+    height: 2rem;
+    width: 80%;
 }
 
 .Zeit_Buchung{
@@ -60,16 +58,19 @@
     background-color: black;
 }
 
-.Stockwerk_Options{
-    margin-top: 3vh;
+.Stockwerk{
+    height: 2rem;
+    width: 30%;
 }
 
 .Header_Title{
-    height: 10vh;
+    height: 8rem;
     width: 100%;
-    background-color: #FFFDD0;
+    background-color: lightgray;
     color: black;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .Footer_Class{
@@ -77,5 +78,57 @@
     width: 100%;
     background-color: black;
     color: black;
-    
+}
+
+.standorte-button {
+    height: 10rem;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    background-color: #e5e7eb;
+    justify-content: center;
+    margin: 10px;
+    border-width: 0px;
+    font-size: 22px;
+    transition: ease-in-out;
+    transition-duration: 200ms;
+}
+
+.standorte-button:active {
+    background-color: #d1d5db;
+    top: 2px;
+    left: 1px;
+    box-shadow: none;
+}
+
+.standorte-button:hover {
+    background-color: #d1d5db;
+}
+
+.standorte-div {
+    display: flex;
+}
+
+.home {
+    margin-top: 50px;
+    width: 80%;
+}
+
+.search-part-box {
+    display: flex;
+    margin-top: 2rem;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.active {
+    top: 2px;
+    left: 1px;
+    box-shadow: none;
+}
+
+.pressed-button {
+    height: 9rem;
+    width: 40%;
+    background-color: #d1d5db;
 }

@@ -5,8 +5,6 @@ import Home from './components/home';
 import './index.css';
 import Footer from './components/footer';
 
-
-
 function App() {
   return (
     <div className="App">
@@ -18,3 +16,6 @@ function App() {
 }
 
 export default App;
+
+
+

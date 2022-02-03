@@ -2,7 +2,7 @@ import React from 'react';
 
 function Stockwerke() {
   return (
-      <select className='Stockwerk_Options'>
+      <select className='Stockwerk'>
           <option value='Stockwerk 1'>
               Stockwerk 1
           </option>
