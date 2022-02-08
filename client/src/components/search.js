@@ -1,6 +1,6 @@
 import React from 'react';
 
-function search() {
+const search = () => {
   return <div>
       <button className='Search_Button'>Suchen</button>
   </div>;
