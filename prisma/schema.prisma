@@ -13,9 +13,6 @@ model User {
   password String? @db.VarChar(30)
 }
 
-
-
-
 model Sitzungszimmer {
   sitzungszimmerID Int @default(autoincrement()) @id
   anzPersonen Int @unique
@@ -30,7 +27,6 @@ model Standorte {
   standortName String @unique
   sitzungsZimmer Sitzungszimmer[]
 }
-
 
 model Stockwerke {
   stockwerkID   Int  @default(autoincrement())   @id
