@@ -4,7 +4,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:Alejor-4278@localhost:3306/sitzungszimmerdb"
+  url      = "mysql://root:Alejor-4278@localhost:3306/dbSitzungszimmer"
 }
 
 model User {
@@ -13,26 +13,30 @@ model User {
   password String? @db.VarChar(30)
 }
 
-model Stockwerke {
-  stockwerkID   Int  @default(autoincrement())   @id
-  stockwerkNr   Int?
-  stockwerkName String? @db.VarChar(30)
-}
+
 
 
 model Sitzungszimmer {
   sitzungszimmerID Int @default(autoincrement()) @id
   anzPersonen Int @unique
-  sitzungsZimmerStandort Standorte @relation(fields: [sitzungszimmerStID], references: [standortID])
-  sitzungszimmerStID Int
-
-
+  sitzungsZimmerStandort Standorte @relation(fields: [sitzungszimmerStOID], references: [standortID])
+  sitzungszimmerStOID Int
+  sitzungsZimmerSt Stockwerke @relation(fields: [sitzungsZimmerStId], references: [stockwerkID])
+  sitzungsZimmerStId Int 
 }
 
 model Standorte {
   standortID Int @default(autoincrement())   @id
   standortName String @unique
   sitzungsZimmer Sitzungszimmer[]
-
 }
+
+
+model Stockwerke {
+  stockwerkID   Int  @default(autoincrement())   @id
+  stockwerkNr   Int?
+  stockwerkName String? @db.VarChar(30)
+  sitzungsZimmer Sitzungszimmer[]
+}
+
 

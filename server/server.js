@@ -1,21 +1,15 @@
 import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
 
 const express = require('express')
-const prisma = new PrismaClient()
 const app = express()
 
 
 
 
 app.post('/', async (req, res) => {
-    const { stockwerke_name, stockwerke_nr}
-    const stockwerk = await prisma.stockwerke.create({
-        data: {
-            stockwerke_name = Erster,
-            stockwerke_nr = 1
-        }
-        
-    })
+  const { standortName } = req.body
+
 }) 
 
 app.get('/', (req, res) => {
