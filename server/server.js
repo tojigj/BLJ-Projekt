@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import { json } from 'express'
 const prisma = new PrismaClient()
 
 const express = require('express')
@@ -9,11 +10,16 @@ const app = express()
 
 app.post('/', async (req, res) => {
   const { standortName } = req.body
-
+  const stName = await prisma.standorte.create({
+    data:{
+      standorName: 'Fluhmatt'
+    }
+  })
+  res,json(stName)
 }) 
 
 app.get('/', (req, res) => {
-    const stockwerke = await prisma.stockwerke.findMany()
+ 
 }) 
 
 app.put('/', (req, res) => {
