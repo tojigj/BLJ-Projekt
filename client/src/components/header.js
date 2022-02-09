@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-function Header() {
+const Header = () => {
   return <div className='Header_Title'>
      <h1>Sitzungszimmer - Finder</h1>
   </div>;
