@@ -8,11 +8,11 @@ function datum() {
         value="2022-02-02"
         min="2022-02-02"
         max="2040-01-05"
-        className="date-box"
+        className="form-control date-box"
       ></input>
       <div className="zeit-buchung">
-        <input type="time" className="time-box"></input>
-        <input type="time" className="time-box"></input>
+        <input type="time" className="form-control time-box"></input>
+        <input type="time" className="form-control time-box"></input>
       </div>
     </div>
   );

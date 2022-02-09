@@ -19,20 +19,16 @@ model Stockwerke {
   stockwerkName String? @db.VarChar(30)
 }
 
-
 model Sitzungszimmer {
   sitzungszimmerID Int @default(autoincrement()) @id
   anzPersonen Int @unique
   sitzungsZimmerStandort Standorte @relation(fields: [sitzungszimmerStID], references: [standortID])
   sitzungszimmerStID Int
-
-
 }
 
 model Standorte {
   standortID Int @default(autoincrement())   @id
   standortName String @unique
   sitzungsZimmer Sitzungszimmer[]
-
 }
 
