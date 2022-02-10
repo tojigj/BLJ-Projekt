@@ -18,9 +18,8 @@ app.get('/', async (req, res) => {
     console.log(standOrte)
 })
 
-app.listen(3001, () =>{
-    console.log('Running on Server')
-})
+const port = process.env.PORT || 5000;
+app.listen(5000, () => console.log(`Listening on port ${port}...`));
 
 
 /*
