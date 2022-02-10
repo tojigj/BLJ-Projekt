@@ -1,3 +1,4 @@
+
 *{
     font-family: sans-serif;
     margin: 0 auto;
@@ -8,26 +9,11 @@ html {
     width: 100%;
 }
 
-.btn{
-    display:inline-block;
-    flex-direction: row;
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 15px;
-    font-family: inherit;
-    margin-right: 5px;
-    margin: 3vh;
-}
-
 .requirements{
     width: 25rem;
-    height: 30rem;
-    border: 1px solid gray;
+    height: 32rem;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
     box-shadow: 3px 3px 7px silver;
     margin-bottom: 5rem;
 }
@@ -37,14 +23,6 @@ html {
     width: 100%;
 }
 
-.Datum_Buchung{
-    padding-top: 15px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    top: 3rem;
-}
 
 .Search_Button{
     display:inline-block;
@@ -52,16 +30,14 @@ html {
     color: white;
     border: none;
     padding: 10px 20px;
+    margin: 30px 0 10px 0;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
     font-size: 15px;
     font-family: inherit;
-    margin-right: 5px;
     background-color: black;
     width: 90%;
-    position: relative;
-    top: 6rem;
 }
 
 .Stockwerk{
@@ -87,41 +63,22 @@ html {
     margin-top: 185px;
 }
 
-.standorte-button {
-    height: 10rem;
-    width: 45%;
-    display: flex;
-    align-items: center;
-    background-color: #e5e7eb;
-    justify-content: center;
-    margin: 10px;
-    border-width: 0px;
-    font-size: 22px;
-    transition: ease-in-out;
-    transition-duration: 200ms;
-}
-
-.standorte-button:active {
-    background-color: #d1d5db;
-    top: 2px;
-    left: 1px;
-    box-shadow: none;
-}
-
 .standorte-button:hover {
     background-color: #d1d5db;
 }
 
 .standorte-div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 13rem;
+    margin: 30px 20px 10px 20px;
+    padding: 20px 0 20px 20px;
+    text-align: left;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
 }
 
 .home {
     margin-top: 50px;
     width: 80%;
+    display: flex;
 }
 
 .search-part-box {
@@ -129,20 +86,10 @@ html {
     justify-content: space-around;
 }
 
-.active {
-    top: 2px;
-    left: 1px;
-    box-shadow: none;
-}
-
-.pressed-button {
-    height: 9rem;
-    width: 40%;
-    background-color: #d1d5db;
-}
 
 .component-div {
-    width: 30%;
+    margin: 20px 20px 10px 20px;
+    display: flex;
 }
 
 .zeit-buchung {
@@ -151,13 +98,34 @@ html {
 }
 
 .time-box {
-    margin: 5px;
+    padding: 5px 20px 5px 20px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    width: 100%;
+    margin: 5px 0 5px 0;
 }
 
 .date-box {
-    height: 2rem;
+    height: 2.5rem;
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 0 20px 0 20px;
+    display: flex;
+    margin: 20px 0 15px 0;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.date-box::before, .date-box::after {
+    box-sizing: border-box;
 }
 
 .Such-Ausgabe {
-    width: 20rem;
+    width: 50rem;
+    height: auto;
+    background-color: #e5e7eb;
+}
+
+.Datum_Buchung {
+    margin: 10px 20px 10px 20px;
 }

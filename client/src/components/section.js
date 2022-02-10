@@ -9,10 +9,8 @@ const requirements = () => {
   return (
     <div className="requirements">
       <Standorte />
-      <div className="search-part-box">
-        <Stockwerke />
-        <Anz_Pers />
-      </div>
+      <Stockwerke />
+      <Anz_Pers />
       <Date />
       <Search_Button />
     </div>
