@@ -1,22 +1,21 @@
-const { PrismaClient } = require('@prisma/client')
-
 const express = require('express')
-const { default: newStandorte } = require('./standorte')
-const prisma = new PrismaClient()
 const app = express()
+const cors = require('cors')
+
 app.use(express.json())
+app.use(cors())
+
+//Router
+const szRouter = require('./routes/sitzungszimmer')
+app.use('/sitzungszimmer', szRouter)
 
 app.post('/', async (res, req) => {
-
-    
 })
 
 app.get('/', async (req, res) => {
-    const standOrte = await prisma.standorte.findMany({
-    })
-    res.send(standOrte)
-    console.log(standOrte)
+ 
 })
+
 
 const port = process.env.PORT || 5000;
 app.listen(5000, () => console.log(`Listening on port ${port}...`));
