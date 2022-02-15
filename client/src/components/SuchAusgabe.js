@@ -15,13 +15,14 @@ const SuchAusgabe = () => {
   useEffect(() => {
     axios.get("http://localhost:5000/stockwerke/").then((response) => {
       setStockwerke(response.data)
+    
     })
   })
 
   
   return <div className='Such-Ausgabe'>
     <div className='standort-test'> {standOrte.map((value, key) => {
-       return <div>Standort: {value.standortName}</div>
+       return <div>Standort: {value.StandortName}</div>
      })}</div>
       
   </div>;

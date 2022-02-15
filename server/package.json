@@ -6,20 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "dbChange": "nodemon dataAccess.js"
   },
-  
-  "prisma": {
-    "seed": "node prisma/seed.js"
-  },
+
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^3.9.1",
     "cors": "^2.8.5",
     "express": "^4.17.2",
-    "nodemon": "^2.0.15",
-    "prisma": "^3.9.2",
-    "prisma-client": "^0.0.0"
+    "nodemon": "^2.0.15"
   }
 }
