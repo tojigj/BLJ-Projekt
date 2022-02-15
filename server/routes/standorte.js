@@ -6,8 +6,8 @@ const cors = require('cors')
 router.use(cors())
 
 router.post('/', async (req, res) => {
-
 })
+
 router.get('/', async (req, res) => {
     const standOrte = await prisma.standorte.findMany({
     })
