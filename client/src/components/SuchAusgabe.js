@@ -21,7 +21,7 @@ const SuchAusgabe = () => {
 
   
   return <div className='Such-Ausgabe'>
-    <div className='standort-test'> {standOrte.map((value, key) => {
+    <div className=''> {standOrte.map((value, key) => {
        return <div>Standort: {value.StandortName}</div>
      })}</div>
 
