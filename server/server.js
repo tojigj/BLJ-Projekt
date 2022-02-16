@@ -8,8 +8,8 @@ app.use(cors())
 //Router
 const soRouter = require('./routes/standorte')
 app.use('/standorte', soRouter)
-const swRouter = require('./routes/stockwerke')
-app.use('/stockwerke', swRouter)
+const szRouter = require('./routes/sitzungszimmer')
+app.use('/sitzungszimmer', szRouter)
 
 app.post('/', async (res, req) => {
 })
