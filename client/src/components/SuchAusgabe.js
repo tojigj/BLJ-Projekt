@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useDebugValue} from 'react'
 import axios from 'axios'
 import Zimmer from './requirements/zimmer'
+import zimmer from './requirements/zimmer';
 
 const SuchAusgabe = () => {
 
@@ -25,7 +26,7 @@ const SuchAusgabe = () => {
     <div className='standort-test'> 
       <div>Standort: {standOrte.filter(v => v.ID == 1)[0]?.StandortName}</div>
   </div>
-      
+      <Zimmer/>
   </div>;
 };
 

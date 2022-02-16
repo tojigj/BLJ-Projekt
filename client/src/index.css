@@ -9,6 +9,7 @@ html {
     width: 100%;
 }
 
+/*Hintergrund Suche*/
 .requirements{
     width: 25rem;
     height: 32rem;
@@ -120,11 +121,6 @@ html {
     box-sizing: border-box;
 }
 
-.Such-Ausgabe {
-    width: 50rem;
-    height: auto;
-    background-color: #e5e7eb;
-}
 
 .Datum_Buchung {
     margin: 10px 20px 10px 20px;
@@ -147,3 +143,15 @@ html {
     background-color: white;
     border-radius: 5px;
 }
+
+/*Hintergrund der Ausgabe (#e5e7eb)*/
+.Such-Ausgabe {
+    width: 50rem;
+    height: 32rem;
+    background-color: white;
+    box-shadow: 3px 3px 7px silver;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    
+}
+
