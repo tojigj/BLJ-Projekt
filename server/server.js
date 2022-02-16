@@ -8,11 +8,8 @@ app.use(cors())
 //Router
 const soRouter = require('./routes/standorte')
 app.use('/standorte', soRouter)
-<<<<<<< HEAD
-=======
 const swRouter = require('./routes/stockwerke')
 app.use('/stockwerke', swRouter)
->>>>>>> 2371c0a97e0c4fbd19ea8e55716a9902e8b32050
 const szRouter = require('./routes/sitzungszimmer')
 app.use('/sitzungszimmer', szRouter)
 
