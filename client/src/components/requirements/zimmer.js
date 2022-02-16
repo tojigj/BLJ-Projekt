@@ -1,8 +1,8 @@
 import React from 'react';
 
 const zimmer = () => {
-  return <div>
-      
+  return <div className = "suchanzeige">
+    <p>Hallo</p>
   </div>;
 };
 

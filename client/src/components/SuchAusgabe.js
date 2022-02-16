@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useDebugValue} from 'react'
 import axios from 'axios'
-
+import Zimmer from './requirements/zimmer'
 
 const SuchAusgabe = () => {
 
@@ -24,7 +24,9 @@ const SuchAusgabe = () => {
     <div className='standort-test'> {standOrte.map((value, key) => {
        return <div>Standort: {value.StandortName}</div>
      })}</div>
-      
+
+    <Zimmer />
+
   </div>;
 };
 
