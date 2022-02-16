@@ -24,7 +24,6 @@ html {
     width: 100%;
 }
 
-
 .Search_Button{
     display:inline-block;
     flex-direction: row;
@@ -87,7 +86,6 @@ html {
     justify-content: space-around;
 }
 
-
 .component-div {
     margin: 20px 20px 10px 20px;
     display: flex;
@@ -121,7 +119,6 @@ html {
     box-sizing: border-box;
 }
 
-
 .Datum_Buchung {
     margin: 10px 20px 10px 20px;
 }
@@ -130,7 +127,7 @@ html {
     margin: 30px 20px 10px 20px;
     padding: 20px 0 20px 20px;
     text-align: center;
-    border: 1px solid grey;
+    border: 1px solid #ced4da;
     background-color: white;
     border-radius: 5px;
 }
@@ -138,8 +135,8 @@ html {
 .suchanzeige{
     margin: 30px 20px 10px 20px;
     padding: 20px 0 5px 20px;
-    text-align: center;
-    border: 1px solid grey;
+    text-align: left;
+    border: 1px solid #ced4da;
     background-color: white;
     border-radius: 5px;
 }
@@ -152,6 +149,4 @@ html {
     box-shadow: 3px 3px 7px silver;
     border: 1px solid #ced4da;
     border-radius: 5px;
-    
 }
-
