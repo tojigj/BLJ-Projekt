@@ -17,7 +17,7 @@ const SuchAusgabe = () => {
   }, [])
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
-      setSitzungsZimmer(response.data)   
+      setSitzungszimmer(response.data)   
     })
   })
 useEffect(() => {
@@ -30,7 +30,7 @@ useEffect(() => {
 
   return <div className='Such-Ausgabe'>
     <div className='standort-test'> 
-      <div>Zimmername: {sitzungsZimmer.filter(v => v.id === 1)[0]?.zimmerName}</div>
+      <div>Zimmername: {sitzungszimmer.filter(v => v.id === 1)[0]?.zimmerName}</div>
   </div>
       
   </div>
