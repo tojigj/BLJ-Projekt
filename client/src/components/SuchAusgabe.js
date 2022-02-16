@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useDebugValue} from 'react'
 import axios from 'axios'
-
+import Zimmer from './requirements/zimmer'
 
 const SuchAusgabe = () => {
 
