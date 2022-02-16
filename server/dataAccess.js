@@ -1,8 +1,7 @@
 const fs = require('fs')
 const express = require('express')
-
-const jsonString = fs.readFileSync("./database.json")
-const dbData = JSON.parse(jsonString)
+const jsonString = fs.readFileSync("./database.json", "utf-8")
+let dbData = JSON.parse(jsonString)
 
 const soData = dbData.Standorte
 const swData = dbData.Stockwerke
@@ -32,17 +31,12 @@ const Sitzungszimmer04 = {
     Stockwerke: Sitzungszimmer.Stockwerke[0]
 }
 
+dbData.Sitzungszimmer = [{Sitzungszimmer01, Sitzungszimmer02, Sitzungszimmer03, Sitzungszimmer04}]
 
-dbData.push(Sitzungszimmer)
-let newData = JSON.stringify(dbData)
-
-fs.writeFile("./database.json", newData, (err) =>{
+fs.writeFileSync("./database.json", JSON.stringify(dbData), (err) =>{
  if(err){
      console.log('no')
  }else{
      console.log('yes')
  }
-    
 })
-
-console.log(Sitzungszimmer)

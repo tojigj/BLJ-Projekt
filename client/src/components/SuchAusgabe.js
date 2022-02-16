@@ -6,6 +6,7 @@ const SuchAusgabe = () => {
 
   const [standOrte, setStandOrte] = useState([])
   const [stockwerke, setStockwerke] = useState([])
+  const [sitzungszimmer, setSitzungszimmer] = useState([])
 
   useEffect(() => {
     axios.get("http://localhost:5000/standorte/").then((response) => {
@@ -18,14 +19,18 @@ const SuchAusgabe = () => {
     
     })
   })
+useEffect(() => {
+  axios.get("http://localhost:3001/sitzungszimmer/").then((response) => {
+    setSitzungszimmer(response.data)
+  })
 
+})
 
 
   return <div className='Such-Ausgabe'>
     <div className='standort-test'> 
-      <div>Standort: {standOrte.filter(v => v.ID == 1)[0]?.StandortName}</div>
+      <div></div>
   </div>
-      
   </div>;
 };
 
