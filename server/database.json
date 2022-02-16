@@ -1,1 +1,32 @@
+<<<<<<< HEAD
+{
+    "Standorte":[
+        {
+            "ID": 1,
+            "StandortName": "Fluhmatt"
+        },
+        {
+            "ID": 2,
+            "StandortName": "Rösslimatt"
+        }
+    ],
+    "Sitzungszimmer":[
+      {
+        "id": 1,
+        "zimmerName": "Beige 1",
+        "standortName": "Fluhmatt",
+        "stockwerk": 0,
+        "maxPersonen": 7
+      },
+      {
+        "id": 2,
+        "zimmerName": "Beige 2",
+        "standortName": "Rösslimatt",
+        "stockwerk": 1,
+        "maxPersonen": 4
+      }
+    ]
+}
+=======
 {"Standorte":[{"ID":1,"StandortName":"Fluhmatt"},{"ID":2,"StandortName":"Röslimatt"}],"Stockwerke":[{"ID":1,"StockwerkName":"Stockwerk 1"},{"ID":2,"StockwerkName":"Stockwerk 2"},{"ID":3,"StockwerkName":"Stockwerk 3"},{"ID":4,"StockwerkName":"Stockwerk 4"},{"ID":5,"StockwerkName":"Stockwerk 5"}],"Sitzungszimmer":[{"Sitzungszimmer01":{"Standorte":{"ID":1,"StandortName":"Fluhmatt"},"Stockwerke":{"ID":3,"StockwerkName":"Stockwerk 3"}},"Sitzungszimmer02":{"Standorte":{"ID":2,"StandortName":"Röslimatt"},"Stockwerke":{"ID":4,"StockwerkName":"Stockwerk 4"}},"Sitzungszimmer03":{"Standorte":{"ID":1,"StandortName":"Fluhmatt"},"Stockwerke":{"ID":5,"StockwerkName":"Stockwerk 5"}},"Sitzungszimmer04":{"Standorte":{"ID":1,"StandortName":"Fluhmatt"},"Stockwerke":{"ID":1,"StockwerkName":"Stockwerk 1"}}}]}
+>>>>>>> 2371c0a97e0c4fbd19ea8e55716a9902e8b32050

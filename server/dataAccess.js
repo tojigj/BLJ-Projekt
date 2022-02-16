@@ -4,8 +4,11 @@ const jsonString = fs.readFileSync("./database.json", "utf-8")
 let dbData = JSON.parse(jsonString)
 
 const soData = dbData.Standorte
-const swData = dbData.Stockwerke
+const szData = dbData.Sitzungszimmer
 
+<<<<<<< HEAD
+console.log(Sitzungszimmer)
+=======
 const Sitzungszimmer = {
     Standorte: soData,
     Stockwerke: swData
@@ -40,3 +43,4 @@ fs.writeFileSync("./database.json", JSON.stringify(dbData), (err) =>{
      console.log('yes')
  }
 })
+>>>>>>> 2371c0a97e0c4fbd19ea8e55716a9902e8b32050
