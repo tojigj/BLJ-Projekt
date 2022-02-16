@@ -19,11 +19,12 @@ const SuchAusgabe = () => {
     })
   })
 
-  
+
+
   return <div className='Such-Ausgabe'>
-    <div className='standort-test'> {standOrte.map((value, key) => {
-       return <div>Standort: {value.StandortName}</div>
-     })}</div>
+    <div className='standort-test'> 
+      <div>Standort: {standOrte.filter(v => v.ID == 1)[0]?.StandortName}</div>
+  </div>
       
   </div>;
 };
