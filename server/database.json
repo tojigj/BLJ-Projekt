@@ -10,19 +10,26 @@
         }
     ],
     "Sitzungszimmer":[
-      {
-        "id": 1,
-        "zimmerName": "Beige 1",
-        "standortName": "Fluhmatt",
-        "stockwerk": 0,
-        "maxPersonen": 7
-      },
-      {
-        "id": 2,
-        "zimmerName": "Beige 2",
-        "standortName": "Rösslimatt",
-        "stockwerk": 1,
-        "maxPersonen": 4
-      }
+        {
+            "id": 1,
+            "zimmerName": "Beige 1",
+            "standortName": "Fluhmatt",
+            "stockwerk": 0,
+            "maxPersonen": 7
+        },
+        {
+            "id": 2,
+            "zimmerName": "Beige 2",
+            "standortName": "Rösslimatt",
+            "stockwerk": 1,
+            "maxPersonen": 4
+        },
+        {
+          "id": 3,
+          "zimmerName": "Rot 1",
+          "standortName": "Rösslimatt",
+          "stockwerk": 1,
+          "maxPersonen": 3
+        }
     ]
 }

@@ -1,10 +1,25 @@
 import React from 'react';
 
-const zimmer = () => {
-  return <div className = "suchanzeige">
-    <p>Hallo</p>
-  </div>;
-};
+export default class Zimmer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      zimmername: props.zimmername,
+      standort: props.standortName,
+      stockwerk: props.stockwerk,
+      maxP: props.maxP
+    }
+  }
 
-export default zimmer;
+  render() {
+    return (
+      <div>
+        <h1>Name: {this.state.zimmername}</h1>
+        <p>Standort: {this.state.standort}</p>
+        <p>Stockwerk: {this.state.stockwerk}</p>
+        <p>Max. Personen: {this.state.maxP}</p>
+      </div>
+    );
+  }
+}
 
