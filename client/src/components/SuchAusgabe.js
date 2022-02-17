@@ -14,10 +14,10 @@ const SuchAusgabe = () => {
   }, [])
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
-      setSitzungszimmer(response.data)   
+      setSitzungsZimmer(response.data)   
     })
   }, [])
-console.log(sitzungsZimmer)
+
   return <div className='Such-Ausgabe'>
     <div className='standort-test'>
       <div>{sitzungsZimmer.map( zimmer => <Zimmer zimmername={zimmer.zimmerName} standort={zimmer.standortName} stockwerk={zimmer.stockwerk} maxP={zimmer.maxPersonen} />)}</div>
