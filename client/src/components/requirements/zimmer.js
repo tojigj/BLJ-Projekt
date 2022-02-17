@@ -7,7 +7,7 @@ export default class Zimmer extends React.Component {
       zimmername: props.zimmername,
       standort: props.standortName,
       stockwerk: props.stockwerk,
-      maxP: props.maxP,
+      maxP: props.maxP
     };
   }
 
@@ -18,9 +18,9 @@ export default class Zimmer extends React.Component {
         <div className="zimmer-main">
           <h2 className="zimmer-name">{this.state.zimmername}</h2>
           <div className="zimmer-info">
-            <p>{this.state.standort}</p>
-            <p>{this.state.stockwerk} Stockwerk</p>
-            <p>Max. Personen: {this.state.maxP}</p>
+            <p className="zimmer-text">{this.state.standort}</p>
+            <p className="zimmer-text">{this.state.stockwerk} Stockwerk</p>
+            <p className="zimmer-text">Max. Personen: {this.state.maxP}</p>
           </div>
         </div>
       </div>
