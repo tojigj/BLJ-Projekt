@@ -13,7 +13,7 @@
         {
             "id": 1,
             "zimmerName": "Beige 1",
-            "standortName": "Fluhmatt",
+            "standortName": "Rösslimatt",
             "stockwerk": 0,
             "maxPersonen": 7
         },
@@ -25,11 +25,18 @@
             "maxPersonen": 4
         },
         {
-          "id": 3,
-          "zimmerName": "Rot 1",
-          "standortName": "Rösslimatt",
-          "stockwerk": 1,
-          "maxPersonen": 3
+            "id": 3,
+            "zimmerName": "Rot 1",
+            "standortName": "Rösslimatt",
+            "stockwerk": 1,
+            "maxPersonen": 3
+        },
+        {
+            "id": 4,
+            "zimmerName": "Schiff",
+            "standortName": "Fluhmatt",
+            "stockwerk": 0,
+            "maxPersonen": 35
         }
     ]
 }
