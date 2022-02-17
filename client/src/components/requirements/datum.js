@@ -1,43 +1,27 @@
 import React, { useState } from "react";
-import DatePicker from 'react-datepicker'
-import 'react-datepicker/dist/react-datepicker.css'
-
+import createUtilityClassName from "react-bootstrap/esm/createUtilityClasses";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Datum = () => {
-  const [selectedDate, setselectedDate] = useState(); 
-  return (
-    <div className = 'Datum_Buchung'>
-        <DatePicker selected={selectedDate}
-        onChange={date => setselectedDate(date)}
-        dateFormat='dd/MM/yyyy'
-        minDate={new Date()}
-        />
-    </div>
-  )
-}
-
-export default Datum
-
-
-
-/*import React from "react";
-
-function datum() {
+  const [selectedDate, setselectedDate] = useState();
   return (
     <div className="Datum_Buchung">
-      <input
-        type="date"
-        value="2022-02-02"
-        min="2022-02-02"
-        max="2040-01-05"
+      <DatePicker
+        selected={selectedDate}
+        onChange={(date) => setselectedDate(date)}
+        dateFormat="dd/MM/yyyy"
+        minDate={new Date()}
         className="form-control date-box"
-      ></input>
+      />
       <div className="zeit-buchung">
         <input type="time" className="form-control time-box"></input>
         <input type="time" className="form-control time-box"></input>
       </div>
     </div>
   );
-}
+};
 
-export default datum;*/
+export default Datum;
+
+

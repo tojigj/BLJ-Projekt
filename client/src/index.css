@@ -1,19 +1,15 @@
 
-*{
+.home {
     font-family: sans-serif;
     margin: 0 auto;
-}
-
-html {
-    height: 100%;
-    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 /*Hintergrund Suche*/
 .requirements{
     width: 25rem;
     height: 32rem;
-    border: 1px solid #ced4da;
     border-radius: 5px;
     box-shadow: 3px 3px 7px silver;
     margin-bottom: 5rem;
@@ -111,7 +107,7 @@ html {
     border-radius: 5px;
     padding: 0 20px 0 20px;
     display: flex;
-    margin: 20px 0 15px 0;
+    margin: 10px 0 15px 0;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -123,30 +119,41 @@ html {
     margin: 10px 20px 10px 20px;
 }
 
-.standort-test{
-    margin: 30px 20px 10px 20px;
-    padding: 20px 0 20px 20px;
-    text-align: center;
-    border: 1px solid #ced4da;
-    background-color: white;
-    border-radius: 5px;
-}
 
-.suchanzeige{
-    margin: 30px 20px 10px 20px;
-    padding: 20px 0 5px 20px;
-    text-align: left;
-    border: 1px solid #ced4da;
-    background-color: white;
-    border-radius: 5px;
-}
 
 /*Hintergrund der Ausgabe (#e5e7eb)*/
 .Such-Ausgabe {
-    width: 50rem;
+    width: 40rem;
     height: 32rem;
-    background-color: white;
+}
+
+.zimmer-component {
+    display: flex;
+    margin: 0 10px 20px 0px;
+    padding: 5px;
+    width: 90%;
+    height: auto;
     box-shadow: 3px 3px 7px silver;
-    border: 1px solid #ced4da;
     border-radius: 5px;
+}
+
+.zimmer-pic {
+    width: 200px;
+    height: 150px;
+    border-radius: 5px;
+    margin-right: 20px;
+    background-color: black;
+}
+
+.zimmer-info {
+    display: flex;
+}
+
+.zimmer-main {
+    text-align: left;
+    width: 50%;
+}
+
+.zimmer-name {
+    margin-bottom: 70px;
 }
