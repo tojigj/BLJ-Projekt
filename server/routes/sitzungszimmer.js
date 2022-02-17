@@ -14,6 +14,4 @@ router.get('/', async (req, res) => {
     res.send(dbData)
 })
 
-console.log('Haloo')
-
 module.exports = router

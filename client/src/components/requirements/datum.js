@@ -1,4 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+
+
+const Datum = () => {
+  const [selectedDate, setselectedDate] = useState(); 
+  return (
+    <div className = 'Datum_Buchung'>
+        <DatePicker selected={selectedDate}
+        onChange={date => setselectedDate(date)}
+        dateFormat='dd/MM/yyyy'
+        minDate={new Date()}
+        />
+    </div>
+  )
+}
+
+export default Datum
+
+
+
+/*import React from "react";
 
 function datum() {
   return (
@@ -18,4 +40,4 @@ function datum() {
   );
 }
 
-export default datum;
+export default datum;*/

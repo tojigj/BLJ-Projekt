@@ -3,6 +3,8 @@ const express = require('express')
 const jsonString = fs.readFileSync("./database.json", "utf-8")
 let dbData = JSON.parse(jsonString)
 
+const soData = dbData.Standorte
+const szData = dbData.Sitzungszimmer
 
 const Standorte = [
     {
