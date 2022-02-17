@@ -54,6 +54,13 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    
+}
+
+.title-font{
+    font-family: Georgia, serif;
+    font-size: 220%;
+   
 }
 
 .Footer_Class{
@@ -152,6 +159,5 @@ html {
     box-shadow: 3px 3px 7px silver;
     border: 1px solid #ced4da;
     border-radius: 5px;
-    
 }
 

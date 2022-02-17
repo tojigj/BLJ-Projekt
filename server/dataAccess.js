@@ -3,35 +3,38 @@ const express = require('express')
 const jsonString = fs.readFileSync("./database.json", "utf-8")
 let dbData = JSON.parse(jsonString)
 
-const soData = dbData.Standorte
-const swData = dbData.Stockwerke
 
+const Standorte = [
+    {
+    ID: 0,
+    StandortName: 'Fluhmatt'
+    },
+    {
+        ID: 1,
+        StandortName: 'Röslimatt'
+    }
+]
 const Sitzungszimmer = {
-    Standorte: soData,
-    Stockwerke: swData
+    Standorte: Standorte
 }
 
 const Sitzungszimmer01 = {
-    Standorte: Sitzungszimmer.Standorte[0],
-    Stockwerke: Sitzungszimmer.Stockwerke[2]
+    Standorte: Sitzungszimmer.Standorte[0]
 }
 
 const Sitzungszimmer02 = {
-    Standorte: Sitzungszimmer.Standorte[1],
-    Stockwerke: Sitzungszimmer.Stockwerke[3]
+    Standorte: Sitzungszimmer.Standorte[1]
 }
 
 const Sitzungszimmer03 = {
-    Standorte: Sitzungszimmer.Standorte[0],
-    Stockwerke: Sitzungszimmer.Stockwerke[4]
+    Standorte: Sitzungszimmer.Standorte[0]
 }
 
 const Sitzungszimmer04 = {
-    Standorte: Sitzungszimmer.Standorte[0],
-    Stockwerke: Sitzungszimmer.Stockwerke[0]
+    Standorte: Sitzungszimmer.Standorte[0]
 }
 
-dbData.Sitzungszimmer = [{Sitzungszimmer01, Sitzungszimmer02, Sitzungszimmer03, Sitzungszimmer04}]
+dbData = [{Sitzungszimmer01, Sitzungszimmer02, Sitzungszimmer03, Sitzungszimmer04}]
 
 fs.writeFileSync("./database.json", JSON.stringify(dbData), (err) =>{
  if(err){

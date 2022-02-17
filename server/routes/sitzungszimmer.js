@@ -11,7 +11,9 @@ router.post('/', async (req, res) => {
 })
 
 router.get('/', async (req, res) => {
-    res.send(dbData.Sitzungszimmer)
+    res.send(dbData)
 })
+
+console.log('Haloo')
 
 module.exports = router
