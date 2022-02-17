@@ -5,7 +5,7 @@ export default class Zimmer extends React.Component {
     super(props);
     this.state = {
       zimmername: props.zimmername,
-      standort: props.standortName,
+      standort: props.standort,
       stockwerk: props.stockwerk,
       maxP: props.maxP
     };
