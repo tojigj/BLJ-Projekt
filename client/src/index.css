@@ -49,6 +49,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    
+}
+
+.title-font{
+    font-family: Georgia, serif;
+    font-size: 220%;
+   
 }
 
 .Footer_Class{
@@ -165,3 +172,4 @@
     background-color: lightgray;
     border-radius: 10px;
 }
+
