@@ -25,4 +25,6 @@ const SuchAusgabe = () => {
   </div>;
 };
 
+console.log(Zimmer)
+
 export default SuchAusgabe;

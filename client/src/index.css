@@ -175,3 +175,38 @@
       background-color: lightgray;
       border-radius: 10px;
   }
+
+  .buchen-button{
+    flex-direction: row;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: inherit;
+    position:absolute;
+    margin-top: 4px;
+    padding: 3px 6px;
+  }
+
+  .Buchen-Block{
+      display: inline-block;
+  }
+
+  .popUp-Button{
+      margin-right: 30px;
+  }
+
+  .overlay{
+
+    
+  }
+
+  .popup {
+    
+  }
+
+  .popUp-Content{
+      color: black;
+  }
