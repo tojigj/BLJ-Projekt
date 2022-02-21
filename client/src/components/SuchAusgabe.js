@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useDebugValue} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import Zimmer from './requirements/zimmer'
 
@@ -17,7 +17,7 @@ const SuchAusgabe = () => {
       setSitzungsZimmer(response.data)   
     })
   }, [])
-console.log(sitzungsZimmer)
+
   return <div className='Such-Ausgabe'>
     <div className='standort-test'>
       <div>{sitzungsZimmer.map( zimmer => <Zimmer zimmername={zimmer.zimmerName} standort={zimmer.standortName} stockwerk={zimmer.stockwerk} maxP={zimmer.maxPersonen} />)}</div>

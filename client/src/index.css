@@ -1,152 +1,177 @@
-
-*{
-    font-family: sans-serif;
-    margin: 0 auto;
-}
-
-html {
-    height: 100%;
-    width: 100%;
-}
-
-/*Hintergrund Suche*/
-.requirements{
-    width: 25rem;
-    height: 32rem;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    box-shadow: 3px 3px 7px silver;
-    margin-bottom: 5rem;
-}
-
-.text_Fields{
-    height: 2rem;
-    width: 100%;
-}
-
-.Search_Button{
-    display:inline-block;
-    flex-direction: row;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 30px 0 10px 0;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 15px;
-    font-family: inherit;
-    background-color: black;
-    width: 90%;
-}
-
-.Stockwerk{
-    height: 2rem;
-    width: 100%;
-}
-
-.Header_Title{
-    height: 8rem;
-    width: 100%;
-    background-color: lightgray;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.Footer_Class{
-    height: 10vh;
-    width: 100%;
-    background-color: black;
-    color: black;
-    margin-top: 185px;
-}
-
-.standorte-button:hover {
-    background-color: #d1d5db;
-}
-
-.standorte-div {
-    margin: 30px 20px 10px 20px;
-    padding: 20px 0 20px 20px;
-    text-align: left;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-}
-
-.home {
-    margin-top: 50px;
-    width: 80%;
-    display: flex;
-}
-
-.search-part-box {
-    display: flex;
-    justify-content: space-around;
-}
-
-.component-div {
-    margin: 20px 20px 10px 20px;
-    display: flex;
-}
-
-.zeit-buchung {
-    display: flex;
-    flex-direction: column;
-}
-
-.time-box {
-    padding: 5px 20px 5px 20px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    width: 100%;
-    margin: 5px 0 5px 0;
-}
-
-.date-box {
-    height: 2.5rem;
-    width: 100%;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    padding: 0 20px 0 20px;
-    display: flex;
-    margin: 20px 0 15px 0;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.date-box::before, .date-box::after {
-    box-sizing: border-box;
-}
-
-.Datum_Buchung {
-    margin: 10px 20px 10px 20px;
-}
-
-.standort-test{
-    margin: 30px 20px 10px 20px;
-    padding: 20px 0 20px 20px;
-    text-align: center;
-    border: 1px solid #ced4da;
-    background-color: white;
-    border-radius: 5px;
-}
-
-.suchanzeige{
-    margin: 30px 20px 10px 20px;
-    padding: 20px 0 5px 20px;
-    text-align: left;
-    border: 1px solid #ced4da;
-    background-color: white;
-    border-radius: 5px;
-}
-
-/*Hintergrund der Ausgabe (#e5e7eb)*/
-.Such-Ausgabe {
-    width: 50rem;
-    height: 32rem;
-    background-color: white;
-    box-shadow: 3px 3px 7px silver;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-}
+* {
+    font-family: sans-serif;  
+  }
+  
+  .home {
+      font-family: sans-serif;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-evenly;
+  }
+  
+  /*Hintergrund Suche*/
+  .requirements{
+      width: 25rem;
+      height: 32rem;
+      border-radius: 5px;
+      box-shadow: 3px 3px 7px silver;
+      margin-bottom: 5rem;
+  }
+  
+  .text_Fields{
+      height: 2rem;
+      width: 100%;
+  }
+  
+  .Search_Button{
+      display:inline-block;
+      flex-direction: row;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 30px 0 10px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 15px;
+      font-family: inherit;
+      background-color: black;
+      width: 90%;
+  }
+  
+  .Stockwerk{
+      height: 2rem;
+      width: 100%;
+  }
+  
+  .Header_Title{
+      height: 8rem;
+      width: 100%;
+      background-color: lightgray;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+  }
+  
+  .title-font{
+      font-family: Georgia, serif;
+      font-size: 220%;
+     
+  }
+  
+  .Footer_Class{
+      height: 10vh;
+      width: 100%;
+      background-color: black;
+      color: black;
+      margin-top: 185px;
+  }
+  
+  .standorte-button:hover {
+      background-color: #d1d5db;
+  }
+  
+  .standorte-div {
+      margin: 30px 20px 10px 20px;
+      padding: 20px 0 20px 20px;
+      text-align: left;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+  }
+  
+  .home {
+      margin-top: 50px;
+      width: 80%;
+      display: flex;
+  }
+  
+  .search-part-box {
+      display: flex;
+      justify-content: space-around;
+  }
+  
+  .component-div {
+      margin: 20px 20px 10px 20px;
+      display: flex;
+  }
+  
+  .zeit-buchung {
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .time-box {
+      padding: 5px 20px 5px 20px;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      width: 100%;
+      margin: 5px 0 5px 0;
+  }
+  
+  .date-box {
+      height: 2.5rem;
+      width: 100%;
+      border: 1px solid #ced4da;
+      border-radius: 5px;
+      padding: 0 20px 0 20px;
+      display: flex;
+      margin: 10px 0 15px 0;
+      transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .date-box::before, .date-box::after {
+      box-sizing: border-box;
+  }
+  
+  .Datum_Buchung {
+      margin: 10px 20px 10px 20px;
+  }
+  
+  
+  
+  /*Hintergrund der Ausgabe (#e5e7eb)*/
+  .Such-Ausgabe {
+      width: 40rem;
+      height: 32rem;
+  }
+  
+  .zimmer-component {
+      display: flex;
+      margin: 0 10px 20px 0px;
+      padding: 5px;
+      width: 90%;
+      height: auto;
+      box-shadow: 3px 3px 7px silver;
+      border-radius: 5px;
+  }
+  
+  .zimmer-pic {
+      width: 200px;
+      height: 150px;
+      border-radius: 5px;
+      margin-right: 20px;
+      background-color: black;
+  }
+  
+  .zimmer-info {
+      display: flex;
+      
+  }
+  
+  .zimmer-main {
+      text-align: left;
+      width: 70%;
+  }
+  
+  .zimmer-name {
+      margin-bottom: 70px;
+  }
+  
+  .zimmer-text {
+      margin-right: 10px;
+      padding: 3px 6px;
+      background-color: lightgray;
+      border-radius: 10px;
+  }
