@@ -30,20 +30,6 @@
           "standortName": "Rösslimatt",
           "stockwerk": 1,
           "maxPersonen": 3
-        },
-        {
-          "id": 4,
-          "zimmerName": "Rot 1",
-          "standortName": "Rösslimatt",
-          "stockwerk": 1,
-          "maxPersonen": 3
-        },
-        {
-          "id": 5,
-          "zimmerName": "Rot 1",
-          "standortName": "Rösslimatt",
-          "stockwerk": 1,
-          "maxPersonen": 3
         }
     ]
 }

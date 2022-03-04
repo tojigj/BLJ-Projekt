@@ -145,6 +145,7 @@
       height: auto;
       box-shadow: 3px 3px 7px silver;
       border-radius: 5px;
+      cursor: pointer;
   }
   
   .zimmer-pic {
@@ -209,4 +210,57 @@
 
   .popUp-Content{
       color: black;
+  }
+
+  .sz-buchen{
+
+  }
+
+  .sitzungsZimmer{
+      color: black;
+  }
+
+  .buchenStyle{
+      display: flex;
+      background-color: rgba(0, 0, 0, 0.3);
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      opacity: 0;
+  }
+
+  .buchenStyle.show{
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .buchen-main{
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 30px 50px;
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+  
+  }
+
+  .closePopupButton{
+      display: flex;
+      flex-direction: column;
+      border-radius: 5px;
+      padding: 10px 25px;
+      position: absolute;
+      right:    0;
+      bottom:   0;
+  }
+
+  .test2{
+      padding: 10px 25px
   }
