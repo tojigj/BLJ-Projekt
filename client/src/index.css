@@ -55,12 +55,6 @@
     
 }
 
-.title-font{
-    font-family: Georgia, serif;
-    font-size: 220%;
-   
-}
-
 .Footer_Class{
     height: 10vh;
     width: 100%;
@@ -170,9 +164,9 @@
 }
 
 .zimmer-text {
-    margin-right: 10px;
+    margin-right: 5px;
     padding: 3px 6px;
     background-color: lightgray;
-    border-radius: 10px;
-}
+    border-radius: 5px;
 
+}
