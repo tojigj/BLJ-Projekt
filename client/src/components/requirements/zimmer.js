@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import BuchenPopup from '../buchenPopupContent'
-import BuchenLogic from '../buchenLogic'
-
+import BuchenLogic from '../buchenLogic';
+import BuchenContent from '../buchenPopupContent'
+import PopoUpControl from '../popUpControlButton'
 
 export default class Zimmer extends React.Component {
   
@@ -15,17 +15,15 @@ export default class Zimmer extends React.Component {
     };
   }
 
-  szName(){
-    return this.zimmername
-  }
+/* Button als einzelnens Component*/
 
   render() {
+    
     return (
-        
         <div className="zimmer-component">
         <div className="zimmer-pic"></div>
-        <div className="zimmer-main">    
-              <BuchenPopup zimmername={this.state.zimmername} standort={this.state.standort} stockwerk={this.state.stockwerk} maxP={this.state.maxP}/>   
+        <div className="zimmer-main">  
+          <PopoUpControl />
           <h2 className="zimmer-name Buchen-Block">{this.state.zimmername}</h2> 
           <div className="buchen-button Buchen-Block"> </div>
           <div className="zimmer-info">
@@ -37,6 +35,16 @@ export default class Zimmer extends React.Component {
       </div>
     )
   }
+
+  getZimmername(){
+    return this.state.zimmername
+  }
+  getStandort(){
+    return this.state.standort
+  }
+
+
+
 }
 
 //<button className="buchen-button Buchen-Block" onClick="">Buchen</button>

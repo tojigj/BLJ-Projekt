@@ -145,7 +145,7 @@
       height: auto;
       box-shadow: 3px 3px 7px silver;
       border-radius: 5px;
-      cursor: pointer;
+    
   }
   
   .zimmer-pic {
@@ -221,34 +221,15 @@
   }
 
   .buchenStyle{
-      display: flex;
-      background-color: rgba(0, 0, 0, 0.3);
-      align-items: center;
-      justify-content: center;
-      position: fixed;
-      pointer-events: none;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      opacity: 0;
-  }
-
-  .buchenStyle.show{
-    opacity: 1;
-    pointer-events: auto;
   }
 
   .buchen-main{
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 30px 50px;
     width: 600px;
     max-width: 100%;
     text-align: center;
     position: relative;
-  
+    color: black;
   }
 
   .closePopupButton{
@@ -262,5 +243,42 @@
   }
 
   .test2{
-      padding: 10px 25px
+  
+      top: 0;
+      left: 0;
+      display: flex;
+      background-color: white;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      opacity: 1;
+      width: 800px;
+      height: 500px;
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+      color: #000;
+      grid-template-columns: 1fr 1fr;
+      z-index: 10;
+      border-radius: 10px;
   }
+
+  .test2 .testing{
+      opacity: 0;
+  }
+
+
+  /*
+      top: 0;
+      left: 0;
+      display: flex;
+      background-color: rgba(0, 0, 0, 0.3);
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      opacity: 1;
+      width: 800px;
+      height: 500px;
+      box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
+      color: #000;
+      grid-template-columns: 1fr 1fr;
+      z-index: 10;
+      border-radius: 10px;*/

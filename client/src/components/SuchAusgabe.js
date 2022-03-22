@@ -3,16 +3,11 @@ import axios from 'axios'
 import Zimmer from './requirements/zimmer'
 import '../index.css'
 import BuchenLogic from './buchenLogic'
-
+import { render } from 'express/lib/response'
 
 const port = 5001;
 const SuchAusgabe = () => {
 
-  const [showModal, setShowModal] = useState(false)
-
-  const openModal = () => {
-    setShowModal(prev => !prev)
-  }
 
   const [standOrte, setStandOrte] = useState([])
   const [sitzungsZimmer, setSitzungsZimmer] = useState([])
@@ -27,22 +22,25 @@ const SuchAusgabe = () => {
       setSitzungsZimmer(response.data)   
     })
   }, [])
+  /* turn into foreach and give button plus popUp info*/
 
+    
   return (<div className='Such-Ausgabe'>
     <div className='standort-test'>
-    
-    
-      <div className='sitzungsZimmer'>{sitzungsZimmer.map( zimmer =>  <Zimmer zimmername={zimmer.zimmerName} standort={zimmer.standortName} stockwerk={zimmer.stockwerk} maxP={zimmer.maxPersonen} />
-      )}
+      <div className='sitzungsZimmer'>
+           {sitzungsZimmer.map( zimmer =>  <Zimmer zimmername={zimmer.zimmerName} standort={zimmer.standortName} stockwerk={zimmer.stockwerk} maxP={zimmer.maxPersonen} />
+         )}     
       </div>
     </div>
   </div>
+  
   )
-};
-
-/* <button id='openPopup' className='popUpButton' onClick={openModal}>Buchung</button> */
-
+  
+}
 
 
+/*
+        
+*/
 
 export default SuchAusgabe;
