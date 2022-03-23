@@ -9,7 +9,6 @@
     "dev": "nodemon server.js",
     "dbChange": "nodemon dataAccess.js"
   },
-
   "author": "",
   "license": "ISC",
   "dependencies": {
