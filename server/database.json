@@ -25,11 +25,33 @@
             "maxPersonen": 4
         },
         {
+<<<<<<< Updated upstream
           "id": 3,
           "zimmerName": "Rot 1",
           "standortName": "Rösslimatt",
           "stockwerk": 1,
           "maxPersonen": 3
+=======
+            "id": 3,
+            "zimmerName": "Rot 1",
+            "standortName": "Rösslimatt",
+            "stockwerk": 1,
+            "maxPersonen": 3
+        },
+        {
+            "id": 4,
+            "zimmerName": "Schiff",
+            "standortName": "Fluhmatt",
+            "stockwerk": 0,
+            "maxPersonen": 35
+        },
+        {
+            "id": 5,
+            "zimmerName": "Rot 2",
+            "standortName": "Fluhmatt",
+            "stockwerk": 1,
+            "maxPersonen": 9
+>>>>>>> Stashed changes
         }
     ]
 }
