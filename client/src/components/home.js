@@ -1,22 +1,9 @@
-<<<<<<< Updated upstream
-import React from 'react';
-import Section from './section';
-import Suchausgabe from './SuchAusgabe';
-
-const Home = () => {
-  return <div className='home'>
-      <Section />
-      <Suchausgabe />
-      
-  </div>;
-}
-=======
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import Section from "./section";
 import Zimmer from "./requirements/zimmer";
 
-const port = 5000;
+const port = 5001;
 const Home = () => {
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
   const [sitzungsZimmerData, setSitzungsZimmerData] = useState([]);
@@ -57,6 +44,5 @@ const Home = () => {
     </div>
   );
 };
->>>>>>> Stashed changes
 
 export default Home;

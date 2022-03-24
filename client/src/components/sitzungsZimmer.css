@@ -82,7 +82,7 @@
 .BuchenPopUpButton{
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   margin: 25px 15px 15px 0px ;
   border-radius: 5px;
   cursor: pointer;
@@ -90,11 +90,10 @@
   font-size: 15px;
   font-family: inherit;
   background-color:gray;
-  width: 200px;
-  bottom: 0;
-  height: 50px;
-  position: absolute;
-  
+  min-width: 25%;
+  margin-top: 40%;
+  min-height: 10%;
+  position: fixed;
 }
 
 .Buchung-Title{
@@ -131,7 +130,7 @@
   width: 10%;
   top:   0;
   left: 0;
-  height: 15%;
+  min-height: 10%;
   position: fixed;
 }
   
@@ -144,6 +143,7 @@
   float: inline-end;
   width: 60%;
   position: relative;
+  align-items: center;
 }
 
 .display-block {
@@ -178,8 +178,8 @@
   border-bottom: 2px solid silver;
   position: fixed;
   top: 0;
-  justify-content: center;
-  
+  justify-content: center;  
+  min-height: 20%;
 }
 
 .leftSection-Popup{
@@ -187,11 +187,17 @@
   width: 35%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  margin-left: 40px;
 }
 
 .popUp-pic{
-  
+  position: absolute;
+  min-height: 40%;
+  min-width: 25%;
+  border-radius: 5px;
+  margin-right: 20px;
+  background-color: black;
 }
 
 .popUp-Footer{
@@ -203,3 +209,7 @@
   bottom: 0;
 }
 
+@media (min-width: 1366px) {
+  .closePopUpButton{
+  }
+}

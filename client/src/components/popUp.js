@@ -13,7 +13,7 @@ const popUp = ({handleClose, show, children}) => {
           <h1 className="Buchung-Title">Buchung SZ</h1>
         </div>
         <div className='leftSection-Popup'>
-            <div className="zimmer-pic popUp-pic"></div>
+            <div className="popUp-pic"></div>
             <button className='BuchenPopUpButton'>Buchen</button>
         </div>
         <div className='popUp-Content'>

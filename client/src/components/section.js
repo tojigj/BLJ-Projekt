@@ -1,20 +1,3 @@
-<<<<<<< Updated upstream
-import React from "react";
-import Stockwerke from "./requirements/stockwerke";
-import Standorte from "./requirements/standorte";
-import Anz_Pers from "./requirements/anz-personen";
-import Date from "./requirements/datum";
-import Search_Button from "./search";
-
-const requirements = () => {
-  return (
-    <div className="requirements">
-      <Standorte />
-      <Stockwerke />
-      <Anz_Pers />
-      <Date />
-      <Search_Button />
-=======
 import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -104,9 +87,8 @@ const Section = ({ onPersonenChange }) => {
       <div>
         <button className="Search_Button">Suchen</button>
       </div>
->>>>>>> Stashed changes
     </div>
   );
 }
 
-export default requirements;
+export default Section;
