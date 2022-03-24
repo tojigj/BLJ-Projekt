@@ -2,3 +2,19 @@
   text-align: center;
 }
 
+.Such-Ausgabe::-webkit-scrollbar{
+  width: 10px;
+}
+
+.Such-Ausgabe::-webkit-scrollbar-track{
+  background-color: #f3f3f3;
+}
+
+.Such-Ausgabe::-webkit-scrollbar-thumb{
+  background-image: linear-gradient(black,black);
+  border-radius: 25px;
+}
+
+.Such-Ausgabe::-webkit-scrollbar-thumb:hover{
+  background-image: linear-gradient(#ff8200, #ff8200,#ff8200);
+}
