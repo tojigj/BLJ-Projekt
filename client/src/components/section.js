@@ -1,72 +1,104 @@
 import React, { useState } from "react";
+import { Checkbox } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import './filterSection.css'
+import styled from "styled-components";
 
-const Section = ({ onPersonenChange }) => {
+const checkboxesList = ["Fluhmatt", "Rösslimatt"];
+
+const getDefaultCheckboxes = () =>
+  checkboxesList.map((checkbox) => ({
+    name: checkbox,
+    checked: false,
+  }));
+
+const Section = ({
+  onStockwerkChange,
+  onPersonenChange,
+  stockwerke,
+  onStandortChange,
+  defaultCheckboxes,
+}) => {
   const [selectedDate, setSelectedDate] = useState();
   const [selectedStandort, setSelectedStandort] = useState();
   const [selectedStockwerk, setSelectedStockwerk] = useState();
   const [selectedAnzPersonen, setSelectedAnzPersonen] = useState();
   const [selectedStartTime, setSelectedStartTime] = useState();
   const [selectedEndTime, setSelectedEndTime] = useState();
+  const [checkboxes, setCheckboxes] = useState(
+    defaultCheckboxes || getDefaultCheckboxes()
+  );
+
+  function setCheckbox(index, checked) {
+    const newCheckboxes = [...checkboxes];
+    newCheckboxes[index].checked = checked;
+    setCheckboxes(newCheckboxes);
+  }
 
   const handlePersonenChange = (event) => {
-    const value  = event.target.value;
+    const { value } = event.target;
     setSelectedAnzPersonen(value);
     onPersonenChange(value);
-    console.log( event.target.value)
-    console.log(value)
+  };
+
+  const handleStockwerkChange = (event) => {
+    const { value } = event.target;
+    setSelectedStockwerk(value);
+    onStockwerkChange(value);
+  };
+
+  const handleStandortChange = () => {
+    const trueCheckboxes = checkboxes.filter((checkbox) => {
+      return checkbox.checked === true;
+    });
+    onStandortChange(trueCheckboxes);
   };
 
   return (
     <div className="requirements">
       <div className="standorte-div">
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            name="standort"
-            id="roesslimatt"
-            required
-          />
-          <label className="form-check-label" for="roesslimatt">
-            Rösslimatt
-          </label>
-        </div>
-        <div className="form-check">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            name="standort"
-            id="fluhmatt"
-            required
-          />
-          <label className="form-check-label" for="fluhmatt">
-            Fluhmatt
-          </label>
-        </div>
+        {checkboxes.map((checkbox, i) => {
+          return (
+            <div>
+              <input
+                type="checkbox"
+                checked={checkbox.checked}
+                onChange={(e) => {
+                  setCheckbox(i, e.target.checked);
+                  handleStandortChange();
+                }}
+              />
+              <label className="standorte-label">{checkbox.name}</label>
+            </div>
+          );
+        })}
       </div>
 
-      <div className="stockwerk-component">
-        <select className="form-select" aria-label="Default select example">
-          <option selected>Stockwerke...</option>
-          <option value="1">Stockwerk 1</option>
-          <option value="2">Stockwerk 2</option>
-          <option value="3">Stockwerk 3</option>
-          <option value="4">Stockwerk 4</option>
-          <option value="5">Stockwerk 5</option>
-          <option value="6">Stockwerk 6</option>
+      <div className="component-div">
+        <select
+          className="form-select"
+          aria-label="Default select example"
+          onChange={handleStockwerkChange}
+        >
+          <option value="" defaultValue>
+            Stockwerke...
+          </option>
+          {stockwerke.map((stockwerk) => {
+            return (
+              <option value={stockwerk} key={stockwerk}>
+                Stockwerk {stockwerk}
+              </option>
+            );
+          })}
         </select>
       </div>
 
-      <div className="anz-personen-component">
+      <div className="component-div">
         <input
           className="form-control"
           type="number"
           placeholder="Anz. Personen"
           onChange={handlePersonenChange}
-          
         />
       </div>
 
@@ -89,6 +121,6 @@ const Section = ({ onPersonenChange }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Section;

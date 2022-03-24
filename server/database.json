@@ -10,10 +10,11 @@
         }
     ],
     "Sitzungszimmer":[
+        
         {
             "id": 1,
             "zimmerName": "Beige 1",
-            "standortName": "Fluhmatt",
+            "standortName": "Rösslimatt",
             "stockwerk": 0,
             "maxPersonen": 7
         },

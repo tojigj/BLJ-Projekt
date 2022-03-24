@@ -1,44 +1,100 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Section from "./section";
 import Zimmer from "./requirements/zimmer";
 
 const port = 5001;
 const Home = () => {
+  const [filteredData, setFilteredData] = useState([]);
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
-  const [sitzungsZimmerData, setSitzungsZimmerData] = useState([]);
+  const [shownData, setShownData] = useState([]);
+  let filters = [];
 
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
       setSitzungsZimmer(response.data);
-      setSitzungsZimmerData(response.data);
+      setFilteredData(response.data);
     });
   }, []);
 
-  //fitered data value ?
-  const handleFilterPersonen = (anzPersonen) => { 
-    const filteredData = sitzungsZimmerData.filter((item) => {
-      if (item.maxPersonen >= anzPersonen) {
-        return item
-      }
-    }) 
-    setSitzungsZimmerData(filteredData);
+  const handleFilterPersonen = (anzPersonen) => {
+    setShownData(filteredData);
+    let filteredPersonen;
+    if (!anzPersonen) {
+      filteredPersonen = shownData;
+      setFilteredData(filteredPersonen);
+      if (filters.includes("standort")) filters -= "person";
+      return;
+    } else {
+      filteredPersonen = filteredData.filter((item) => {
+        return item.maxPersonen >= anzPersonen;
+      });
+    }
+    filters += "person";
+    setFilteredData(filteredPersonen);
+  };
+
+  const generateStockwerkData = () => {
+    return [...new Set(sitzungsZimmer.map((item) => item.stockwerk))];
+  };
+
+  const handleFilterStockwerke = (stockwerk) => {
+    setShownData(filteredData);
+    let filteredStockwerk;
+    if (stockwerk === "") {
+      filteredStockwerk = shownData;
+      setFilteredData(filteredStockwerk);
+      if (filters.includes("standort")) filters -= "stockwerk";
+      return;
+    } else {
+      filteredStockwerk = filteredData.filter((item) => {
+        return item.stockwerk == stockwerk;
+      });
+    }
+    filters += "stockwerk";
+    setFilteredData(filteredStockwerk);
+  };
+
+  const handleFilterStandorte = (standort) => {
+    setShownData(filteredData);
+    let filteredStandorte;
+    console.log(standort);
+    if (!standort.length) {
+      filteredStandorte = shownData;
+      setFilteredData(filteredStandorte);
+      if (filters.includes("standort")) filters -= "standort";
+      return;
+    } else if (standort.length === 2) filteredStandorte = sitzungsZimmer;
+    else {
+      filteredStandorte = filteredData.filter((item) => {
+        return item.standortName == standort[0].name;
+      });
+    }
+    filters += "standort";
+    setFilteredData(filteredStandorte);
   };
 
   return (
     <div className="home">
-      <Section onPersonenChange={handleFilterPersonen} />
+      <Section
+        stockwerke={generateStockwerkData()}
+        onStockwerkChange={handleFilterStockwerke}
+        onPersonenChange={handleFilterPersonen}
+        onStandortChange={handleFilterStandorte}
+      />
       <div className="Such-Ausgabe">
         <div className="standort-test">
-          {sitzungsZimmerData.map((zimmer) => {
-            return <Zimmer
-              zimmername={zimmer.zimmerName}
-              standort={zimmer.standortName}
-              stockwerk={zimmer.stockwerk}
-              maxP={zimmer.maxPersonen}
-            />
-            })
-          }
+          {filteredData.map((zimmer) => {
+            return (
+              <Zimmer
+                key={zimmer.id}
+                zimmername={zimmer.zimmerName}
+                standort={zimmer.standortName}
+                stockwerk={zimmer.stockwerk}
+                maxP={zimmer.maxPersonen}
+              />
+            );
+          })}
         </div>
       </div>
     </div>
