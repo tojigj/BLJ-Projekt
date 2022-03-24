@@ -38,6 +38,13 @@
             "standortName": "Fluhmatt",
             "stockwerk": 0,
             "maxPersonen": 35
+        },
+        {
+            "id": 5,
+            "zimmerName": "Rot 2",
+            "standortName": "Fluhmatt",
+            "stockwerk": 1,
+            "maxPersonen": 9
         }
     ]
 }

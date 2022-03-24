@@ -5,6 +5,7 @@ router.use(cors())
 const fs = require('fs')
 
 const jsonString = fs.readFileSync("./database.json")
+console.log(jsonString)
 const dbData = JSON.parse(jsonString)
 
 router.post('/', async (req, res) => {
