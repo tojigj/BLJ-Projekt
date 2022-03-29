@@ -51,7 +51,7 @@
   width: 100%;
 }
 
-.Header_Title {
+.Header {
   margin: 0;
   height: 8rem;
   width: 100%;
@@ -74,6 +74,43 @@
   position: absolute;
   margin-right: 10%;
   right: 0;
+}
+
+.standorte-div {
+  margin: 30px 20px 10px 20px;
+  padding: 20px 0 20px 20px;
+  text-align: left;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.standorte-label {
+  margin-left: 10px;
+}
+
+.component-div {
+  margin: 20px 20px 10px 20px;
+  display: flex;
+}
+
+.search-part-box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.zeit-buchung {
+  display: flex;
+  flex-direction: column;
+}
+
+.time-box {
+  padding: 5px 20px 5px 20px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  width: 100%;
+  margin: 5px 0 5px 0;
 }
 
 .home {
@@ -133,10 +170,6 @@
   border-radius: 5px;
   margin-right: 20px;
   background-color: black;
-  color: black;
-  position: static;
-  bottom: 0;
-  margin-top: 220px;
 }
 
 .zimmer-info {
