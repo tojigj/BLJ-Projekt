@@ -1,15 +1,22 @@
 * {
   font-family: sans-serif;
+  margin: 0;
+}
+
+.App {
+  position: relative;
 }
 
 .home {
   font-family: sans-serif;
   margin: 0 auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 30px;
 }
 
 /*Hintergrund Suche*/
+
 .requirements {
   width: 25rem;
   height: 32rem;
@@ -44,7 +51,8 @@
   width: 100%;
 }
 
-.Header_Title {
+.Header {
+  margin: 0;
   height: 8rem;
   width: 100%;
   background-color: lightgray;
@@ -59,11 +67,13 @@
   width: 100%;
   background-color: black;
   color: black;
-  margin-top: 185px;
+  margin-top: auto;
 }
 
-.standorte-button:hover {
-  background-color: #d1d5db;
+.suva-title {
+  position: absolute;
+  margin-right: 10%;
+  right: 0;
 }
 
 .standorte-div {
@@ -80,20 +90,14 @@
   margin-left: 10px;
 }
 
-.home {
-  margin-top: 50px;
-  width: 80%;
+.component-div {
+  margin: 20px 20px 10px 20px;
   display: flex;
 }
 
 .search-part-box {
   display: flex;
   justify-content: space-around;
-}
-
-.component-div {
-  margin: 20px 20px 10px 20px;
-  display: flex;
 }
 
 .zeit-buchung {
@@ -105,6 +109,19 @@
   padding: 5px 20px 5px 20px;
   border: 1px solid #ced4da;
   border-radius: 5px;
+  width: 100%;
+  margin: 5px 0 5px 0;
+}
+
+.home {
+  margin-top: 50px;
+  width: 80%;
+  display: flex;
+  position: relative;
+}
+
+.Footer_Class {
+  height: 10vh;
   width: 100%;
   margin: 5px 0 5px 0;
 }
@@ -133,6 +150,8 @@
 .Such-Ausgabe {
   width: 40rem;
   height: 32rem;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .zimmer-component {
@@ -171,4 +190,34 @@
   padding: 3px 6px;
   background-color: lightgray;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 1300px) {
+  .home {
+    width: 100%;
+    margin: 10px 10px;
+  }
+}
+
+@media screen and (max-width: 1040px) {
+  .zimmer-name {
+    margin: 0;
+  }
+  .zimmer-info {
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .home {
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 0;
+  }
+  .zimmer-info {
+    flex-wrap: wrap;
+  }
+  .zimmer-component {
+    margin: 0 auto;
+  }
 }
