@@ -44,6 +44,18 @@
   font-family: inherit;
   background-color: black;
   width: 90%;
+  transition: 200ms padding;
+}
+
+.Search_Button:hover {
+  background-color: #404040;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.Search_Button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .Stockwerk {
