@@ -3,12 +3,17 @@ import axios from "axios";
 import Section from "./section";
 import Zimmer from "./requirements/zimmer";
 
+let values = {
+  person: 0,
+  stockwerk: null,
+  standort: ["Rösslimatt", "Fluhmatt"],
+};
+
 const port = 5001;
 const Home = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
   const [shownData, setShownData] = useState([]);
-  let filters = [];
 
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
@@ -17,21 +22,28 @@ const Home = () => {
     });
   }, []);
 
-  const handleFilterPersonen = (anzPersonen) => {
-    setShownData(filteredData);
-    let filteredPersonen;
-    if (!anzPersonen) {
-      filteredPersonen = shownData;
-      setFilteredData(filteredPersonen);
-      if (filters.includes("standort")) filters -= "person";
-      return;
-    } else {
-      filteredPersonen = filteredData.filter((item) => {
-        return item.maxPersonen >= anzPersonen;
+  const submitFilters = () => {
+    let filteredZimmer = sitzungsZimmer.filter((item) => {
+      return item.maxPersonen >= values.person;
+    });
+
+    if (values.stockwerk) {
+      filteredZimmer = filteredZimmer.filter((item) => {
+        return item.stockwerk == values.stockwerk;
       });
     }
-    filters += "person";
-    setFilteredData(filteredPersonen);
+
+    if (values.standort.length === 1) {
+      filteredZimmer = filteredZimmer.filter((item) => {
+        return item.standortName == values.standort[0];
+      });
+    }
+
+    setFilteredData(filteredZimmer);
+  };
+
+  const handleFilterPersonen = (anzPersonen) => {
+    values.person = anzPersonen;
   };
 
   const generateStockwerkData = () => {
@@ -39,39 +51,32 @@ const Home = () => {
   };
 
   const handleFilterStockwerke = (stockwerk) => {
-    setShownData(filteredData);
-    let filteredStockwerk;
-    if (stockwerk === "") {
-      filteredStockwerk = shownData;
-      setFilteredData(filteredStockwerk);
-      if (filters.includes("standort")) filters -= "stockwerk";
-      return;
-    } else {
-      filteredStockwerk = filteredData.filter((item) => {
-        return item.stockwerk == stockwerk;
-      });
-    }
-    filters += "stockwerk";
-    setFilteredData(filteredStockwerk);
+    values.stockwerk = stockwerk;
   };
 
   const handleFilterStandorte = (standort) => {
-    setShownData(filteredData);
-    let filteredStandorte;
-    console.log(standort);
-    if (!standort.length) {
-      filteredStandorte = shownData;
-      setFilteredData(filteredStandorte);
-      if (filters.includes("standort")) filters -= "standort";
+    if (!standort.length || standort.length == 2) {
+      values.standort = [];
       return;
-    } else if (standort.length === 2) filteredStandorte = sitzungsZimmer;
-    else {
-      filteredStandorte = filteredData.filter((item) => {
-        return item.standortName == standort[0].name;
+    }
+    values.standort = [standort[0].name];
+  };
+
+  const shownZimmer = () => {
+    if (filteredData.length) {
+      return filteredData.map((zimmer) => {
+        return (
+          <Zimmer
+            key={zimmer.id}
+            zimmername={zimmer.zimmerName}
+            standort={zimmer.standortName}
+            stockwerk={zimmer.stockwerk}
+            maxP={zimmer.maxPersonen}
+          />
+        );
       });
     }
-    filters += "standort";
-    setFilteredData(filteredStandorte);
+    return "Keine Ergebnisse";
   };
 
   return (
@@ -81,21 +86,10 @@ const Home = () => {
         onStockwerkChange={handleFilterStockwerke}
         onPersonenChange={handleFilterPersonen}
         onStandortChange={handleFilterStandorte}
+        onSubmit={submitFilters}
       />
       <div className="Such-Ausgabe">
-        <div className="standort-test">
-          {filteredData.map((zimmer) => {
-            return (
-              <Zimmer
-                key={zimmer.id}
-                zimmername={zimmer.zimmerName}
-                standort={zimmer.standortName}
-                stockwerk={zimmer.stockwerk}
-                maxP={zimmer.maxPersonen}
-              />
-            );
-          })}
-        </div>
+        <div className="standort-test">{shownZimmer()}</div>
       </div>
     </div>
   );
