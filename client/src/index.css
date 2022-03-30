@@ -4,7 +4,7 @@
 }
 
 .App {
-  position: relative;
+  height: 100%;
 }
 
 .home {
@@ -12,6 +12,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  padding-bottom: 80px;
   gap: 30px;
 }
 
@@ -75,11 +76,12 @@
 }
 
 .Footer_Class {
-  height: 10vh;
+  height: 100px;
   width: 100%;
   background-color: black;
   color: black;
-  margin-top: auto;
+  flex-shrink: 0;
+  margin-bottom: -100px;
 }
 
 .suva-title {
@@ -130,12 +132,6 @@
   width: 80%;
   display: flex;
   position: relative;
-}
-
-.Footer_Class {
-  height: 10vh;
-  width: 100%;
-  margin: 5px 0 5px 0;
 }
 
 .date-box {
@@ -202,6 +198,13 @@
   padding: 3px 6px;
   background-color: lightgray;
   border-radius: 5px;
+}
+
+.search-bar {
+  width: 30%;
+  margin-top: 20px;
+  border: solid 1px rgba(39, 39, 39, 0.3);
+  padding: 10px;
 }
 
 @media screen and (max-width: 1300px) {

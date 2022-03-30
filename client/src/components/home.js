@@ -42,6 +42,22 @@ const Home = () => {
     setFilteredData(filteredZimmer);
   };
 
+  const handleFilterSuche = (searchItem) => {
+    const filteredSuche = sitzungsZimmer.filter((item) => {
+      if (searchItem == "") return item;
+      else if (
+        item.zimmerName
+          .toLowerCase()
+          .split(" ")
+          .join("")
+          .includes(searchItem.split(" ").join("").toLowerCase())
+      ) {
+        return item;
+      }
+    });
+    setFilteredData(filteredSuche);
+  };
+
   const handleFilterPersonen = (anzPersonen) => {
     values.person = anzPersonen;
   };
@@ -80,16 +96,26 @@ const Home = () => {
   };
 
   return (
-    <div className="home">
-      <Section
-        stockwerke={generateStockwerkData()}
-        onStockwerkChange={handleFilterStockwerke}
-        onPersonenChange={handleFilterPersonen}
-        onStandortChange={handleFilterStandorte}
-        onSubmit={submitFilters}
+    <div>
+      <input
+        className="search-bar"
+        type="text"
+        placeholder="Suchen..."
+        onChange={(event) => {
+          handleFilterSuche(event.target.value);
+        }}
       />
-      <div className="Such-Ausgabe">
-        <div className="standort-test">{shownZimmer()}</div>
+      <div className="home">
+        <Section
+          stockwerke={generateStockwerkData()}
+          onStockwerkChange={handleFilterStockwerke}
+          onPersonenChange={handleFilterPersonen}
+          onStandortChange={handleFilterStandorte}
+          onSubmit={submitFilters}
+        />
+        <div className="Such-Ausgabe">
+          <div className="standort-test">{shownZimmer()}</div>
+        </div>
       </div>
     </div>
   );
