@@ -20,6 +20,7 @@ const Section = ({
   stockwerke,
   onStandortChange,
   defaultCheckboxes,
+  onSubmit,
 }) => {
   const [selectedDate, setSelectedDate] = useState();
   const [selectedStandort, setSelectedStandort] = useState();
@@ -135,10 +136,10 @@ const Section = ({
             </div>
           </div>
 
-          <div>
-            <button className="Search_Button">Suchen</button>
-          </div>
-        </div>
+      <div>
+        <button className="Search_Button" onClick={onSubmit}>
+          Ergebnisse Anzeigen
+        </button>
       </div>
     </div>
   );

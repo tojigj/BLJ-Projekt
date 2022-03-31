@@ -4,7 +4,7 @@
 }
 
 .App {
-  position: relative;
+  height: 100%;
 }
 
 .home {
@@ -12,6 +12,7 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  padding-bottom: 80px;
   gap: 30px;
 }
 
@@ -45,6 +46,18 @@
   font-family: inherit;
   background-color: #00b8cf;
   width: 90%;
+  transition: 200ms padding;
+}
+
+.Search_Button:hover {
+  background-color: #404040;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.Search_Button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .Stockwerk {
@@ -124,14 +137,6 @@
   position: relative;
 }
 
-.Footer_Class {
-  height: 10vh;
-  width: 100%;
-  margin: 5px 0 5px 0;
-  position: fixed;
-  bottom: 0;
-}
-
 .date-box {
   height: 2.5rem;
   width: 100%;
@@ -196,6 +201,13 @@
   padding: 3px 6px;
   background-color: lightgray;
   border-radius: 5px;
+}
+
+.search-bar {
+  width: 30%;
+  margin-top: 20px;
+  border: solid 1px rgba(39, 39, 39, 0.3);
+  padding: 10px;
 }
 
 @media screen and (max-width: 1300px) {
