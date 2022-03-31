@@ -1,29 +1,35 @@
-import React from 'react'
-import './sitzungsZimmer.css'
+import React from "react";
+import "./sitzungsZimmer.css";
 
-const popUp = ({handleClose, show, children}) => {
-    const showHidePopup = show ? "popUp display-block" : "popUp display-none"
+const popUp = ({ handleClose, show, children, zimmerNameProp }) => {
+  const clickEvent = () => {};
 
+  const showHidePopup = show
+    ? "popUp display-block popUp-main"
+    : "popUp display-none";
+  const zimmerNameSZ = zimmerNameProp;
   return (
     <div className={showHidePopup}>
-      <div className='popUp-main'> 
-
-        <div className='popUp-header'>
-          <button type='button' onClick={handleClose} className='closePopUpButton'>X</button>
-          <h1 className="Buchung-Title">Buchung SZ</h1>
-        </div>
-        <div className='leftSection-Popup'>
+      <div className="popUp-Content">
+        <button
+          type="button"
+          onClick={handleClose}
+          className="closePopUpButton"
+        >
+          X
+        </button>
+        <div className="divider-div">
+          <div className="popUp-info">
+            {children} <button className="BuchenPopUpButton">Buchen</button>
+          </div>
+          <div className="popUp-PicName">
             <div className="popUp-pic"></div>
-            <button className='BuchenPopUpButton'>Buchen</button>
+            <h2 className="popUp-zimmername">{zimmerNameSZ}</h2>
+          </div>
         </div>
-        <div className='popUp-Content'>
-            {children}
-        </div>
-        
       </div>
-      
     </div>
-  )
-}
+  );
+};
 
-export default popUp
+export default popUp;

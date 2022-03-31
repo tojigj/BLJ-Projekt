@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Section from "./section";
 import Zimmer from "./requirements/zimmer";
+import PopUp from "./popUp";
 
 const port = 5001;
 const Home = () => {
@@ -52,7 +53,9 @@ const Home = () => {
       });
     }
     filters += "stockwerk";
+    console.log(stockwerk);
     setFilteredData(filteredStockwerk);
+    console.log(filteredStockwerk);
   };
 
   const handleFilterStandorte = (standort) => {
@@ -74,6 +77,10 @@ const Home = () => {
     setFilteredData(filteredStandorte);
   };
 
+  const handleZimmerClick = () => {
+    return filteredData;
+  };
+
   return (
     <div className="home">
       <Section
@@ -88,10 +95,12 @@ const Home = () => {
             return (
               <Zimmer
                 key={zimmer.id}
+                id={zimmer.id}
                 zimmername={zimmer.zimmerName}
                 standort={zimmer.standortName}
                 stockwerk={zimmer.stockwerk}
                 maxP={zimmer.maxPersonen}
+                OnZimmerClick={handleZimmerClick()}
               />
             );
           })}
