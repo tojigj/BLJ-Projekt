@@ -1,6 +1,6 @@
 * {
-  font-family: sans-serif;
   margin: 0;
+  font-family: Helvetica, sans-serif;
 }
 
 .App {
@@ -8,14 +8,38 @@
 }
 
 .home {
-  font-family: sans-serif;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
   gap: 30px;
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  position: relative;
+  justify-content: center;
 }
 
-/*Hintergrund Suche*/
+.Header {
+  margin: 0;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  background-color: #d9d9d9;
+}
+
+.Header-Title{
+  text-align: center;
+}
+
+img {
+  left: 0;
+  width: 10%;
+  height: auto;
+  margin-left: 40px;
+  position: absolute;
+}
 
 .requirements {
   width: 25rem;
@@ -30,20 +54,14 @@
   width: 100%;
 }
 
-.Search_Button {
-  display: inline-block;
-  flex-direction: row;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  margin: 30px 0 10px 0;
+.standorte-div {
+  display: flex;
+  text-align: left;
   border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
-  background-color: black;
-  width: 90%;
+  flex-direction: column;
+  padding: 20px 0 20px 20px;
+  margin: 30px 20px 10px 20px;
+  border: 1px solid #ced4da;
 }
 
 .Stockwerk {
@@ -51,52 +69,56 @@
   width: 100%;
 }
 
-.Header_Title {
-  margin: 0;
-  height: 8rem;
-  width: 100%;
-  background-color: lightgray;
-  color: black;
+.Search_Button {
+  width: 90%;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  flex-direction: row;
+  margin: 30px 0 10px 0;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #00b8cf;
+}
+
+.standorte-label {
+  margin-left: 10px;
+}
+
+.component-div {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 20px 20px 10px 20px;
 }
 
-.Footer_Class {
-  height: 10vh;
-  width: 100%;
-  background-color: black;
-  color: black;
-  margin-top: auto;
-}
-
-.suva-title {
-  position: absolute;
-  margin-right: 10%;
-  right: 0;
-}
-
-.home {
-  margin-top: 50px;
-  width: 80%;
+.search-part-box {
   display: flex;
-  position: relative;
+  justify-content: space-around;
 }
 
-.Footer_Class {
-  height: 10vh;
+.zeit-buchung {
+  display: flex;
+  flex-direction: column;
+}
+
+.time-box {
   width: 100%;
+  border-radius: 5px;
   margin: 5px 0 5px 0;
+  padding: 5px 20px 5px 20px;
+  border: 1px solid #ced4da;
 }
 
 .date-box {
-  height: 2.5rem;
   width: 100%;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
-  padding: 0 20px 0 20px;
   display: flex;
+  height: 2.5rem;
+  border-radius: 5px;
   margin: 10px 0 15px 0;
+  padding: 0 20px 0 20px;
+  border: 1px solid #ced4da;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -109,54 +131,77 @@
   margin: 10px 20px 10px 20px;
 }
 
-/*Hintergrund der Ausgabe (#e5e7eb)*/
 .Such-Ausgabe {
-  width: 40rem;
+  width: 100%;
   height: 32rem;
+  display: flex;
+  flex-wrap: wrap;
   overflow-y: auto;
   overflow-x: hidden;
+  justify-content: center;
+}
+
+
+.zimmer-zusammenhalt{
+  background-color: transparent;
 }
 
 .zimmer-component {
-  display: flex;
-  margin: 0 10px 20px 0px;
-  padding: 5px;
-  width: 90%;
+  width: 210px;
   height: auto;
-  box-shadow: 3px 3px 7px silver;
+  padding: 5px;
   border-radius: 5px;
+  margin: 0 10px 20px 0px;
+  box-shadow: 3px 3px 7px silver;
+  display: flex;
+  flex-direction: column;
 }
 
 .zimmer-pic {
-  width: 200px;
+  width: 210px;
   height: 150px;
   border-radius: 5px;
-  margin-right: 20px;
+  margin-right: 23px;
   background-color: black;
-  color: black;
-  position: static;
-  bottom: 0;
-  margin-top: 220px;
+  
 }
 
 .zimmer-info {
   display: flex;
+  flex-direction: column;
+  width: auto;
+  align-items: left;
 }
 
 .zimmer-main {
+  width: 45%;
   text-align: left;
-  width: 70%;
+  display: block;
+  flex-wrap: wrap;
+  
 }
 
 .zimmer-name {
-  margin-bottom: 70px;
+  margin-bottom: 5px;
+  width: 200px;
 }
 
 .zimmer-text {
-  margin-right: 5px;
-  padding: 3px 6px;
-  background-color: lightgray;
+  padding: 2px 6px;
   border-radius: 5px;
+  background-color: #d9d9d9;
+  text-align: left;
+  margin: 5px auto 0 0;
+}
+
+
+.Footer_Class {
+  width: 100%;
+  height: 10vh;
+  color: black;
+  margin-top: auto;
+  margin: 5px 0 5px 0;
+  background-color: #666666;
 }
 
 @media screen and (max-width: 1300px) {
@@ -173,6 +218,13 @@
   .zimmer-info {
     flex-wrap: wrap;
   }
+  img {
+    width: 10%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    margin-left: 40px;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -186,5 +238,12 @@
   }
   .zimmer-component {
     margin: 0 auto;
+  }
+  img {
+    width: 13%;
+    height: auto;
+    position: absolute;
+    left: 0;
+    margin-left: 40px;
   }
 }

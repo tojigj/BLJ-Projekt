@@ -1,3 +1,20 @@
+.zimmer-pic{
+  display: flex;
+  margin: 0 10px 3px 0px;
+  padding: 5px;
+  width: 90%;
+  height: auto;
+  box-shadow: 3px 3px 7px silver;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  position: static;
+}
+
+.zimmer-pic:hover{
+  box-shadow: 6px 6px 14px silver;
+  margin: 10px 0px 10px 10px;
+}
 
 
 .zimmer-component {

@@ -3,7 +3,7 @@ import axios from "axios";
 import Section from "./section";
 import Zimmer from "./requirements/zimmer";
 
-const port = 5000;
+const port = 5001;
 const Home = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
@@ -83,7 +83,6 @@ const Home = () => {
         onStandortChange={handleFilterStandorte}
       />
       <div className="Such-Ausgabe">
-        <div className="standort-test">
           {filteredData.map((zimmer) => {
             return (
               <Zimmer
@@ -95,7 +94,6 @@ const Home = () => {
               />
             );
           })}
-        </div>
       </div>
     </div>
   );
