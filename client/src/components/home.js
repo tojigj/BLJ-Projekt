@@ -11,19 +11,28 @@ let values = {
 
 const port = 5001;
 const Home = () => {
+  const [textFilter, setTextFilter] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
   const [shownData, setShownData] = useState([]);
+  const [searchItem, setSearchItem] = useState([]);
 
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
       setSitzungsZimmer(response.data);
-      setFilteredData(response.data);
+      setShownData(response.data);
     });
   }, []);
 
   const submitFilters = () => {
-    let filteredZimmer = sitzungsZimmer.filter((item) => {
+    let data = [];
+    if (searchItem != "") {
+      data = textFilter;
+    } else {
+      data = sitzungsZimmer;
+    }
+
+    let filteredZimmer = data.filter((item) => {
       return item.maxPersonen >= values.person;
     });
 
@@ -38,14 +47,24 @@ const Home = () => {
         return item.standortName == values.standort[0];
       });
     }
-
     setFilteredData(filteredZimmer);
+    setShownData(filteredZimmer);
   };
 
-  const handleFilterSuche = (searchItem) => {
-    const filteredSuche = sitzungsZimmer.filter((item) => {
-      if (searchItem == "") return item;
-      else if (
+  const handleFilterSuche = () => {
+    let data = [];
+    if (filteredData.length) {
+      data = shownData;
+    } else {
+      data = sitzungsZimmer;
+    }
+    if (searchItem == "") {
+      setShownData(data);
+      return;
+    }
+
+    const filteredSuche = data.filter((item) => {
+      if (
         item.zimmerName
           .toLowerCase()
           .split(" ")
@@ -55,7 +74,36 @@ const Home = () => {
         return item;
       }
     });
-    setFilteredData(filteredSuche);
+
+    setTextFilter(
+      sitzungsZimmer.filter((item) => {
+        if (
+          item.zimmerName
+            .toLowerCase()
+            .split(" ")
+            .join("")
+            .includes(searchItem.split(" ").join("").toLowerCase())
+        ) {
+          return item;
+        }
+      })
+    );
+    setShownData(filteredSuche);
+  };
+
+  const handleTyping = () => {
+    const filteredSuche = sitzungsZimmer.filter((item) => {
+      if (
+        item.zimmerName
+          .toLowerCase()
+          .split(" ")
+          .join("")
+          .includes(searchItem.split(" ").join("").toLowerCase())
+      ) {
+        return item;
+      }
+    });
+    setTextFilter(filteredSuche);
   };
 
   const handleFilterPersonen = (anzPersonen) => {
@@ -79,8 +127,8 @@ const Home = () => {
   };
 
   const shownZimmer = () => {
-    if (filteredData.length) {
-      return filteredData.map((zimmer) => {
+    if (shownData.length) {
+      return shownData.map((zimmer) => {
         return (
           <Zimmer
             key={zimmer.id}
@@ -102,16 +150,29 @@ const Home = () => {
         type="text"
         placeholder="Suchen..."
         onChange={(event) => {
-          handleFilterSuche(event.target.value);
+          setSearchItem(event.target.value);
+          handleTyping();
         }}
       />
+      <button
+        className="search-bar-button"
+        onClick={() => {
+          handleFilterSuche();
+          submitFilters();
+        }}
+      >
+        Suchen
+      </button>
       <div className="home">
         <Section
           stockwerke={generateStockwerkData()}
           onStockwerkChange={handleFilterStockwerke}
           onPersonenChange={handleFilterPersonen}
           onStandortChange={handleFilterStandorte}
-          onSubmit={submitFilters}
+          onSubmit={() => {
+            handleFilterSuche();
+            submitFilters();
+          }}
         />
         <div className="Such-Ausgabe">
           <div className="standort-test">{shownZimmer()}</div>
