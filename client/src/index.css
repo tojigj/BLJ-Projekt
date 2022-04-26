@@ -1,5 +1,5 @@
 * {
-  font-family: sans-serif;
+  font-family: Helvetica, sans-serif;
   margin: 0;
 }
 
@@ -24,6 +24,7 @@
   border-radius: 5px;
   box-shadow: 3px 3px 7px silver;
   margin-bottom: 5rem;
+  margin-top: 10px;
 }
 
 .text_Fields {
@@ -43,7 +44,7 @@
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
-  background-color: black;
+  background-color: #00b8cf;
   width: 90%;
   transition: 200ms padding;
 }
@@ -75,13 +76,19 @@
   justify-content: center;
 }
 
+.Header-Title{
+  text-decoration: none;
+  color: inherit;
+}
+
 .Footer_Class {
-  height: 100px;
+  height: 8rem;
   width: 100%;
   background-color: black;
   color: black;
-  flex-shrink: 0;
-  margin-bottom: -100px;
+  margin-top: auto;
+  bottom: 0;
+  position: relative;
 }
 
 .suva-title {
@@ -98,6 +105,7 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  margin-top: 40px;
 }
 
 .standorte-label {
@@ -239,6 +247,10 @@
   .zimmer-info {
     flex-wrap: wrap;
   }
+  .popUp-main {
+    flex-wrap: wrap;
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -253,4 +265,68 @@
   .zimmer-component {
     margin: 0 auto;
   }
+  .suva-title {
+    display: none;
+  }
+  .popUp-main {
+    margin: auto;
+    min-width: 80%;
+    justify-content: center;
+  }
+  .popUp-pic {
+    display: none;
+  }
+  .leftSection-Popup {
+    position: absolute;
+    bottom: 0;
+    flex-wrap: wrap;
+  }
+  .buchungsInfo {
+    flex-wrap: wrap;
+    margin-left: 10px;
+  }
+}
+
+.dropdown-main {
+}
+
+.dropdown-button {
+  width: 25rem;
+  background-color: #00b8cf;
+  color: white;
+  box-shadow: 3px 3px 7px silver;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+}
+
+.dropdown-content {
+  display: block;
+}
+
+.showDropdown {
+  display: block;
+}
+
+.hideDropdown {
+  display: none;
+}
+
+.dropdownIcon {
+  position: fixed;
+  margin-left: 7rem;
+}
+
+.gebuchteSZLink{
+  text-decoration: none;
+  position: absolute;
+  margin-left: 10%;
+  left: 0;
+  color: inherit;
+}
+
+.zimmerCommunication{
+  display: none;
 }

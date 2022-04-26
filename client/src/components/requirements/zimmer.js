@@ -1,10 +1,8 @@
 import React from "react";
-import PopUp from "../popUp.js"
-
-
+import PopUp from "../popUp.js";
+import GebuchteSZ from "../gebuchteSitzungszimmer";
 
 export default class Zimmer extends React.Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -13,8 +11,10 @@ export default class Zimmer extends React.Component {
       standort: props.standort,
       stockwerk: props.stockwerk,
       maxP: props.maxP,
+      OnZimmerClick: props.OnZimmerClick,
       show: false,
-      openInfo: false
+      openInfo: false,
+      buchungsSignal: false,
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -28,49 +28,62 @@ export default class Zimmer extends React.Component {
     this.setState({ show: false });
   };
 
-  showInfo = () =>{
+  showInfo = () => {
     this.setState({ openInfo: !this.state.openInfo });
-  }
+  };
 
-  szName(){
-    return this.zimmername
-  }
+  testRender = () => {
+    if (this.state.buchungsSignal === true) {
+      return (
+        <div buchungCommunication>
+          <GebuchteSZ>
+            <h5>{this.state.zimmername}</h5>
+          </GebuchteSZ>
+        </div>
+      );
+    }
+    return <h4>test</h4>;
+  };
 
   render() {
     return (
       <div className="main-sitzungszimmer">
-      <PopUp show={this.state.show} handleClose={this.hideModal}>
-      <div className="buchungsInfo" >
-        <div className="popUp-zimmername" >
-          <h2>Zimmer: {this.state.zimmername}</h2>
-        </div>
-        <div className="popUp-standort">
-          <h2>Standort: {this.state.standort}</h2>  
-        </div>
-        <div className="popUp-stockwerk">
-          <h2>Stockwerk: {this.state.stockwerk}</h2>
-        </div>
-        <div className="popUp-maxP">
-          <h2>Max Anzahl Personen: {this.state.maxP}</h2>
-        </div>
-      </div>
-      </PopUp>
-      <div className="zimmer-component" onClick={this.showModal}>
-        <div className="zimmer-pic"></div>
-        <div className="zimmer-main">
-          <div className="zimmer-title" >
-          <h2 className="zimmer-name">{this.state.zimmername}</h2>
+        <PopUp
+          show={this.state.show}
+          handleClose={this.hideModal}
+          zimmerNameProp={this.state.OnZimmerClick[this.state.id - 1]}
+        >
+          <div className="buchungsInfo">
+            <div className="popUp-standort">
+              <h5>Standort: {this.state.standort}</h5>
+            </div>
+            <div className="popUp-stockwerk">
+              <h5>Stockwerk: {this.state.stockwerk}</h5>
+            </div>
+            <div className="popUp-maxP">
+              <h5>Max Anzahl Personen: {this.state.maxP}</h5>
+            </div>
           </div>
-          <div className="zimmer-info">
-            <p className="zimmer-text">{this.state.standort}</p>
-            <p className="zimmer-text">Stockwerk {this.state.stockwerk}</p>
-            <p className="zimmer-text">Personen Kapazität: {this.state.maxP}</p>
+        </PopUp>
+        <div>
+          {this.state.buchungsSignal ? <GebuchteSZ></GebuchteSZ> : null}
+        </div>
+        <div className="zimmer-component" onClick={this.showModal}>
+          <div className="zimmer-pic"></div>
+          <div className="zimmer-main">
+            <div className="zimmer-title">
+              <h2 className="zimmer-name">{this.state.zimmername}</h2>
+            </div>
+            <div className="zimmer-info">
+              <p className="zimmer-text">{this.state.standort}</p>
+              <p className="zimmer-text">Stockwerk {this.state.stockwerk}</p>
+              <p className="zimmer-text">
+                Personen Kapazität: {this.state.maxP}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
       </div>
     );
   }
 }
-
-//<button className="buchen-button Buchen-Block" onClick="">Buchen</button>

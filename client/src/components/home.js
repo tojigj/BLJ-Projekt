@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Section from "./section";
 import Zimmer from "./requirements/zimmer";
+import PopUp from "./popUp";
 
 let values = {
   person: 0,
@@ -126,6 +127,10 @@ const Home = () => {
     values.standort = [standort[0].name];
   };
 
+  const handleZimmername = (index) => {
+    return filteredData[index];
+  };
+
   const shownZimmer = () => {
     if (shownData.length) {
       return shownData.map((zimmer) => {
@@ -136,6 +141,7 @@ const Home = () => {
             standort={zimmer.standortName}
             stockwerk={zimmer.stockwerk}
             maxP={zimmer.maxPersonen}
+            OnZimmerClick={handleZimmername}
           />
         );
       });
@@ -144,7 +150,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="home-div">
       <input
         className="search-bar"
         type="text"
