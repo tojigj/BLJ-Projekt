@@ -39,12 +39,13 @@ img {
 }
 
 .requirements {
+  background-color: white;
   width: 25rem;
-  height: 32rem;
+  height: 33rem;
   border-radius: 5px;
-  box-shadow: 3px 3px 7px silver;
-  margin-bottom: 5rem;
-  margin-top: 10px;
+  box-shadow: 3px 3px 7px 3px silver;
+  padding-top: 1px;
+  margin-top: 20px;
 }
 
 .text_Fields {
@@ -74,13 +75,12 @@ img {
   cursor: pointer;
   font-size: 15px;
   padding: 10px 20px;
-  border-radius: 5px;
   flex-direction: row;
   margin: 30px 0 10px 0;
   text-decoration: none;
   font-size: 15px;
   font-family: inherit;
-  background-color: #00b8cf;
+  background-color: black;
   width: 90%;
   transition: 200ms padding;
 }
@@ -271,6 +271,7 @@ img {
   background-color: #666666;
 }
 
+
 .search-bar {
   width: 30%;
   margin-top: 20px;
@@ -360,19 +361,27 @@ img {
   }
 }
 
-.dropdown-main {
+.home-top {
+  position: absolute;
+  top: 5.75rem;
+  left: 70vw;
+  width: 70%;
+  z-index: 1;
 }
 
 .dropdown-button {
-  width: 25rem;
-  background-color: #00b8cf;
+  width: 20%;
+  background-color: black;
   color: white;
   box-shadow: 3px 3px 7px silver;
-  height: 30px;
-  border-radius: 5px;
+  height: 50px;
   cursor: pointer;
   font-weight: bold;
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: space-around;
 }
 
 .dropdown-content {
@@ -389,7 +398,7 @@ img {
 
 .dropdownIcon {
   position: fixed;
-  margin-left: 7rem;
+  margin-left: 10rem;
 }
 
 .gebuchteSZLink{

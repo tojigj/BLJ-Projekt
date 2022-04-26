@@ -137,7 +137,13 @@ const Section = ({
           </div>
 
           <div>
-            <button className="Search_Button" onClick={onSubmit}>
+            <button
+              className="Search_Button"
+              onClick={() => {
+                onSubmit();
+                setisActive(!isActive);
+              }}
+            >
               Ergebnisse Anzeigen
             </button>
           </div>

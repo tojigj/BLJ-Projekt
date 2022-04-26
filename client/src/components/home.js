@@ -168,7 +168,7 @@ const Home = () => {
       >
         Suchen
       </button>
-      <div className="home">
+      <div className="home-top">
         <Section
           stockwerke={generateStockwerkData()}
           onStockwerkChange={handleFilterStockwerke}
@@ -179,6 +179,8 @@ const Home = () => {
             submitFilters();
           }}
         />
+      </div>
+      <div className="home">
         <div className="Such-Ausgabe">{shownZimmer()}</div>
       </div>
     </div>
