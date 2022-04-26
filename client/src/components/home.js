@@ -4,6 +4,12 @@ import Section from "./section";
 import Zimmer from "./requirements/zimmer";
 import PopUp from "./popUp";
 
+let values = {
+  person: 0,
+  stockwerk: null,
+  standort: ["Rösslimatt", "Fluhmatt"],
+};
+
 const port = 5001;
 const Home = () => {
   const [textFilter, setTextFilter] = useState([]);
@@ -11,12 +17,6 @@ const Home = () => {
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
   const [shownData, setShownData] = useState([]);
   const [searchItem, setSearchItem] = useState([]);
-
-  let values = {
-    person: 0,
-    stockwerk: null,
-    standort: ["Rösslimatt", "Fluhmatt"],
-  };
 
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
