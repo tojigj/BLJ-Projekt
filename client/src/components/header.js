@@ -13,7 +13,11 @@ import GebuchteSZ from "./gebuchteSitzungszimmer";
 const Header = () => {
   return (
     <div className="Header">
-      <NavLink to="/gebuchte-sitzungszimmer" className="gebuchteSZLink">
+      <NavLink
+        to={"/gebuchte-sitzungszimmer"}
+        state={{ zimmerName: "" }}
+        className="gebuchteSZLink"
+      >
         <h5>Gebuchte Sitzungszimmer</h5>
       </NavLink>
       <NavLink to="/" className="Header-Title">

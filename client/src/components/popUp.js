@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./sitzungsZimmer.css";
 import GebuchteSZ from "./gebuchteSitzungszimmer";
-import Zimmer from "./requirements/zimmer";
+import { useNavigate, useLocation } from "react-router-dom";
 
-const popUp = ({ handleClose, show, children, zimmerNameProp }) => {
+const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
   console.log(zimmerNameProp);
+  let gebuchteSitzungszimmer = [];
 
   function checkStatePopup(state) {
     const showHidePopup = state
@@ -13,26 +14,23 @@ const popUp = ({ handleClose, show, children, zimmerNameProp }) => {
     return showHidePopup;
   }
 
+  const navigate = useNavigate();
+  const location = useLocation();
   const zimmerNameSZ = zimmerNameProp;
+  console.log(children._self.props);
 
-  const openPopUp = document.getElementsByClassName("zimmer-component");
-  const popUpBackground = document.getElementsByClassName("home-div");
+  const [zimmerNameB, setZimmerNameB] = useState([]);
 
-  const clickPos = () => {
-    openPopUp.addEventListener("click", () => {
-      popUpBackground.addEventListener("click", () => {
-        return checkStatePopup(handleClose);
-      });
+  const setZimmerNameData = () => {
+    console.log(children._self.props.zimmerName);
+    navigate("./gebuchte-sitzungszimmer", {
+      state: { zimmerName: children._self.props.zimmername },
     });
-  };
-
-  const buchungZimmer = () => {
-    console.log(children._self.props.zimmername);
-    return (
-      <div className="zimmerCommunication">
-        <GebuchteSZ zimmerName={children._self.props.zimmername}></GebuchteSZ>
-      </div>
-    );
+    /*navigate("/gebuchte-sitzungszimmer");
+    console.log(children._self.props);
+    gebuchteSitzungszimmer += children._self.props;
+    let tempArray = JSON.stringify(gebuchteSitzungszimmer);
+    fs.writeFile("gebuchteSZ.json", tempArray).then(console.log(tempArray));*/
   };
 
   return (
@@ -48,7 +46,10 @@ const popUp = ({ handleClose, show, children, zimmerNameProp }) => {
         <div className="divider-div">
           <div className="popUp-info">
             {children}
-            <button className="BuchenPopUpButton" onClick={buchungZimmer}>
+            <button
+              className="BuchenPopUpButton"
+              onClick={() => setZimmerNameData()}
+            >
               Buchen
             </button>
           </div>
@@ -62,4 +63,4 @@ const popUp = ({ handleClose, show, children, zimmerNameProp }) => {
   );
 };
 
-export default popUp;
+export default PopUp;
