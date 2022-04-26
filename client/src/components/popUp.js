@@ -2,7 +2,6 @@ import React from "react";
 import "./sitzungsZimmer.css";
 import GebuchteSZ from "./gebuchteSitzungszimmer";
 import Zimmer from "./requirements/zimmer";
-import BuchenButton from "./buchenButton";
 
 const popUp = ({ handleClose, show, children, zimmerNameProp }) => {
   console.log(zimmerNameProp);
