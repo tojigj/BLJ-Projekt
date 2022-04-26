@@ -4,6 +4,7 @@ import Header from './components/header';
 import Home from './components/home';
 import './index.css';
 import Footer from './components/footer';
+import { Dropdown } from 'bootstrap';
 
 
 function App() {
