@@ -5,7 +5,7 @@ import Home from './components/home';
 import './index.css';
 import Footer from './components/footer';
 import { Dropdown } from 'bootstrap';
-
+import './components/sitzungsZimmer.css'
 
 function App() {
   return (

@@ -1,8 +1,5 @@
 import React from "react";
 import PopUp from "../popUp.js"
-
-
-
 export default class Zimmer extends React.Component {
   
   constructor(props) {
