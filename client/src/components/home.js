@@ -4,12 +4,6 @@ import Section from "./section";
 import Zimmer from "./requirements/zimmer";
 import PopUp from "./popUp";
 
-let values = {
-  person: 0,
-  stockwerk: null,
-  standort: ["Rösslimatt", "Fluhmatt"],
-};
-
 const port = 5001;
 const Home = () => {
   const [textFilter, setTextFilter] = useState([]);

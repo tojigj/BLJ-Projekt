@@ -1,53 +1,3 @@
-.zimmer-component {
-  display: flex;
-  margin: 0 10px 20px 0px;
-  padding: 5px;
-  width: 90%;
-  height: auto;
-  box-shadow: 3px 3px 7px silver;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  position: static;
-}
-
-.zimmer-component:hover {
-  box-shadow: 6px 6px 14px silver;
-  margin: 10px 0px 10px 10px;
-}
-
-.zimmer-pic {
-  width: 200px;
-  height: 150px;
-  border-radius: 5px;
-  margin-right: 20px;
-  background-color: black;
-}
-
-.zimmer-info {
-  display: flex;
-}
-
-.zimmer-main {
-  text-align: left;
-  width: 70%;
-}
-
-.zimmer-name {
-  margin-bottom: 70px;
-  text-align: left;
-}
-.zimmer-text {
-  margin-right: 5px;
-  padding: 3px 6px;
-  background-color: lightgray;
-  border-radius: 5px;
-}
-
-.zimmer-title {
-  display: inline-flex;
-}
-
 .popUp {
   position: fixed;
   top: 0;
@@ -108,9 +58,6 @@
   background-color: blue;
   color: white;
   padding: 5px 10px;
-}
-
-.buchungsInfo {
 }
 
 .closePopUpButton {
