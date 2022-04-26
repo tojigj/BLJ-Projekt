@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import * as fs from "fs-web";
 import Zimmer from "./requirements/zimmer";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
