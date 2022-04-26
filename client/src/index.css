@@ -76,6 +76,11 @@
   justify-content: center;
 }
 
+.Header-Title{
+  text-decoration: none;
+  color: inherit;
+}
+
 .Footer_Class {
   height: 8rem;
   width: 100%;
@@ -294,4 +299,16 @@
 .dropdownIcon {
   position: fixed;
   margin-left: 7rem;
+}
+
+.gebuchteSZLink{
+  text-decoration: none;
+  position: absolute;
+  margin-left: 10%;
+  left: 0;
+  color: inherit;
+}
+
+.zimmerCommunication{
+  display: none;
 }

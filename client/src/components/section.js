@@ -136,10 +136,12 @@ const Section = ({
             </div>
           </div>
 
-      <div>
-        <button className="Search_Button" onClick={onSubmit}>
-          Ergebnisse Anzeigen
-        </button>
+          <div>
+            <button className="Search_Button" onClick={onSubmit}>
+              Ergebnisse Anzeigen
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

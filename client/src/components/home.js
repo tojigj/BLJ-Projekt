@@ -79,6 +79,10 @@ const Home = () => {
     values.standort = [standort[0].name];
   };
 
+  const handleZimmername = (index) => {
+    return filteredData[index];
+  };
+
   const shownZimmer = () => {
     if (filteredData.length) {
       return filteredData.map((zimmer) => {
@@ -89,6 +93,7 @@ const Home = () => {
             standort={zimmer.standortName}
             stockwerk={zimmer.stockwerk}
             maxP={zimmer.maxPersonen}
+            OnZimmerClick={handleZimmername}
           />
         );
       });
@@ -96,12 +101,8 @@ const Home = () => {
     return "Keine Ergebnisse";
   };
 
-  const handleZimmerClick = () => {
-    return filteredData;
-  };
-
   return (
-    <div>
+    <div className="home-div">
       <input
         className="search-bar"
         type="text"

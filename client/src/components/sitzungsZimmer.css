@@ -75,9 +75,8 @@
   overflow: auto;
   min-height: 50%;
   width: 50%;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
   border-radius: 5px;
 }
 
@@ -168,17 +167,16 @@
   min-height: 90%;
   display: flex;
   flex-direction: row;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .popUp-PicName {
   min-width: 60%;
-  justify-content: center;
+  justify-content: center; 
   display: flex;
   min-height: 90%;
   padding: 20px;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   text-align: center;
 }
 
@@ -209,6 +207,10 @@
   background-color: black;
   position: absolute;
   bottom: 0;
+}
+
+.zimmerCommunication{
+  display: none;
 }
 
 @media (min-width: 1366px) {

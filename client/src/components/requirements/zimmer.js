@@ -1,5 +1,6 @@
 import React from "react";
 import PopUp from "../popUp.js";
+import GebuchteSZ from "../gebuchteSitzungszimmer";
 
 export default class Zimmer extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ export default class Zimmer extends React.Component {
       OnZimmerClick: props.OnZimmerClick,
       show: false,
       openInfo: false,
+      buchungsSignal: false,
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -30,15 +32,26 @@ export default class Zimmer extends React.Component {
     this.setState({ openInfo: !this.state.openInfo });
   };
 
+  testRender = () => {
+    if (this.state.buchungsSignal === true) {
+      return (
+        <div buchungCommunication>
+          <GebuchteSZ>
+            <h5>{this.state.zimmername}</h5>
+          </GebuchteSZ>
+        </div>
+      );
+    }
+    return <h4>test</h4>;
+  };
+
   render() {
     return (
       <div className="main-sitzungszimmer">
         <PopUp
           show={this.state.show}
           handleClose={this.hideModal}
-          zimmerNameProp={
-            this.state.OnZimmerClick[this.state.id - 1].zimmername
-          }
+          zimmerNameProp={this.state.OnZimmerClick[this.state.id - 1]}
         >
           <div className="buchungsInfo">
             <div className="popUp-standort">
@@ -52,6 +65,9 @@ export default class Zimmer extends React.Component {
             </div>
           </div>
         </PopUp>
+        <div>
+          {this.state.buchungsSignal ? <GebuchteSZ></GebuchteSZ> : null}
+        </div>
         <div className="zimmer-component" onClick={this.showModal}>
           <div className="zimmer-pic"></div>
           <div className="zimmer-main">
