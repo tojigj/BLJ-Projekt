@@ -88,6 +88,7 @@ const Section = ({
                       handleStandortChange();
                     }}
                   />
+
                   <label className="standorte-label">{checkbox.name}</label>
                 </div>
               );
