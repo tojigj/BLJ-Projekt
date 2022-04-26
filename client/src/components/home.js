@@ -12,6 +12,12 @@ const Home = () => {
   const [shownData, setShownData] = useState([]);
   const [searchItem, setSearchItem] = useState([]);
 
+  let values = {
+    person: 0,
+    stockwerk: null,
+    standort: ["Rösslimatt", "Fluhmatt"],
+  };
+
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
       setSitzungsZimmer(response.data);
@@ -174,9 +180,7 @@ const Home = () => {
             submitFilters();
           }}
         />
-        <div className="Such-Ausgabe">
-          <div className="standort-test">{shownZimmer()}</div>
-        </div>
+        <div className="Such-Ausgabe">{shownZimmer()}</div>
       </div>
     </div>
   );

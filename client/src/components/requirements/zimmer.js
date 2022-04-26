@@ -68,11 +68,13 @@ export default class Zimmer extends React.Component {
         <div>
           {this.state.buchungsSignal ? <GebuchteSZ></GebuchteSZ> : null}
         </div>
-        <div className="zimmer-component" onClick={this.showModal}>
+        <div className="zimmer-zusammenhalt">
           <div className="zimmer-pic"></div>
-          <div className="zimmer-main">
-            <div className="zimmer-title">
-              <h2 className="zimmer-name">{this.state.zimmername}</h2>
+          <div className="zimmer-component" onClick={this.showModal}>
+            <div className="zimmer-main">
+              <div className="zimmer-title">
+                <h2 className="zimmer-name">{this.state.zimmername}</h2>
+              </div>
             </div>
             <div className="zimmer-info">
               <p className="zimmer-text">{this.state.standort}</p>
