@@ -2,36 +2,107 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Section from "./section";
 import Zimmer from "./requirements/zimmer";
+import PopUp from "./popUp";
 
 const port = 5001;
 const Home = () => {
+  const [textFilter, setTextFilter] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
   const [shownData, setShownData] = useState([]);
-  let filters = [];
+  const [searchItem, setSearchItem] = useState([]);
 
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
       setSitzungsZimmer(response.data);
-      setFilteredData(response.data);
+      setShownData(response.data);
     });
   }, []);
 
-  const handleFilterPersonen = (anzPersonen) => {
-    setShownData(filteredData);
-    let filteredPersonen;
-    if (!anzPersonen) {
-      filteredPersonen = shownData;
-      setFilteredData(filteredPersonen);
-      if (filters.includes("standort")) filters -= "person";
-      return;
+  const submitFilters = () => {
+    let data = [];
+    if (searchItem != "") {
+      data = textFilter;
     } else {
-      filteredPersonen = filteredData.filter((item) => {
-        return item.maxPersonen >= anzPersonen;
+      data = sitzungsZimmer;
+    }
+
+    let filteredZimmer = data.filter((item) => {
+      return item.maxPersonen >= values.person;
+    });
+
+    if (values.stockwerk) {
+      filteredZimmer = filteredZimmer.filter((item) => {
+        return item.stockwerk == values.stockwerk;
       });
     }
-    filters += "person";
-    setFilteredData(filteredPersonen);
+
+    if (values.standort.length === 1) {
+      filteredZimmer = filteredZimmer.filter((item) => {
+        return item.standortName == values.standort[0];
+      });
+    }
+    setFilteredData(filteredZimmer);
+    setShownData(filteredZimmer);
+  };
+
+  const handleFilterSuche = () => {
+    let data = [];
+    if (filteredData.length) {
+      data = shownData;
+    } else {
+      data = sitzungsZimmer;
+    }
+    if (searchItem == "") {
+      setShownData(data);
+      return;
+    }
+
+    const filteredSuche = data.filter((item) => {
+      if (
+        item.zimmerName
+          .toLowerCase()
+          .split(" ")
+          .join("")
+          .includes(searchItem.split(" ").join("").toLowerCase())
+      ) {
+        return item;
+      }
+    });
+
+    setTextFilter(
+      sitzungsZimmer.filter((item) => {
+        if (
+          item.zimmerName
+            .toLowerCase()
+            .split(" ")
+            .join("")
+            .includes(searchItem.split(" ").join("").toLowerCase())
+        ) {
+          return item;
+        }
+      })
+    );
+    setShownData(filteredSuche);
+  };
+
+  const handleTyping = () => {
+    const filteredSuche = sitzungsZimmer.filter((item) => {
+      if (
+        item.zimmerName
+          .toLowerCase()
+          .split(" ")
+          .join("")
+          .includes(searchItem.split(" ").join("").toLowerCase())
+      ) {
+        return item;
+      }
+    });
+    setTextFilter(filteredSuche);
+  };
+
+  const handleFilterPersonen = (anzPersonen) => {
+    values.person = anzPersonen;
   };
 
   const generateStockwerkData = () => {
@@ -39,61 +110,73 @@ const Home = () => {
   };
 
   const handleFilterStockwerke = (stockwerk) => {
-    setShownData(filteredData);
-    let filteredStockwerk;
-    if (stockwerk === "") {
-      filteredStockwerk = shownData;
-      setFilteredData(filteredStockwerk);
-      if (filters.includes("standort")) filters -= "stockwerk";
-      return;
-    } else {
-      filteredStockwerk = filteredData.filter((item) => {
-        return item.stockwerk == stockwerk;
-      });
-    }
-    filters += "stockwerk";
-    setFilteredData(filteredStockwerk);
+    values.stockwerk = stockwerk;
   };
 
   const handleFilterStandorte = (standort) => {
-    setShownData(filteredData);
-    let filteredStandorte;
-    console.log(standort);
-    if (!standort.length) {
-      filteredStandorte = shownData;
-      setFilteredData(filteredStandorte);
-      if (filters.includes("standort")) filters -= "standort";
+    if (!standort.length || standort.length == 2) {
+      values.standort = [];
       return;
-    } else if (standort.length === 2) filteredStandorte = sitzungsZimmer;
-    else {
-      filteredStandorte = filteredData.filter((item) => {
-        return item.standortName == standort[0].name;
+    }
+    values.standort = [standort[0].name];
+  };
+
+  const handleZimmername = (index) => {
+    return filteredData[index];
+  };
+
+  const shownZimmer = () => {
+    if (shownData.length) {
+      return shownData.map((zimmer) => {
+        return (
+          <Zimmer
+            key={zimmer.id}
+            zimmername={zimmer.zimmerName}
+            standort={zimmer.standortName}
+            stockwerk={zimmer.stockwerk}
+            maxP={zimmer.maxPersonen}
+            OnZimmerClick={handleZimmername}
+          />
+        );
       });
     }
-    filters += "standort";
-    setFilteredData(filteredStandorte);
+    return "Keine Ergebnisse";
   };
 
   return (
-    <div className="home">
-      <Section
-        stockwerke={generateStockwerkData()}
-        onStockwerkChange={handleFilterStockwerke}
-        onPersonenChange={handleFilterPersonen}
-        onStandortChange={handleFilterStandorte}
+    <div className="home-div">
+      <input
+        className="search-bar"
+        type="text"
+        placeholder="Suchen..."
+        onChange={(event) => {
+          setSearchItem(event.target.value);
+          handleTyping();
+        }}
       />
-      <div className="Such-Ausgabe">
-          {filteredData.map((zimmer) => {
-            return (
-              <Zimmer
-                key={zimmer.id}
-                zimmername={zimmer.zimmerName}
-                standort={zimmer.standortName}
-                stockwerk={zimmer.stockwerk}
-                maxP={zimmer.maxPersonen}
-              />
-            );
-          })}
+      <button
+        className="search-bar-button"
+        onClick={() => {
+          handleFilterSuche();
+          submitFilters();
+        }}
+      >
+        Suchen
+      </button>
+      <div className="home">
+        <Section
+          stockwerke={generateStockwerkData()}
+          onStockwerkChange={handleFilterStockwerke}
+          onPersonenChange={handleFilterPersonen}
+          onStandortChange={handleFilterStandorte}
+          onSubmit={() => {
+            handleFilterSuche();
+            submitFilters();
+          }}
+        />
+        <div className="Such-Ausgabe">
+          <div className="standort-test">{shownZimmer()}</div>
+        </div>
       </div>
     </div>
   );
