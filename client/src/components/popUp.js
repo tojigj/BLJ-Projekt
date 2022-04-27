@@ -4,7 +4,6 @@ import GebuchteSZ from "./gebuchteSitzungszimmer";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
-  console.log(zimmerNameProp);
   let gebuchteSitzungszimmer = [];
 
   function checkStatePopup(state) {
@@ -17,12 +16,10 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const zimmerNameSZ = zimmerNameProp;
-  console.log(children._self.props);
 
   const [zimmerNameB, setZimmerNameB] = useState([]);
 
   const setZimmerNameData = () => {
-    console.log(children._self.props.zimmername);
     navigate("./gebuchte-sitzungszimmer", {
       state: { zimmerName: children._self.props.zimmername },
     });

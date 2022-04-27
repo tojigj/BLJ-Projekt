@@ -254,9 +254,19 @@ img {
   display: inline-flex;
 }
 
+.shown-filters {
+  display: flex;
+  justify-content: center;
+}
+
+.single-filter {
+  padding: 3px 6px;
+  background-color: #d9d9d9;
+  margin: 0 10px 0 10px;
+}
+
 .zimmer-text {
   padding: 3px 6px;
-  border-radius: 5px;
   background-color: #d9d9d9;
   text-align: left;
   margin: 5px auto 0 0;
