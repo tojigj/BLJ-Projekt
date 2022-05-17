@@ -17,7 +17,6 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const zimmerNameSZ = zimmerNameProp;
-  console.log(children._self.props);
 
   const [zimmerNameB, setZimmerNameB] = useState([]);
 
