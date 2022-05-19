@@ -1,64 +1,64 @@
-
 .stockwerk-component {
-    margin: 20px 20px 10px 20px;
-    display: flex;
+  margin: 20px 20px 10px 20px;
+  display: flex;
 }
 
-.anz-personen-component{
-    margin: 20px 20px 10px 20px;
-    display: flex;
+.anz-personen-component {
+  margin: 20px 20px 10px 20px;
+  display: flex;
 }
 
 .zeit-buchung {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .time-box {
-    padding: 5px 20px 5px 20px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    width: 100%;
-    margin: 5px 0 5px 0;
+  padding: 5px 20px 5px 20px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  width: 100%;
+  margin: 5px 0 5px 0;
 }
 
 .date-box {
-    height: 2.5rem;
-    width: 100%;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    padding: 0 20px 0 20px;
-    display: flex;
-    margin: 10px 0 15px 0;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  height: 2.5rem;
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: 0 20px 0 20px;
+  display: flex;
+  margin: 10px 0 15px 0;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.date-box::before, .date-box::after {
-    box-sizing: border-box;
+.date-box::before,
+.date-box::after {
+  box-sizing: border-box;
 }
 
 .Datum_Buchung {
-    margin: 10px 20px 10px 20px;
+  margin: 10px 20px 10px 20px;
 }
 
-.Stockwerk{
-    height: 2rem;
-    width: 100%;
+.Stockwerk {
+  height: 2rem;
+  width: 100%;
 }
 
 .standorte-div {
-    margin: 30px 20px 10px 20px;
-    padding: 20px 0 20px 20px;
-    text-align: left;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
+  margin: 30px 20px 10px 20px;
+  padding: 20px 0 20px 20px;
+  text-align: left;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
 }
 
 .standorte-button:hover {
-    background-color: #d1d5db;
+  background-color: #d1d5db;
 }
 
 .search-part-box {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
