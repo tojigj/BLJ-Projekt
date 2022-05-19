@@ -19,30 +19,17 @@ export default class Zimmer extends React.Component {
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
   }
-
+  //State Display Popup
   showModal = () => {
     this.setState({ show: true });
   };
-
+  //State Non-Display Popup
   hideModal = () => {
     this.setState({ show: false });
   };
 
   showInfo = () => {
     this.setState({ openInfo: !this.state.openInfo });
-  };
-
-  testRender = () => {
-    if (this.state.buchungsSignal === true) {
-      return (
-        <div buchungCommunication>
-          <GebuchteSZ>
-            <h5>{this.state.zimmername}</h5>
-          </GebuchteSZ>
-        </div>
-      );
-    }
-    return <h4>test</h4>;
   };
 
   render() {
