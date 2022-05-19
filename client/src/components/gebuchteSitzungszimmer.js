@@ -9,6 +9,7 @@ const GebuchteSitzungszimmer = () => {
   const location = useLocation();
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
   const [savedSZ, setSavedSZ] = useState([]);
+  let testArr = [];
 
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
@@ -29,20 +30,24 @@ const GebuchteSitzungszimmer = () => {
     }
   });
 
-  const shownZimmer = () => {
+  const showGebuchteSZ = () => {
     return filteredSuche.map((zimmer) => {
       return (
         <div className="gebuchteSZ-component">
           <h2 className="gebuchteSZ-zimmerName">{zimmer.zimmerName}</h2>
-          <p className="gebuchteSZ-info">{zimmer.standortName}</p>
-          <p className="gebuchteSZ-info">{zimmer.stockwerk}</p>
-          <p className="gebuchteSZ-info">{zimmer.maxPersonen}</p>
+          <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>
+          <p className="gebuchteSZ-info">Stockwerk: {zimmer.stockwerk}</p>
+          <p className="gebuchteSZ-info">Max. Personen: {zimmer.maxPersonen}</p>
         </div>
       );
     });
   };
 
-  return <div className="gebuchteSZ-main">{shownZimmer()} </div>; /* (
+  testArr.push(showGebuchteSZ());
+  console.log(testArr + " this is a tessttt");
+
+  // Alle gebuchte SZ in einen anderen Array und dann beim hauptrender ausgeben, anstatt mit der Function
+  return <div className="gebuchteSZ-main">{testArr} </div>; /* (
     <div id="gebuchteSZ-list">
       {filteredSuche.map((item, index) => (
         <div className="gebuchteSZ-main">
