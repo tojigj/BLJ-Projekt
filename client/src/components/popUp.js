@@ -6,7 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
   console.log(zimmerNameProp);
   let gebuchteSitzungszimmer = [];
-
+  //Logik Display Popup
   function checkStatePopup(state) {
     const showHidePopup = state
       ? "popUp display-block popUp-main"
@@ -17,7 +17,6 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const zimmerNameSZ = zimmerNameProp;
-  console.log(children._self.props);
 
   const [zimmerNameB, setZimmerNameB] = useState([]);
 
