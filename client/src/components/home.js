@@ -103,7 +103,7 @@ const Home = () => {
           .toLowerCase()
           .split(" ")
           .join("")
-          .includes(searchItem.split(" ").join("").toLowerCase())
+          .includes(searchItem.toLowerCase().split(" ").join(""))
       ) {
         return item;
       }
@@ -116,7 +116,7 @@ const Home = () => {
             .toLowerCase()
             .split(" ")
             .join("")
-            .includes(searchItem.split(" ").join("").toLowerCase())
+            .includes(searchItem.toLowerCase().split(" ").join(""))
         ) {
           return item;
         }
