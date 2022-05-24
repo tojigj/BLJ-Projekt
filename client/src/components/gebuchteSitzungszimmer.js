@@ -10,6 +10,7 @@ const GebuchteSitzungszimmer = () => {
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
   const [savedSZ, setSavedSZ] = useState([]);
   let testArr = [];
+  let url = "http://localhost:5001/";
 
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
@@ -18,14 +19,14 @@ const GebuchteSitzungszimmer = () => {
     });
   }, []);
 
+  axios
+    .post(url, { zimmerName: location.state.zimmerName })
+    .then((response) => {
+      console.log(response);
+    });
+
   const filteredSuche = sitzungsZimmer.filter((zimmer) => {
-    if (
-      location.state.zimmerName
-        .toLowerCase()
-        .split(" ")
-        .join("")
-        .includes(zimmer.zimmerName.split(" ").join("").toLowerCase())
-    ) {
+    if (zimmer.gebucht === true) {
       return zimmer;
     }
   });
