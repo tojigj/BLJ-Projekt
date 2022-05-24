@@ -26,6 +26,50 @@ const Home = () => {
     });
   }, []);
 
+  const handleFilterSuche = () => {
+    let data = [];
+    if (filteredData.length) {
+      data = shownData;
+    } else {
+      data = sitzungsZimmer;
+    }
+    if (searchItem == "") {
+      setShownData(data);
+      return;
+    }
+
+    const filteredSuche = data.filter((item) => {
+      if (
+        item.zimmerName
+          .toLowerCase()
+          .split(" ")
+          .join("")
+          .includes(searchItem.toLowerCase().split(" ").join(""))
+      ) {
+        return item;
+      }
+    });
+
+    setShownData(filteredSuche);
+  };
+
+  const handleTextFilter = () => {
+    setTextFilter(
+      sitzungsZimmer.filter((item) => {
+        if (
+          item.zimmerName
+            .toString()
+            .toLowerCase()
+            .split(" ")
+            .join("")
+            .includes(searchItem.toString().toLowerCase().split(" ").join(""))
+        ) {
+          return item;
+        }
+      })
+    );
+  };
+
   const submitFilters = () => {
     let data = [];
     if (searchItem != "") {
@@ -85,54 +129,14 @@ const Home = () => {
     });
   };
 
-  const handleFilterSuche = () => {
-    let data = [];
-    if (filteredData.length) {
-      data = shownData;
-    } else {
-      data = sitzungsZimmer;
-    }
-    if (searchItem == "") {
-      setShownData(data);
-      return;
-    }
-
-    const filteredSuche = data.filter((item) => {
-      if (
-        item.zimmerName
-          .toLowerCase()
-          .split(" ")
-          .join("")
-          .includes(searchItem.toLowerCase().split(" ").join(""))
-      ) {
-        return item;
-      }
-    });
-
-    setTextFilter(
-      sitzungsZimmer.filter((item) => {
-        if (
-          item.zimmerName
-            .toLowerCase()
-            .split(" ")
-            .join("")
-            .includes(searchItem.toLowerCase().split(" ").join(""))
-        ) {
-          return item;
-        }
-      })
-    );
-    setShownData(filteredSuche);
-  };
-
-  const handleTyping = () => {
+  const handleTyping = (value) => {
     const filteredSuche = sitzungsZimmer.filter((item) => {
       if (
         item.zimmerName
           .toLowerCase()
           .split(" ")
           .join("")
-          .includes(searchItem.split(" ").join("").toLowerCase())
+          .includes(value.toString().split(" ").join("").toLowerCase())
       ) {
         return item;
       }
@@ -193,12 +197,13 @@ const Home = () => {
         placeholder="Suchen..."
         onChange={(event) => {
           setSearchItem(event.target.value);
-          handleTyping();
+          handleTyping(event.target.value);
         }}
       />
       <button
         className="search-bar-button"
         onClick={() => {
+          handleTextFilter();
           handleFilterSuche();
           submitFilters();
         }}
