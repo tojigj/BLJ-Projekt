@@ -10,7 +10,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 0,
       "maxPersonen": 7,
-      "gebucht": true
+      "gebucht": true,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 2,
@@ -18,7 +28,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 1,
       "maxPersonen": 4,
-      "gebucht": true
+      "gebucht": true,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 3,
@@ -26,7 +46,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 1,
       "maxPersonen": 3,
-      "gebucht": true
+      "gebucht": true,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 4,
@@ -34,7 +64,17 @@
       "standortName": "Fluhmatt",
       "stockwerk": 0,
       "maxPersonen": 35,
-      "gebucht": true
+      "gebucht": true,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 5,
@@ -42,7 +82,17 @@
       "standortName": "Fluhmatt",
       "stockwerk": 1,
       "maxPersonen": 9,
-      "gebucht": true
+      "gebucht": true,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 6,
@@ -50,7 +100,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 1,
       "maxPersonen": 4,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 7,
@@ -58,7 +118,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 1,
       "maxPersonen": 4,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 8,
@@ -66,7 +136,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 6,
       "maxPersonen": 5,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 9,
@@ -74,7 +154,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 4,
       "maxPersonen": 12,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 10,
@@ -82,7 +172,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 4,
       "maxPersonen": 12,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 11,
@@ -90,7 +190,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 4,
       "maxPersonen": 10,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 12,
@@ -98,7 +208,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 4,
       "maxPersonen": 26,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 13,
@@ -106,7 +226,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 3,
       "maxPersonen": 5,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 14,
@@ -114,7 +244,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 3,
       "maxPersonen": 6,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 15,
@@ -122,7 +262,17 @@
       "standortName": "Fluhmatt",
       "stockwerk": 1,
       "maxPersonen": 80,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 16,
@@ -130,7 +280,17 @@
       "standortName": "Fluhmatt",
       "stockwerk": 2,
       "maxPersonen": 8,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 17,
@@ -138,7 +298,17 @@
       "standortName": "Fluhmatt",
       "stockwerk": 5,
       "maxPersonen": 8,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 18,
@@ -146,7 +316,17 @@
       "standortName": "Rösslimatt",
       "stockwerk": 5,
       "maxPersonen": 8,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 19,
@@ -154,7 +334,17 @@
       "standortName": "Fluhmatt",
       "stockwerk": 3,
       "maxPersonen": 8,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 20,
@@ -162,7 +352,17 @@
       "standortName": "Fluhmatt",
       "stockwerk": 4,
       "maxPersonen": 10,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     },
     {
       "id": 21,
@@ -170,7 +370,17 @@
       "standortName": "Fluhmatt",
       "stockwerk": 3,
       "maxPersonen": 24,
-      "gebucht": false
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "",
+          "endDate": ""
+        },
+        {
+          "startDate": "",
+          "endDate": ""
+        }
+      ]
     }
   ]
 }
