@@ -7,9 +7,10 @@ let values = {
   person: 0,
   stockwerk: null,
   standort: [],
+  date: null,
 };
 
-let shownFilters = ["", "", ""];
+let shownFilters = ["", "", "", ""];
 
 const port = 5001;
 const Home = () => {
@@ -97,6 +98,13 @@ const Home = () => {
         return item.standortName == values.standort[0];
       });
     }
+
+    shownFilters[3] = values.date;
+    if (values.date) {
+      filteredZimmer = filteredZimmer.filter((item) => {
+        return item.appointments.includes(values.date);
+      });
+    }
     showSelectedFilters();
     setFilteredData(filteredZimmer);
     setShownData(filteredZimmer);
@@ -107,7 +115,8 @@ const Home = () => {
     if (
       (shownFilters[0] == "" || shownFilters[0] === 0) &&
       (!shownFilters[1] || shownFilters[1] == "") &&
-      (shownFilters[2] == "" || shownFilters[2] == [])
+      (shownFilters[2] == "" || shownFilters[2] == []) &&
+      (shownFilters[3] == "" || shownFilters[3] == null)
     ) {
       return;
     }
@@ -122,6 +131,10 @@ const Home = () => {
 
     if (shownFilters[2] != "" && shownFilters[2] != []) {
       filtersThatAreShown[2] = shownFilters[2];
+    }
+
+    if (shownFilters[3] != "" && shownFilters[3] != null) {
+      filtersThatAreShown[3] = shownFilters[3];
     }
 
     return filtersThatAreShown.map((item) => {
@@ -147,6 +160,11 @@ const Home = () => {
 
   const handleFilterPersonen = (anzPersonen) => {
     values.person = anzPersonen;
+  };
+
+  const handleFilterDate = (date) => {
+    values.date = date;
+    console.log(date);
   };
 
   const generateStockwerkData = () => {
@@ -219,6 +237,7 @@ const Home = () => {
           onStockwerkChange={handleFilterStockwerke}
           onPersonenChange={handleFilterPersonen}
           onStandortChange={handleFilterStandorte}
+          onDateChange={handleFilterDate}
           onSubmit={() => {
             handleFilterSuche();
             submitFilters();

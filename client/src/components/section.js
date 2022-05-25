@@ -21,6 +21,7 @@ const Section = ({
   onStandortChange,
   defaultCheckboxes,
   onSubmit,
+  onDateChange,
 }) => {
   const [selectedDate, setSelectedDate] = useState();
   const [selectedStandort, setSelectedStandort] = useState();
@@ -60,6 +61,11 @@ const Section = ({
       return checkbox.checked === true;
     });
     onStandortChange(trueCheckboxes);
+  };
+
+  const handleDateChange = (value) => {
+    setSelectedDate(value);
+    onDateChange(value);
   };
   // Logik Icon Dropdown
   const IconDropdown = isActive ? (
@@ -125,8 +131,11 @@ const Section = ({
           <div className="Datum_Buchung">
             <DatePicker
               selected={selectedDate}
-              onChange={(date) => setSelectedDate(date)}
               dateFormat="dd/MM/yyyy"
+              onChange={(date) => {
+                setSelectedDate(date);
+                handleDateChange(date);
+              }}
               minDate={new Date()}
               className="form-control date-box"
             />
