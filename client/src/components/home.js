@@ -129,14 +129,15 @@ const Home = () => {
     });
   };
 
-  const handleTyping = (value) => {
+  const handleTyping = (e) => {
+    e.preventDefault();
     const filteredSuche = sitzungsZimmer.filter((item) => {
       if (
         item.zimmerName
           .toLowerCase()
           .split(" ")
           .join("")
-          .includes(value.toString().split(" ").join("").toLowerCase())
+          .includes(e.target.value.toString().split(" ").join("").toLowerCase())
       ) {
         return item;
       }
@@ -191,25 +192,27 @@ const Home = () => {
 
   return (
     <div className="home-div">
-      <input
-        className="search-bar"
-        type="text"
-        placeholder="Suchen..."
-        onChange={(event) => {
-          setSearchItem(event.target.value);
-          handleTyping(event.target.value);
-        }}
-      />
-      <button
-        className="search-bar-button"
-        onClick={() => {
-          handleTextFilter();
-          handleFilterSuche();
-          submitFilters();
-        }}
-      >
-        Suchen
-      </button>
+      <form onSubmit={handleTyping}>
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Suchen..."
+          onChange={(event) => {
+            setSearchItem(event.target.value);
+            handleTyping(event);
+          }}
+        />
+        <button
+          className="search-bar-button"
+          onClick={() => {
+            handleTextFilter();
+            handleFilterSuche();
+            submitFilters();
+          }}
+        >
+          Suchen
+        </button>
+      </form>
       <div className="home-top">
         <Section
           stockwerke={generateStockwerkData()}

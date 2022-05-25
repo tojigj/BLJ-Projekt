@@ -1,7 +1,7 @@
 import "./App.css";
 import React from "react";
-import { Dropdown } from 'bootstrap';
-import './components/sitzungsZimmer.css'
+import { Dropdown } from "bootstrap";
+import "./components/sitzungsZimmer.css";
 import Header from "./components/header";
 import Home from "./components/home";
 import "./index.css";
@@ -14,7 +14,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <div classname="app-content">
+        <div className="app-content">
           <Routes>
             <Route
               exact
