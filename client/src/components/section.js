@@ -66,13 +66,19 @@ const Section = ({
   };
 
   const handleStartDateChange = (value) => {
-    setSelectedStartDate(value);
-    onStartDateChange(value);
+    if (selectedStartTime) {
+      onStartDateChange(value, selectedStartTime);
+    } else {
+      onStartDateChange(value, "00:00");
+    }
   };
 
   const handleEndDateChange = (value) => {
-    setSelectedEndDate(value);
-    onEndDateChange(value);
+    if (selectedEndTime) {
+      onEndDateChange(value, selectedEndTime);
+    } else {
+      onEndDateChange(value, "00:00");
+    }
   };
   // Logik Icon Dropdown
   const IconDropdown = isActive ? (
@@ -157,8 +163,20 @@ const Section = ({
               className="form-control date-box"
             />
             <div className="zeit-buchung">
-              <input type="time" className="form-control time-box"></input>
-              <input type="time" className="form-control time-box"></input>
+              <input
+                onChange={(event) => {
+                  setSelectedStartTime(event.target.value);
+                }}
+                type="time"
+                className="form-control time-box"
+              ></input>
+              <input
+                onChange={(event) => {
+                  setSelectedEndTime(event.target.value);
+                }}
+                type="time"
+                className="form-control time-box"
+              ></input>
             </div>
           </div>
 
@@ -166,6 +184,8 @@ const Section = ({
             <button
               className="Search_Button"
               onClick={() => {
+                handleEndDateChange(selectedEndDate);
+                handleStartDateChange(selectedStartDate);
                 onSubmit();
                 setisActive(!isActive);
               }}

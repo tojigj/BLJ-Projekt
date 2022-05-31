@@ -100,10 +100,18 @@ const Home = () => {
       });
     }
 
-    shownFilters[3] = values.startDate + " - " + values.endDate;
+    shownFilters[3] = values.startDate
+      ? values.startDate + " - " + values.endDate
+      : null;
     if (values.startDate && values.endDate) {
       filteredZimmer = filteredZimmer.filter((item) => {
         for (let i = 0; i < item.appointments.length; i++) {
+          console.log(values.startDate <= item.appointments[i].startDate);
+          console.log(values.endDate <= item.appointments[i].endDate);
+          console.log(values.startDate);
+          console.log(values.endDate);
+          console.log(item.appointments[i].startDate);
+          console.log(item.appointments[i].endDate);
           if (
             (item.appointments[i].startDate >= values.startDate &&
               item.appointments[i].endDate >= values.startDate) ||
@@ -173,19 +181,19 @@ const Home = () => {
     values.person = anzPersonen;
   };
 
-  const handleFilterStartDate = (startDate) => {
+  const handleFilterStartDate = (startDate, startTime) => {
     if (!startDate) {
       values.startDate = null;
     } else {
-      values.startDate = startDate.toDateString();
+      values.startDate = startDate.toDateString() + " " + startTime;
     }
   };
 
-  const handleFilterEndDate = (endDate) => {
+  const handleFilterEndDate = (endDate, endTime) => {
     if (!endDate) {
       values.startDate = null;
     } else {
-      values.endDate = endDate.toDateString();
+      values.endDate = endDate.toDateString() + " " + endTime;
     }
   };
 
