@@ -7,7 +7,8 @@ let values = {
   person: 0,
   stockwerk: null,
   standort: [],
-  date: null,
+  startDate: null,
+  endDate: null,
 };
 
 let shownFilters = ["", "", "", ""];
@@ -99,10 +100,20 @@ const Home = () => {
       });
     }
 
-    shownFilters[3] = values.date;
-    if (values.date) {
+    shownFilters[3] = values.startDate + " - " + values.endDate;
+    if (values.startDate && values.endDate) {
       filteredZimmer = filteredZimmer.filter((item) => {
-        return item.appointments.includes(values.date);
+        for (let i = 0; i < item.appointments.length; i++) {
+          if (
+            (item.appointments[i].startDate >= values.startDate &&
+              item.appointments[i].endDate >= values.startDate) ||
+            (item.appointments[i].startDate <= values.endDate &&
+              item.appointments[i].endDate <= values.endDate)
+          ) {
+            return item;
+          }
+          return null;
+        }
       });
     }
     showSelectedFilters();
@@ -162,9 +173,20 @@ const Home = () => {
     values.person = anzPersonen;
   };
 
-  const handleFilterDate = (date) => {
-    values.date = date;
-    console.log(date);
+  const handleFilterStartDate = (startDate) => {
+    if (!startDate) {
+      values.startDate = null;
+    } else {
+      values.startDate = startDate.toDateString();
+    }
+  };
+
+  const handleFilterEndDate = (endDate) => {
+    if (!endDate) {
+      values.startDate = null;
+    } else {
+      values.endDate = endDate.toDateString();
+    }
   };
 
   const generateStockwerkData = () => {
@@ -237,7 +259,8 @@ const Home = () => {
           onStockwerkChange={handleFilterStockwerke}
           onPersonenChange={handleFilterPersonen}
           onStandortChange={handleFilterStandorte}
-          onDateChange={handleFilterDate}
+          onStartDateChange={handleFilterStartDate}
+          onEndDateChange={handleFilterEndDate}
           onSubmit={() => {
             handleFilterSuche();
             submitFilters();
