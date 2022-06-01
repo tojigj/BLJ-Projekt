@@ -9,5 +9,15 @@ export function bookRooms(zimmerName) {
       item.gebucht = true;
     }
   });
+
+  /*
+  if (deleteSZName != "" || deleteSZName != null) {
+    data.Sitzungszimmer.map((item) => {
+      if (item.zimmerName === deleteSZName) {
+        item.gebucht = false;
+      }
+    });
+  }*/
+
   writeDbData(data);
 }

@@ -4,6 +4,7 @@ import { bookRooms } from "./dataManipulation/bookRooms.js";
 import { getRoomData } from "./dataManipulation/getRooms.js";
 import cors from "cors";
 import szRouter from "./routes/sitzungszimmer.js";
+import bookedSZRouter from "./routes/bookedRoomsRoute.js";
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use("/*", function (req, res, next) {
   next();
 });
 //Router
+app.use("/bookedRooms", bookedSZRouter);
 app.use("/sitzungszimmer", szRouter);
 
 app.post("/", async (req, res) => {

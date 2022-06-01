@@ -8,5 +8,11 @@ export function getData() {
 }
 
 export function writeDbData(dbData) {
-  fs.writeFileSync("./database.json", JSON.stringify(dbData));
+  fs.writeFileSync("./bookedRooms.json", JSON.stringify(dbData));
+}
+
+export function getBookedRoomData() {
+  const jsonString = fs.readFileSync("./bookedRooms.json");
+  const dbData = JSON.parse(jsonString);
+  return dbData;
 }

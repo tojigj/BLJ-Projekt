@@ -14,19 +14,48 @@ const GebuchteSitzungszimmer = () => {
   let url = "http://localhost:5001/";
 
   useEffect(() => {
-    axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
-      setSitzungsZimmer(response.data);
-      setSavedSZ(response.data);
-    });
+    axios
+      .get(`http://localhost:${port}/sitzungszimmer/`)
+      .then((response) => {
+        setSitzungsZimmer(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:${port}/bookedRooms/`)
+      .then((response) => {
+        setSavedSZ(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
 
   axios
     .post(url, { zimmerName: location.state.zimmerName })
     .then((response) => {
       console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 
-  const filteredSuche = sitzungsZimmer.filter((zimmer) => {
+  const deleteRoom = (alert) => {
+    axios
+      .post(url, { cancelAlert: alert })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const filteredSuche = savedSZ.filter((zimmer) => {
     if (zimmer.gebucht === true) {
       return zimmer;
     }
