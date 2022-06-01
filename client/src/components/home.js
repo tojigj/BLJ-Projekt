@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Section from "./section";
 import Zimmer from "./requirements/zimmer";
+import Moment from "moment";
+import { extendMoment } from "moment-range";
+
+const moment = extendMoment(Moment);
 
 let values = {
   person: 0,
@@ -105,22 +109,18 @@ const Home = () => {
       : null;
     if (values.startDate && values.endDate) {
       filteredZimmer = filteredZimmer.filter((item) => {
+        if (!item.appointments.length) return item;
+        const inputRange = moment.range(values.startDate, values.endDate);
         for (let i = 0; i < item.appointments.length; i++) {
-          console.log(values.startDate <= item.appointments[i].startDate);
-          console.log(values.endDate <= item.appointments[i].endDate);
-          console.log(values.startDate);
-          console.log(values.endDate);
-          console.log(item.appointments[i].startDate);
-          console.log(item.appointments[i].endDate);
-          if (
-            (item.appointments[i].startDate >= values.startDate &&
-              item.appointments[i].endDate >= values.startDate) ||
-            (item.appointments[i].startDate <= values.endDate &&
-              item.appointments[i].endDate <= values.endDate)
-          ) {
+          let dbRange = moment.range(
+            item.appointments[i].startDate,
+            item.appointments[i].endDate
+          );
+          if (dbRange.overlaps(inputRange)) {
+            return null;
+          } else {
             return item;
           }
-          return null;
         }
       });
     }
@@ -191,7 +191,7 @@ const Home = () => {
 
   const handleFilterEndDate = (endDate, endTime) => {
     if (!endDate) {
-      values.startDate = null;
+      values.endDate = null;
     } else {
       values.endDate = endDate.toDateString() + " " + endTime;
     }

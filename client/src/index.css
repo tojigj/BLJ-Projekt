@@ -192,7 +192,7 @@ img {
   margin: 0px 0 15px 0;
   padding: 0 20px 0 20px;
   border: 1px solid #ced4da;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color ease-in-out 300ms, box-shadow ease-in-out 300ms;
 }
 
 .date-box::before,
@@ -219,6 +219,7 @@ img {
   width: 86%;
   height: auto;
   background-color: transparent;
+  transition: all 0.3s ease-in-out;
 }
 
 .zimmer-zusammenhalt:hover{

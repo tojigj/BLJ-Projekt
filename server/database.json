@@ -13,8 +13,8 @@
       "gebucht": true,
       "appointments": [
         {
-          "startDate": "Wed Jun 01 2022 04:34",
-          "endDate": "Thu Jun 02 2022 09:30"
+          "startDate": "Thu Jun 02 2022 05:00",
+          "endDate": "Fri Jun 03 2022 09:30"
         },
         {
           "startDate": "",
@@ -29,16 +29,7 @@
       "stockwerk": 1,
       "maxPersonen": 4,
       "gebucht": true,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 3,
@@ -47,16 +38,7 @@
       "stockwerk": 1,
       "maxPersonen": 3,
       "gebucht": true,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 4,
@@ -65,16 +47,7 @@
       "stockwerk": 0,
       "maxPersonen": 35,
       "gebucht": true,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 5,
@@ -83,16 +56,7 @@
       "stockwerk": 1,
       "maxPersonen": 9,
       "gebucht": true,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 6,
@@ -101,16 +65,7 @@
       "stockwerk": 1,
       "maxPersonen": 4,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 7,
@@ -119,16 +74,7 @@
       "stockwerk": 1,
       "maxPersonen": 4,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 8,
@@ -137,16 +83,7 @@
       "stockwerk": 6,
       "maxPersonen": 5,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 9,
@@ -155,16 +92,7 @@
       "stockwerk": 4,
       "maxPersonen": 12,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 10,
@@ -173,16 +101,7 @@
       "stockwerk": 4,
       "maxPersonen": 12,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 11,
@@ -191,16 +110,7 @@
       "stockwerk": 4,
       "maxPersonen": 10,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 12,
@@ -209,16 +119,7 @@
       "stockwerk": 4,
       "maxPersonen": 26,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 13,
@@ -227,16 +128,7 @@
       "stockwerk": 3,
       "maxPersonen": 5,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 14,
@@ -245,16 +137,7 @@
       "stockwerk": 3,
       "maxPersonen": 6,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 15,
@@ -263,16 +146,7 @@
       "stockwerk": 1,
       "maxPersonen": 80,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 16,
@@ -281,16 +155,7 @@
       "stockwerk": 2,
       "maxPersonen": 8,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 17,
@@ -299,16 +164,7 @@
       "stockwerk": 5,
       "maxPersonen": 8,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 18,
@@ -317,16 +173,7 @@
       "stockwerk": 5,
       "maxPersonen": 8,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 19,
@@ -335,16 +182,7 @@
       "stockwerk": 3,
       "maxPersonen": 8,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 20,
@@ -353,16 +191,7 @@
       "stockwerk": 4,
       "maxPersonen": 10,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     },
     {
       "id": 21,
@@ -371,16 +200,7 @@
       "stockwerk": 3,
       "maxPersonen": 24,
       "gebucht": false,
-      "appointments": [
-        {
-          "startDate": "",
-          "endDate": ""
-        },
-        {
-          "startDate": "",
-          "endDate": ""
-        }
-      ]
+      "appointments": []
     }
   ]
 }
