@@ -33,7 +33,7 @@
   color: white;
   border: none;
   padding: 10px 10px;
-  margin: 25px 15px 15px 0px;
+  margin: 0px 15px 15px 0px;
   cursor: pointer;
   text-decoration: none;
   font-size: 15px;
@@ -117,8 +117,8 @@
   min-width: 60%;
   justify-content: center; 
   display: flex;
-  min-height: 90%;
   padding: 20px;
+  min-height: 50%;
   flex-direction: row;
   text-align: center;
 }

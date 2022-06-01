@@ -18,13 +18,17 @@ const GebuchteSitzungszimmer = () => {
       setSitzungsZimmer(response.data);
       setSavedSZ(response.data);
     });
-  }, []);
 
-  axios
-    .post(url, { zimmerName: location.state.zimmerName })
-    .then((response) => {
-      console.log(response);
-    });
+    axios
+      .post(url, {
+        zimmerName: location.state.zimmerName,
+        startDate: location.state.startDate,
+        endDate: location.state.endDate,
+      })
+      .then((response) => {
+        console.log(response);
+      });
+  }, []);
 
   const filteredSuche = sitzungsZimmer.filter((zimmer) => {
     if (zimmer.gebucht === true) {
@@ -49,4 +53,5 @@ const GebuchteSitzungszimmer = () => {
   // Alle gebuchte SZ in einen anderen Array und dann beim hauptrender ausgeben, anstatt mit der Function
   return <div className="gebuchteSZ-main">{showGebuchteSZ()} </div>;
 };
+
 export default GebuchteSitzungszimmer;

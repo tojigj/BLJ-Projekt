@@ -10,8 +10,7 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
   const [selectedEndDate, setSelectedEndDate] = useState();
   const [selectedStartTime, setSelectedStartTime] = useState();
   const [selectedEndTime, setSelectedEndTime] = useState();
-  const [selectedStartDateTime, setSelectedStartDateTime] = useState();
-  const [selectedEndDateTime, setSelectedEndDateTime] = useState();
+  const location = useLocation();
 
   let gebuchteSitzungszimmer = [];
   //Logik Display Popup
@@ -22,49 +21,20 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
     return showHidePopup;
   }
 
-  const handleStartDateChange = (value) => {
-    if (selectedStartTime) {
-      setSelectedStartDateTime(value.toDateString() + " " + selectedEndTime);
-    } else {
-      setSelectedStartDateTime(value.toDateString() + " 00:00");
-    }
-  };
-
-  const handleEndDateChange = (value) => {
-    if (selectedEndTime) {
-      setSelectedEndDateTime(value.toDateString() + " " + selectedEndTime);
-    } else {
-      setSelectedEndDateTime(value.toDateString() + " 00:00");
-    }
-  };
-
-  const createNewAppointment = () => {
-    axios
-      .post("http://localhost:5001/createAppointments", {
-        startDate: selectedStartDateTime,
-        endDate: selectedEndDateTime,
-      })
-      .then((response) => {
-        console.log(response);
-      });
+  const setZimmerNameData = () => {
+    navigate("./gebuchte-sitzungszimmer", {
+      state: {
+        zimmerName: children._self.props.zimmername,
+        startDate: selectedStartDate.toDateString() + " " + selectedStartTime,
+        endDate: selectedEndDate.toDateString() + " " + selectedEndTime,
+      },
+    });
   };
 
   const navigate = useNavigate();
-  const location = useLocation();
   const zimmerNameSZ = zimmerNameProp;
 
   const [zimmerNameB, setZimmerNameB] = useState([]);
-
-  const setZimmerNameData = () => {
-    navigate("./gebuchte-sitzungszimmer", {
-      state: { zimmerName: children._self.props.zimmername },
-    });
-    /*navigate("/gebuchte-sitzungszimmer");
-    console.log(children._self.props);
-    gebuchteSitzungszimmer += children._self.props;
-    let tempArray = JSON.stringify(gebuchteSitzungszimmer);
-    fs.writeFile("gebuchteSZ.json", tempArray).then(console.log(tempArray));*/
-  };
 
   return (
     <div className={checkStatePopup(show)}>
@@ -78,32 +48,35 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
         </button>
         <div className="divider-div">
           <div className="popUp-info">{children}</div>
-          <div className="popUp-PicName">
-            <div className="popUp-pic"></div>
-            <h2 className="popUp-zimmername">{zimmerNameSZ}</h2>
-            <div className="Datum_Buchung">
+          <div className="popUp-booking-site">
+            <div className="popUp-PicName">
+              <div className="popUp-pic"></div>
+              <h2 className="popUp-zimmername">{zimmerNameSZ}</h2>
+            </div>
+            <form className="popUp-createAppointment">
               <DatePicker
                 selected={selectedStartDate}
+                required
                 dateFormat="dd/MM/yyyy"
                 onChange={(date) => {
                   setSelectedStartDate(date);
-                  handleStartDateChange(date);
                 }}
                 minDate={new Date()}
                 className="form-control date-box"
               />
               <DatePicker
                 selected={selectedEndDate}
+                required
                 dateFormat="dd/MM/yyyy"
                 onChange={(date) => {
                   setSelectedEndDate(date);
-                  handleEndDateChange(date);
                 }}
                 minDate={new Date()}
                 className="form-control date-box"
               />
               <div className="zeit-buchung">
                 <input
+                  required
                   onChange={(event) => {
                     setSelectedStartTime(event.target.value);
                   }}
@@ -111,6 +84,7 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
                   className="form-control time-box"
                 ></input>
                 <input
+                  required
                   onChange={(event) => {
                     setSelectedEndTime(event.target.value);
                   }}
@@ -121,13 +95,12 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
                   className="BuchenPopUpButton"
                   onClick={() => {
                     setZimmerNameData();
-                    createNewAppointment();
                   }}
                 >
                   Buchen
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
