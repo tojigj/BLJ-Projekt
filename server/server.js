@@ -1,13 +1,9 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const cors = require("cors");
-const fs = require("fs");
-
-const jsonString = fs.readFileSync("./database.json");
-const dbData = JSON.parse(jsonString);
-
-const szRouter = require("./routes/sitzungszimmer");
-const soRouter = require("./routes/createAppointments");
+import { bookRooms } from "./dataManipulation/bookRooms.js";
+import { getRoomData } from "./dataManipulation/getRooms.js";
+import cors from "cors";
+import szRouter from "./routes/sitzungszimmer.js";
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -28,13 +24,8 @@ app.use("/sitzungszimmer", szRouter);
 
 app.post("/", async (req, res) => {
   const zimmername = req.body.zimmerName;
-
-  dbData.Sitzungszimmer.map((item) => {
-    if (item.zimmerName === zimmername) {
-      item.gebucht = true;
-    }
-  });
-  fs.writeFileSync("./database.json", JSON.stringify(dbData));
+  getRoomData();
+  bookRooms(zimmername);
 });
 
 app.get("/", async (req, res) => {});

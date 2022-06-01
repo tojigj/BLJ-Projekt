@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Zimmer from "./requirements/zimmer";
+
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
@@ -39,26 +40,13 @@ const GebuchteSitzungszimmer = () => {
           <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>
           <p className="gebuchteSZ-info">Stockwerk: {zimmer.stockwerk}</p>
           <p className="gebuchteSZ-info">Max. Personen: {zimmer.maxPersonen}</p>
+          <button className="cancel-Buchung">Cancel</button>
         </div>
       );
     });
   };
 
-  testArr.push(showGebuchteSZ());
-  console.log(testArr + " this is a tessttt");
-
   // Alle gebuchte SZ in einen anderen Array und dann beim hauptrender ausgeben, anstatt mit der Function
-  return <div className="gebuchteSZ-main">{testArr} </div>; /* (
-    <div id="gebuchteSZ-list">
-      {filteredSuche.map((item, index) => (
-        <div className="gebuchteSZ-main">
-          <div className="gebuchteSZ-item" key={index}>
-            <div className="gebuchteSZ-name">{`Name: ${item.zimmerName}`}</div>
-            <div className="gebuchteSZ-standort">{`Standort: ${item.standort}`}</div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );*/
+  return <div className="gebuchteSZ-main">{showGebuchteSZ()} </div>;
 };
 export default GebuchteSitzungszimmer;
