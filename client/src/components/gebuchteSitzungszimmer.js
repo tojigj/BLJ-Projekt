@@ -78,4 +78,5 @@ const GebuchteSitzungszimmer = () => {
   // Alle gebuchte SZ in einen anderen Array und dann beim hauptrender ausgeben, anstatt mit der Function
   return <div className="gebuchteSZ-main">{showGebuchteSZ()} </div>;
 };
+
 export default GebuchteSitzungszimmer;

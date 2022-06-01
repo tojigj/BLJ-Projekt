@@ -3,8 +3,15 @@ import "./sitzungsZimmer.css";
 import GebuchteSZ from "./gebuchteSitzungszimmer";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import DatePicker from "react-datepicker";
 
 const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
+  const [selectedStartDate, setSelectedStartDate] = useState();
+  const [selectedEndDate, setSelectedEndDate] = useState();
+  const [selectedStartTime, setSelectedStartTime] = useState();
+  const [selectedEndTime, setSelectedEndTime] = useState();
+  const location = useLocation();
+
   let gebuchteSitzungszimmer = [];
   //Logik Display Popup
   function checkStatePopup(state) {
@@ -14,22 +21,20 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
     return showHidePopup;
   }
 
+  const setZimmerNameData = () => {
+    navigate("./gebuchte-sitzungszimmer", {
+      state: {
+        zimmerName: children._self.props.zimmername,
+        startDate: selectedStartDate.toDateString() + " " + selectedStartTime,
+        endDate: selectedEndDate.toDateString() + " " + selectedEndTime,
+      },
+    });
+  };
+
   const navigate = useNavigate();
-  const location = useLocation();
   const zimmerNameSZ = zimmerNameProp;
 
   const [zimmerNameB, setZimmerNameB] = useState([]);
-
-  const setZimmerNameData = () => {
-    navigate("./gebuchte-sitzungszimmer", {
-      state: { zimmerName: children._self.props.zimmername },
-    });
-    /*navigate("/gebuchte-sitzungszimmer");
-    console.log(children._self.props);
-    gebuchteSitzungszimmer += children._self.props;
-    let tempArray = JSON.stringify(gebuchteSitzungszimmer);
-    fs.writeFile("gebuchteSZ.json", tempArray).then(console.log(tempArray));*/
-  };
 
   return (
     <div className={checkStatePopup(show)}>
@@ -42,18 +47,60 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
           X
         </button>
         <div className="divider-div">
-          <div className="popUp-info">
-            {children}
-            <button
-              className="BuchenPopUpButton"
-              onClick={() => setZimmerNameData()}
-            >
-              Buchen
-            </button>
-          </div>
-          <div className="popUp-PicName">
-            <div className="popUp-pic"></div>
-            <h2 className="popUp-zimmername">{zimmerNameSZ}</h2>
+          <div className="popUp-info">{children}</div>
+          <div className="popUp-booking-site">
+            <div className="popUp-PicName">
+              <div className="popUp-pic"></div>
+              <h2 className="popUp-zimmername">{zimmerNameSZ}</h2>
+            </div>
+            <form className="popUp-createAppointment">
+              <DatePicker
+                selected={selectedStartDate}
+                required
+                dateFormat="dd/MM/yyyy"
+                onChange={(date) => {
+                  setSelectedStartDate(date);
+                }}
+                minDate={new Date()}
+                className="form-control date-box"
+              />
+              <DatePicker
+                selected={selectedEndDate}
+                required
+                dateFormat="dd/MM/yyyy"
+                onChange={(date) => {
+                  setSelectedEndDate(date);
+                }}
+                minDate={new Date()}
+                className="form-control date-box"
+              />
+              <div className="zeit-buchung">
+                <input
+                  required
+                  onChange={(event) => {
+                    setSelectedStartTime(event.target.value);
+                  }}
+                  type="time"
+                  className="form-control time-box"
+                ></input>
+                <input
+                  required
+                  onChange={(event) => {
+                    setSelectedEndTime(event.target.value);
+                  }}
+                  type="time"
+                  className="form-control time-box"
+                ></input>
+                <button
+                  className="BuchenPopUpButton"
+                  onClick={() => {
+                    setZimmerNameData();
+                  }}
+                >
+                  Buchen
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
