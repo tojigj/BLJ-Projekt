@@ -32,7 +32,7 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
   };
 
   const navigate = useNavigate();
-  const zimmerNameSZ = zimmerNameProp;
+  const zimmerNameSZ = children._self.props.zimmername;
 
   const [zimmerNameB, setZimmerNameB] = useState([]);
 
@@ -47,12 +47,11 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
           X
         </button>
         <div className="divider-div">
-          <div className="popUp-info">{children}</div>
+          <div className="popUp-info">
+            <h2 className="popUp-zimmername">{zimmerNameSZ}</h2>
+            {children}
+          </div>
           <div className="popUp-booking-site">
-            <div className="popUp-PicName">
-              <div className="popUp-pic"></div>
-              <h2 className="popUp-zimmername">{zimmerNameSZ}</h2>
-            </div>
             <form className="popUp-createAppointment">
               <DatePicker
                 selected={selectedStartDate}
