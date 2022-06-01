@@ -11,5 +11,12 @@
     "react-bootstrap": "^2.1.2",
     "react-datepicker": "^4.6.0",
     "react-scripts": "^3.4.4"
+  },
+  "scripts": {
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "cd server && node server.js",
+    "client": "cd client && npm start"
   }
 }

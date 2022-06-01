@@ -31,6 +31,12 @@ app.post("/", async (req, res) => {
   getRoomData();
 });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+  app.get("*", (req, res) => {
+    req.sendFile(path.join(__dirname, "build", "index.html"));
+  });
+}
 app.get("/", async (req, res) => {});
 
 const port = process.env.PORT || 5001;
