@@ -21,8 +21,11 @@ const Section = ({
   onStandortChange,
   defaultCheckboxes,
   onSubmit,
+  onStartDateChange,
+  onEndDateChange,
 }) => {
-  const [selectedDate, setSelectedDate] = useState();
+  const [selectedStartDate, setSelectedStartDate] = useState();
+  const [selectedEndDate, setSelectedEndDate] = useState();
   const [selectedStandort, setSelectedStandort] = useState();
   const [selectedStockwerk, setSelectedStockwerk] = useState();
   const [selectedAnzPersonen, setSelectedAnzPersonen] = useState();
@@ -60,6 +63,22 @@ const Section = ({
       return checkbox.checked === true;
     });
     onStandortChange(trueCheckboxes);
+  };
+
+  const handleStartDateChange = (value) => {
+    if (selectedStartTime) {
+      onStartDateChange(value, selectedStartTime);
+    } else {
+      onStartDateChange(value, "00:00");
+    }
+  };
+
+  const handleEndDateChange = (value) => {
+    if (selectedEndTime) {
+      onEndDateChange(value, selectedEndTime);
+    } else {
+      onEndDateChange(value, "00:00");
+    }
   };
   // Logik Icon Dropdown
   const IconDropdown = isActive ? (
@@ -124,15 +143,40 @@ const Section = ({
 
           <div className="Datum_Buchung">
             <DatePicker
-              selected={selectedDate}
-              onChange={(date) => setSelectedDate(date)}
+              selected={selectedStartDate}
               dateFormat="dd/MM/yyyy"
+              onChange={(date) => {
+                setSelectedStartDate(date);
+                handleStartDateChange(date);
+              }}
+              minDate={new Date()}
+              className="form-control date-box"
+            />
+            <DatePicker
+              selected={selectedEndDate}
+              dateFormat="dd/MM/yyyy"
+              onChange={(date) => {
+                setSelectedEndDate(date);
+                handleEndDateChange(date);
+              }}
               minDate={new Date()}
               className="form-control date-box"
             />
             <div className="zeit-buchung">
-              <input type="time" className="form-control time-box"></input>
-              <input type="time" className="form-control time-box"></input>
+              <input
+                onChange={(event) => {
+                  setSelectedStartTime(event.target.value);
+                }}
+                type="time"
+                className="form-control time-box"
+              ></input>
+              <input
+                onChange={(event) => {
+                  setSelectedEndTime(event.target.value);
+                }}
+                type="time"
+                className="form-control time-box"
+              ></input>
             </div>
           </div>
 
@@ -140,6 +184,8 @@ const Section = ({
             <button
               className="Search_Button"
               onClick={() => {
+                handleEndDateChange(selectedEndDate);
+                handleStartDateChange(selectedStartDate);
                 onSubmit();
                 setisActive(!isActive);
               }}
