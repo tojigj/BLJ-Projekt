@@ -3,8 +3,16 @@ import "./sitzungsZimmer.css";
 import GebuchteSZ from "./gebuchteSitzungszimmer";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import DatePicker from "react-datepicker";
 
 const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
+  const [selectedStartDate, setSelectedStartDate] = useState();
+  const [selectedEndDate, setSelectedEndDate] = useState();
+  const [selectedStartTime, setSelectedStartTime] = useState();
+  const [selectedEndTime, setSelectedEndTime] = useState();
+  const [selectedStartDateTime, setSelectedStartDateTime] = useState();
+  const [selectedEndDateTime, setSelectedEndDateTime] = useState();
+
   let gebuchteSitzungszimmer = [];
   //Logik Display Popup
   function checkStatePopup(state) {
@@ -13,6 +21,33 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
       : "popUp display-none";
     return showHidePopup;
   }
+
+  const handleStartDateChange = (value) => {
+    if (selectedStartTime) {
+      setSelectedStartDateTime(value.toDateString() + " " + selectedEndTime);
+    } else {
+      setSelectedStartDateTime(value.toDateString() + " 00:00");
+    }
+  };
+
+  const handleEndDateChange = (value) => {
+    if (selectedEndTime) {
+      setSelectedEndDateTime(value.toDateString() + " " + selectedEndTime);
+    } else {
+      setSelectedEndDateTime(value.toDateString() + " 00:00");
+    }
+  };
+
+  const createNewAppointment = () => {
+    axios
+      .post("http://localhost:5001/createAppointments", {
+        startDate: selectedStartDateTime,
+        endDate: selectedEndDateTime,
+      })
+      .then((response) => {
+        console.log(response);
+      });
+  };
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -42,18 +77,57 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
           X
         </button>
         <div className="divider-div">
-          <div className="popUp-info">
-            {children}
-            <button
-              className="BuchenPopUpButton"
-              onClick={() => setZimmerNameData()}
-            >
-              Buchen
-            </button>
-          </div>
+          <div className="popUp-info">{children}</div>
           <div className="popUp-PicName">
             <div className="popUp-pic"></div>
             <h2 className="popUp-zimmername">{zimmerNameSZ}</h2>
+            <div className="Datum_Buchung">
+              <DatePicker
+                selected={selectedStartDate}
+                dateFormat="dd/MM/yyyy"
+                onChange={(date) => {
+                  setSelectedStartDate(date);
+                  handleStartDateChange(date);
+                }}
+                minDate={new Date()}
+                className="form-control date-box"
+              />
+              <DatePicker
+                selected={selectedEndDate}
+                dateFormat="dd/MM/yyyy"
+                onChange={(date) => {
+                  setSelectedEndDate(date);
+                  handleEndDateChange(date);
+                }}
+                minDate={new Date()}
+                className="form-control date-box"
+              />
+              <div className="zeit-buchung">
+                <input
+                  onChange={(event) => {
+                    setSelectedStartTime(event.target.value);
+                  }}
+                  type="time"
+                  className="form-control time-box"
+                ></input>
+                <input
+                  onChange={(event) => {
+                    setSelectedEndTime(event.target.value);
+                  }}
+                  type="time"
+                  className="form-control time-box"
+                ></input>
+                <button
+                  className="BuchenPopUpButton"
+                  onClick={() => {
+                    setZimmerNameData();
+                    createNewAppointment();
+                  }}
+                >
+                  Buchen
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

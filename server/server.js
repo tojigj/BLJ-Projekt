@@ -7,7 +7,7 @@ const jsonString = fs.readFileSync("./database.json");
 const dbData = JSON.parse(jsonString);
 
 const szRouter = require("./routes/sitzungszimmer");
-const soRouter = require("./routes/standorte");
+const soRouter = require("./routes/createAppointments");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -23,7 +23,7 @@ app.use("/*", function (req, res, next) {
   next();
 });
 //Router
-app.use("/standorte", soRouter);
+app.use("/createAppointments", soRouter);
 app.use("/sitzungszimmer", szRouter);
 
 app.post("/", async (req, res) => {
