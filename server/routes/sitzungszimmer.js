@@ -1,16 +1,13 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const cors = require("cors");
+import { getRoomData } from "../dataManipulation/getRooms.js";
+import cors from "cors";
 router.use(cors());
-const fs = require("fs");
-
-const jsonString = fs.readFileSync("./database.json");
-const dbData = JSON.parse(jsonString);
 
 router.post("/", async (req, res) => {});
 
 router.get("/", async (req, res) => {
-  res.send(dbData.Sitzungszimmer);
+  res.send(getRoomData().Sitzungszimmer);
 });
 
-module.exports = router;
+export default router;

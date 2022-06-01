@@ -18,7 +18,7 @@ const Header = () => {
         state={{ zimmerName: "" }}
         className="gebuchteSZLink"
       >
-        <h5>Gebuchte Sitzungszimmer</h5>
+        <h5>Meine Buchungen</h5>
       </NavLink>
       <NavLink to="/" className="Header-Title">
         <h1>Sitzungszimmer - Finder</h1>
