@@ -3,6 +3,7 @@ const app = express();
 import { bookRooms } from "./dataManipulation/bookRooms.js";
 import { getRoomData } from "./dataManipulation/getRooms.js";
 import cors from "cors";
+import soRouter from "./routes/createAppointments.js";
 import szRouter from "./routes/sitzungszimmer.js";
 
 app.use(express.urlencoded({ extended: true }));
@@ -19,12 +20,15 @@ app.use("/*", function (req, res, next) {
   next();
 });
 //Router
+app.use("/createAppointments", soRouter);
 app.use("/sitzungszimmer", szRouter);
 
 app.post("/", async (req, res) => {
-  const zimmername = req.body.zimmerName;
+  const startDate = req.body.startDate;
+  const endDate = req.body.endDate;
+  const zimmerName = req.body.zimmerName;
+  bookRooms(startDate, endDate, zimmerName);
   getRoomData();
-  bookRooms(zimmername);
 });
 
 app.get("/", async (req, res) => {});

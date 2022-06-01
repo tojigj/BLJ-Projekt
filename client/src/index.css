@@ -227,6 +227,16 @@ img {
   margin: 10px 0px 10px 10px;
 }
 
+.popUp-createAppointment {
+  display: flex;
+  flex-direction: column;
+}
+
+.popUp-booking-site {
+  display: flex;
+  flex-direction: column;
+}
+
 .zimmer-component {
   width: 200px;
   height: auto;
@@ -265,7 +275,6 @@ img {
 }
 
 .zimmer-name {
-  margin-bottom: 5px;
   width: 200px;
 }
 
