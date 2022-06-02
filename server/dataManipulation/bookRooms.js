@@ -6,7 +6,7 @@ import extendMoment from "moment-range";
 const moment = extendMoment.extendMoment(Moment);
 
 //Validierung
-export function bookRooms(startDate, endDate, zimmerName) {
+export function bookRooms(startDate, endDate, zimmerName, zimmerId) {
   const data = getData();
   data.Sitzungszimmer.map((item) => {
     if (item.zimmerName === zimmerName) {
@@ -32,15 +32,5 @@ export function bookRooms(startDate, endDate, zimmerName) {
       }
     }
   });
-
-  /*
-  if (deleteSZName != "" || deleteSZName != null) {
-    data.Sitzungszimmer.map((item) => {
-      if (item.zimmerName === deleteSZName) {
-        item.gebucht = false;
-      }
-    });
-  }*/
-
   writeDbData(data);
 }

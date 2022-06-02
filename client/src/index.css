@@ -462,6 +462,7 @@ img {
   justify-content: center;
   padding-bottom: 80px;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 .gebuchteSZ-component{
@@ -474,6 +475,7 @@ img {
   box-shadow: 3px 3px 7px silver;
   border-radius: 5px;
   margin-top: 20px;
+
 }
 
 .gebuchteSZ-info{

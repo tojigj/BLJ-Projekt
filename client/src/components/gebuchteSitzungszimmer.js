@@ -44,9 +44,9 @@ const GebuchteSitzungszimmer = () => {
       console.log(error);
     });
 
-  const deleteRoom = (alert) => {
+  const deleteRoom = (zimmerId) => {
     axios
-      .post(url, { cancelAlert: alert })
+      .post(url, { cancelZimmerID: zimmerId })
       .then((response) => {
         console.log(response);
       })
@@ -56,22 +56,35 @@ const GebuchteSitzungszimmer = () => {
   };
 
   const filteredSuche = savedSZ.filter((zimmer) => {
-    if (zimmer.gebucht === true) {
+    if (zimmer.appointments.length !== 0) {
       return zimmer;
     }
   });
 
   const showGebuchteSZ = () => {
+    console.log(sitzungsZimmer);
     return filteredSuche.map((zimmer) => {
-      return (
-        <div className="gebuchteSZ-component">
-          <h2 className="gebuchteSZ-zimmerName">{zimmer.zimmerName}</h2>
-          <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>
-          <p className="gebuchteSZ-info">Stockwerk: {zimmer.stockwerk}</p>
-          <p className="gebuchteSZ-info">Max. Personen: {zimmer.maxPersonen}</p>
-          <button className="cancel-Buchung">Cancel</button>
-        </div>
-      );
+      if (zimmer.appointments.length !== 0) {
+        return (
+          <div className="gebuchteSZ-component">
+            <h2 className="gebuchteSZ-zimmerName">{zimmer.zimmerName}</h2>
+            <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>
+            <p className="gebuchteSZ-info">Stockwerk: {zimmer.stockwerk}</p>
+            <p className="gebuchteSZ-info">
+              Max. Personen: {zimmer.maxPersonen}
+            </p>
+            <p className="appointments-startDate">
+              Startdate: {zimmer.appointments[0].startDate}
+            </p>
+            <p className="appointments-endDate">
+              Enddate: {zimmer.appointments[0].endDate}
+            </p>
+            <button className="cancel-Buchung" onClick={deleteRoom(zimmer.id)}>
+              Cancel
+            </button>
+          </div>
+        );
+      }
     });
   };
 
