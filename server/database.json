@@ -40,7 +40,9 @@
       "standortName": "Fluhmatt",
       "stockwerk": 0,
       "maxPersonen": 35,
-      "appointments": []
+      "appointments": [
+        { "startDate": "6/28/2022 16:00", "endDate": "6/28/2022 17:00" }
+      ]
     },
     {
       "id": 5,
@@ -75,8 +77,7 @@
       "appointments": [
         { "startDate": "6/22/2022 15:01", "endDate": "6/22/2022 16:01" },
         { "startDate": "6/25/2022 17:03", "endDate": "6/25/2022 18:03" },
-        { "startDate": "6/30/2022 14:00", "endDate": "6/30/2022 15:00" },
-        { "startDate": "7/2/2022 15:00", "endDate": "7/2/2022 16:00" }
+        { "startDate": "6/30/2022 14:00", "endDate": "6/30/2022 15:00" }
       ]
     },
     {
@@ -93,7 +94,9 @@
       "standortName": "Rösslimatt",
       "stockwerk": 4,
       "maxPersonen": 12,
-      "appointments": []
+      "appointments": [
+        { "startDate": "7/1/2022 00:00", "endDate": "7/1/2022 15:50" }
+      ]
     },
     {
       "id": 11,
@@ -165,7 +168,10 @@
       "standortName": "Rösslimatt",
       "stockwerk": 5,
       "maxPersonen": 8,
-      "appointments": []
+      "appointments": [
+        { "startDate": "6/30/2022 07:00", "endDate": "6/30/2022 08:00" },
+        { "startDate": "7/2/2022 16:00", "endDate": "7/2/2022 17:00" }
+      ]
     },
     {
       "id": 19,

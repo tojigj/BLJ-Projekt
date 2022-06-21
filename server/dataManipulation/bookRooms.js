@@ -25,7 +25,7 @@ export function bookRooms(startDate, endDate, zimmerName) {
               new Date(item.appointments[i].startDate),
               new Date(item.appointments[i].endDate)
             );
-            if (inputRange.overlaps(dbRange)) {
+            if (dbRange.overlaps(inputRange)) {
               console.log("Error");
               return false;
             } else {

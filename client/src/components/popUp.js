@@ -21,10 +21,14 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
     return showHidePopup;
   }
 
+  const navigate = useNavigate();
+
+  const zimmerNameSZ = children._self.props.zimmername;
+
   const setZimmerNameData = () => {
     axios
       .post(url, {
-        zimmerName: children._self.props.zimmername,
+        zimmerName: zimmerNameSZ,
         startDate:
           selectedStartDate.toLocaleDateString() + " " + selectedStartTime,
         endDate: selectedEndDate.toLocaleDateString() + " " + selectedEndTime,
@@ -37,15 +41,8 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
         console.log(error);
       });
 
-    navigate("./gebuchte-sitzungszimmer", {
-      state: {},
-    });
+    navigate("./gebuchte-sitzungszimmer");
   };
-
-  const navigate = useNavigate();
-  const zimmerNameSZ = children._self.props.zimmername;
-
-  const [zimmerNameB, setZimmerNameB] = useState([]);
 
   return (
     <div className={checkStatePopup(show)}>
