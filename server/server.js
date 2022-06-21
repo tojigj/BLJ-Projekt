@@ -39,7 +39,6 @@ app.post("/", async (req, res) => {
     const zimmerName = req.body.zimmerName;
     deleteBuchung(startDate, endDate, zimmerName);
   }
-
   getRoomData();
 });
 

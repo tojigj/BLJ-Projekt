@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Zimmer from "./requirements/zimmer";
 
 import { useLocation } from "react-router-dom";
 import axios from "axios";
@@ -20,21 +19,7 @@ const GebuchteSitzungszimmer = () => {
       .catch((error) => {
         console.log(error);
       });
-
-    axios
-      .post(url, {
-        zimmerName: location.state.zimmerName,
-        startDate: location.state.startDate,
-        endDate: location.state.endDate,
-        type: "create",
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  }, [location.state, url]);
 
   const deleteBuchung = (appointment, zimmerName) => {
     axios
@@ -53,16 +38,17 @@ const GebuchteSitzungszimmer = () => {
     window.location.reload(false);
   };
 
-  const filteredSuche = sitzungsZimmer.filter((zimmer) => {
+  const filteredData = sitzungsZimmer.filter((zimmer) => {
     if (zimmer.appointments.length !== 0) {
       return zimmer;
     }
+    return null;
   });
 
   const showGebuchteSZ = () => {
-    return filteredSuche.map((zimmer) => {
+    return filteredData.map((zimmer) => {
       return (
-        <div className="gebuchteSZ-component">
+        <div key={zimmer.Id} className="gebuchteSZ-component">
           <h2 className="gebuchteSZ-zimmerName">{zimmer.zimmerName}</h2>
           <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>
           <p className="gebuchteSZ-info">Stockwerk: {zimmer.stockwerk}</p>

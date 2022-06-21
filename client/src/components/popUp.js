@@ -11,8 +11,8 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
   const [selectedStartTime, setSelectedStartTime] = useState();
   const [selectedEndTime, setSelectedEndTime] = useState();
   const location = useLocation();
+  let url = "http://localhost:5001/";
 
-  let gebuchteSitzungszimmer = [];
   //Logik Display Popup
   function checkStatePopup(state) {
     const showHidePopup = state
@@ -22,13 +22,23 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
   }
 
   const setZimmerNameData = () => {
-    navigate("./gebuchte-sitzungszimmer", {
-      state: {
+    axios
+      .post(url, {
         zimmerName: children._self.props.zimmername,
         startDate:
           selectedStartDate.toLocaleDateString() + " " + selectedStartTime,
         endDate: selectedEndDate.toLocaleDateString() + " " + selectedEndTime,
-      },
+        type: "create",
+      })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    navigate("./gebuchte-sitzungszimmer", {
+      state: {},
     });
   };
 
@@ -62,6 +72,7 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
                   setSelectedStartDate(date);
                 }}
                 minDate={new Date()}
+                maxDate={selectedStartDate}
                 className="form-control date-box"
               />
               <DatePicker
@@ -71,7 +82,7 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
                 onChange={(date) => {
                   setSelectedEndDate(date);
                 }}
-                minDate={new Date()}
+                minDate={selectedStartDate}
                 className="form-control date-box"
               />
               <div className="zeit-buchung">
@@ -80,7 +91,9 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
                   onChange={(event) => {
                     setSelectedStartTime(event.target.value);
                   }}
+                  max={selectedEndTime}
                   type="time"
+                  pattern="([1]?[0-9]|2[0-3]):[0-5][0-9]"
                   className="form-control time-box"
                 ></input>
                 <input
@@ -88,14 +101,13 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
                   onChange={(event) => {
                     setSelectedEndTime(event.target.value);
                   }}
+                  min={selectedStartTime}
                   type="time"
                   className="form-control time-box"
                 ></input>
                 <button
                   className="BuchenPopUpButton"
-                  onClick={() => {
-                    setZimmerNameData();
-                  }}
+                  onClick={() => setZimmerNameData()}
                 >
                   Buchen
                 </button>
