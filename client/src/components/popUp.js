@@ -25,8 +25,9 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
     navigate("./gebuchte-sitzungszimmer", {
       state: {
         zimmerName: children._self.props.zimmername,
-        startDate: selectedStartDate.toDateString() + " " + selectedStartTime,
-        endDate: selectedEndDate.toDateString() + " " + selectedEndTime,
+        startDate:
+          selectedStartDate.toLocaleDateString() + " " + selectedStartTime,
+        endDate: selectedEndDate.toLocaleDateString() + " " + selectedEndTime,
       },
     });
   };

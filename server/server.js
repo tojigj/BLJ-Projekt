@@ -29,8 +29,7 @@ app.post("/", async (req, res) => {
   const startDate = req.body.startDate;
   const endDate = req.body.endDate;
   const zimmerName = req.body.zimmerName;
-  const cancelZimmerID = req.body.cancelZimmerID;
-  bookRooms(startDate, endDate, zimmerName, cancelZimmerID);
+  bookRooms(startDate, endDate, zimmerName);
   getRoomData();
 });
 

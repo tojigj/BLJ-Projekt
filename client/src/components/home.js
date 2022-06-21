@@ -110,11 +110,14 @@ const Home = () => {
     if (values.startDate && values.endDate) {
       filteredZimmer = filteredZimmer.filter((item) => {
         if (!item.appointments.length) return item;
-        const inputRange = moment.range(values.startDate, values.endDate);
+        const inputRange = moment.range(
+          new Date(values.startDate),
+          new Date(values.endDate)
+        );
         for (let i = 0; i < item.appointments.length; i++) {
           let dbRange = moment.range(
-            item.appointments[i].startDate,
-            item.appointments[i].endDate
+            new Date(item.appointments[i].startDate).toISOString(),
+            new Date(item.appointments[i].endDate).toISOString()
           );
           if (dbRange.overlaps(inputRange)) {
             return null;
@@ -185,6 +188,7 @@ const Home = () => {
     if (!startDate) {
       values.startDate = null;
     } else {
+      console.log(startTime);
       values.startDate = startDate.toDateString() + " " + startTime;
     }
   };
@@ -193,6 +197,7 @@ const Home = () => {
     if (!endDate) {
       values.endDate = null;
     } else {
+      console.log(endTime);
       values.endDate = endDate.toDateString() + " " + endTime;
     }
   };
