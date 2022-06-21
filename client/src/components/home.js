@@ -171,6 +171,7 @@ const Home = () => {
     return filteredData[index];
   };
 
+  // Informationen der verschiedenen Sitzungszimmer
   const shownZimmer = () => {
     if (shownData.length) {
       return shownData.map((zimmer) => {
@@ -224,7 +225,7 @@ const Home = () => {
       </div>
       <div className="shown-filters">{showSelectedFilters()}</div>
       <div className="home">
-        <div className="Such-Ausgabe">{shownZimmer()}</div>
+      <div className="suchausgabe">{shownZimmer()}</div>
       </div>
     </div>
   );

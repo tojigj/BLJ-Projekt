@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import styled from "styled-components";
 import { BsFillCaretDownFill } from "react-icons/bs";
 import { BsFillCaretUpFill } from "react-icons/bs";
+import "./CSS/mainDropdown.css";
 
 const checkboxesList = ["Fluhmatt", "Rösslimatt"];
 
@@ -138,7 +139,7 @@ const Section = ({
 
           <div>
             <button
-              className="Search_Button"
+              className="search_Button"
               onClick={() => {
                 onSubmit();
                 setisActive(!isActive);
@@ -150,7 +151,7 @@ const Section = ({
         </div>
       </div>
     </div>
-  );
+  ); 
 };
 
 export default Section;

@@ -2,5 +2,7 @@ import React from "react";
 
 const Dropdown = () => {
     return <div className='dropdown'>
-    </div>;
-  }
+    </div>
+};
+
+export default Dropdown;

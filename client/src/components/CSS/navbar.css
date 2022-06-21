@@ -1,0 +1,168 @@
+/*Header für Navbar*/
+.navbar {
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    background-color: #d9d9d9;
+}
+
+/*Titel für Navbar "Sitzungszimmer - Finder"*/
+.navbar-logo {
+    color: black;
+    font-size: 2rem;
+    margin-left: 5rem;
+    position: absolute;
+    align-items: center;
+    text-decoration: none;
+}
+
+/*Alle Tabs zusammen für die Navigation*/
+.nav-items {
+    right: 5rem;
+    width: 31vw;
+    display: flex;
+    position: fixed;
+    list-style: none;
+    margin-right: 2rem;
+    justify-content: flex-end;
+}
+
+/*Einzelne Tabs für die Navigation*/
+.nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.b-nav-item{
+    display: flex;
+    align-items: center;
+
+}
+
+.b-nav-item a{
+    color: black;
+    font-size: 1.5rem;
+    padding: 6px 16px;
+    border-radius: 5px;
+    margin-right: 2rem;
+    text-decoration: none;
+}
+
+/*Alle Tabs verlinkung/schrift für die Navigation*/
+.nav-item a {
+    color: black;
+    font-size: 1.5rem;
+    padding: 6px 16px;
+    border-radius: 5px;
+    margin-right: 2rem;
+    text-decoration: none;
+    /*position: absolute;*/
+}
+
+/*Beim Überfahren mit der Maus auf den einzelnen Tabs erscheint Kontrast Farbe.*/
+.nav-item a:hover {
+    color: white;
+    background-color: #6666667e;
+}
+
+/* "☰" die Sub-Tabs für den einzelnen Tab*/
+.services-submenu {
+    top: 48px;
+    right: 0rem;
+    width: 13rem;
+    list-style: none;
+    text-align: start;
+    position: absolute;
+}
+
+/*Dropdown items nach dem "☰" angeklickt wird*/
+.submenu-item {
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    color: white;
+    display: block;
+    text-decoration: none;
+}
+
+/*Beim Überfahren mit der Maus auf den einzelnen Sub-Tabs erscheint Kontrast Farbe.*/
+.submenu-item:hover {
+    background: #6666667e;
+}
+
+.services-submenu li {
+    cursor: pointer;
+    background: #d9d9d9;
+}
+
+.services-submenu.clicked {
+    display: none;
+}
+
+/*Responsive*/
+@media screen and (min-width: 1330px){
+    .nav-item{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1330px){
+    .b-nav-item{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .navbar-logo {
+        margin-left: 3rem;
+        font-size: 1.75rem;
+    }
+
+    .nav-items a {
+        font-size: 1.25rem;
+    }
+    .services-submenu {
+        top: 40px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .navbar-logo {
+        margin-left: 3rem;
+        font-size: 1.5rem;
+    }
+
+    .nav-items a {
+        font-size: 1.0rem;
+    }
+    .nav-items {
+        right: 1rem;
+    }
+    .services-submenu {
+        top: 35px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .navbar-logo {
+        margin-left: 1rem;
+        font-size: 1.4rem;
+    }
+    .nav-items {
+        right: 0.5rem;
+        top: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 430px){
+    .nav-items {
+        right: -1rem;
+        top: 0.5rem;
+    }
+    .navbar-logo{
+        font-size: 0.9rem;
+    }
+}
+
