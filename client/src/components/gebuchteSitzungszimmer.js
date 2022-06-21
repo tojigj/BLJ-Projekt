@@ -18,22 +18,12 @@ const GebuchteSitzungszimmer = () => {
       .get(`http://localhost:${port}/sitzungszimmer/`)
       .then((response) => {
         setSitzungsZimmer(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:${port}/bookedRooms/`)
-      .then((response) => {
         setSavedSZ(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
 
   axios
     .post(url, { zimmerName: location.state.zimmerName })
