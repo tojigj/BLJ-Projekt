@@ -26,6 +26,7 @@ const GebuchteSitzungszimmer = () => {
         zimmerName: location.state.zimmerName,
         startDate: location.state.startDate,
         endDate: location.state.endDate,
+        type: "create",
       })
       .then((response) => {
         console.log(response);
@@ -35,15 +36,21 @@ const GebuchteSitzungszimmer = () => {
       });
   }, []);
 
-  const deleteRoom = (zimmerId) => {
+  const deleteBuchung = (appointment, zimmerName) => {
     axios
-      .post(url, { cancelZimmerID: zimmerId })
+      .post(url, {
+        zimmerName: zimmerName,
+        startDate: appointment.startDate,
+        endDate: appointment.endDate,
+        type: "delete",
+      })
       .then((response) => {
         console.log(response);
       })
       .catch((error) => {
         console.log(error);
       });
+    window.location.reload(false);
   };
 
   const filteredSuche = sitzungsZimmer.filter((zimmer) => {
@@ -54,27 +61,36 @@ const GebuchteSitzungszimmer = () => {
 
   const showGebuchteSZ = () => {
     return filteredSuche.map((zimmer) => {
-      zimmer.appointments.forEach((appointment) => {
-        return (
-          <div className="gebuchteSZ-component">
-            <h2 className="gebuchteSZ-zimmerName">{zimmer.zimmerName}</h2>
-            <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>
-            <p className="gebuchteSZ-info">Stockwerk: {zimmer.stockwerk}</p>
-            <p className="gebuchteSZ-info">
-              Max. Personen: {zimmer.maxPersonen}
-            </p>
-            <p className="appointments-startDate">
-              Startdate: {appointment.startDate}
-            </p>
-            <p className="appointments-endDate">
-              Enddate: {appointment.endDate}
-            </p>
-            <button className="cancel-Buchung" onClick={deleteRoom(zimmer.id)}>
-              Cancel
-            </button>
+      return (
+        <div className="gebuchteSZ-component">
+          <h2 className="gebuchteSZ-zimmerName">{zimmer.zimmerName}</h2>
+          <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>
+          <p className="gebuchteSZ-info">Stockwerk: {zimmer.stockwerk}</p>
+          <p className="gebuchteSZ-info">Max. Personen: {zimmer.maxPersonen}</p>
+          <div className="all-appointments">
+            {zimmer.appointments.map((appointment) => {
+              return (
+                <div className="appointments-component">
+                  <p className="appointments-startDate">
+                    Startdate: {appointment.startDate}
+                  </p>
+                  <p className="appointments-endDate">
+                    Enddate: {appointment.endDate}
+                  </p>
+                  <button
+                    className="cancel-Buchung"
+                    onClick={() =>
+                      deleteBuchung(appointment, zimmer.zimmerName)
+                    }
+                  >
+                    Cancel
+                  </button>
+                </div>
+              );
+            })}
           </div>
-        );
-      });
+        </div>
+      );
     });
   };
 

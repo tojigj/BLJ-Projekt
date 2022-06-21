@@ -153,6 +153,48 @@
   display: none;
 }
 
+.appointments-component {
+  padding: 10px;
+  background-color: silver;
+  margin: 10px;
+  width: 45%;
+  border-radius: 5px;
+}
+
+.all-appointments {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cancel-Buchung {
+  width: 90%;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 10px 20px;
+  flex-direction: row;
+  margin: 0px 0 10px 0;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+  background-color: black;
+  border-radius: 5px;
+  width: 90%;
+  transition: 200ms padding;
+}
+
+.cancel-Buchung:hover {
+  background-color: #404040;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cancel-Buchung:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
 @media (min-width: 1366px) {
   .closePopUpButton {
   }
