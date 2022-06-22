@@ -41,7 +41,7 @@ const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
         console.log(error);
       });
 
-    navigate("./gebuchte-sitzungszimmer");
+    navigate("/gebuchte-Sitzungszimmer");
   };
 
   return (

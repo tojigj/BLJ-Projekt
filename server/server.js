@@ -32,8 +32,7 @@ app.post("/", async (req, res) => {
     const endDate = req.body.endDate;
     const zimmerName = req.body.zimmerName;
     bookRooms(startDate, endDate, zimmerName);
-  }
-  if (req.body.type === "delete") {
+  } else if (req.body.type === "delete") {
     const startDate = req.body.startDate;
     const endDate = req.body.endDate;
     const zimmerName = req.body.zimmerName;

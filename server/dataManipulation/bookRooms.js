@@ -8,6 +8,7 @@ const moment = extendMoment.extendMoment(Moment);
 //Validierung
 export function bookRooms(startDate, endDate, zimmerName) {
   const data = getData();
+  let appointmentAdd = false;
   data.Sitzungszimmer.map((item) => {
     if (item.zimmerName) {
       if (item.zimmerName === zimmerName) {
@@ -20,21 +21,23 @@ export function bookRooms(startDate, endDate, zimmerName) {
             item.appointments = [{ startDate: startDate, endDate: endDate }];
             return true;
           }
-          for (let i = 0; i < item.appointments.length; i++) {
+          for (let appointment of item.appointments) {
             let dbRange = moment.range(
-              new Date(item.appointments[i].startDate),
-              new Date(item.appointments[i].endDate)
+              new Date(appointment.startDate),
+              new Date(appointment.endDate)
             );
             if (dbRange.overlaps(inputRange)) {
-              console.log("Error");
-              return false;
+              appointmentAdd = false;
+              break;
             } else {
-              item.appointments.push({
-                startDate: startDate,
-                endDate: endDate,
-              });
-              return true;
+              appointmentAdd = true;
             }
+          }
+          if (appointmentAdd) {
+            item.appointments.push({
+              startDate: startDate,
+              endDate: endDate,
+            });
           }
         }
       }

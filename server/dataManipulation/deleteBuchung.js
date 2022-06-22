@@ -15,7 +15,7 @@ export function deleteBuchung(startDate, endDate, zimmerName) {
             item.appointments.splice(i, 1);
             return true;
           } else {
-            return false;
+            console.log("no");
           }
         }
       }
