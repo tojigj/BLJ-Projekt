@@ -63,14 +63,17 @@ const GebuchteSitzungszimmer = () => {
                   <p className="appointments-endDate">
                     Enddate: {appointment.endDate}
                   </p>
-                  <button
-                    className="cancel-Buchung"
-                    onClick={() =>
-                      deleteBuchung(appointment, zimmer.zimmerName)
-                    }
-                  >
-                    Cancel
-                  </button>
+                  <div className="edit-cancel-buttons">
+                    <button className="buchung-Button">Edit</button>
+                    <button
+                      className="buchung-Button"
+                      onClick={() =>
+                        deleteBuchung(appointment, zimmer.zimmerName)
+                      }
+                    >
+                      Cancel
+                    </button>
+                  </div>
                 </div>
               );
             })}
