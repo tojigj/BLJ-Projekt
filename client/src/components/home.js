@@ -5,6 +5,11 @@ import Zimmer from "./requirements/zimmer";
 import Moment from "moment";
 import { extendMoment } from "moment-range";
 
+/* Damit 'moment' funktioniert:
+    npm install --save moment
+    npm install --save react-moment
+*/
+
 const moment = extendMoment(Moment);
 
 let values = {
