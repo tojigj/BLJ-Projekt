@@ -57,19 +57,6 @@ const GebuchteSitzungszimmer = () => {
     return filteredData.map((zimmer) => {
       return (
         <>
-          <PopUp show={show} handleClose={hideModal()}>
-            <div className="buchungsInfo">
-              <div className="popUp-standort">
-                <h5>Zimmername: {zimmerName}</h5>
-              </div>
-              <div className="popUp-stockwerk">
-                <h5>Startdate: {startDate}</h5>
-              </div>
-              <div className="popUp-maxP">
-                <h5>Enddate: {endDate}</h5>
-              </div>
-            </div>
-          </PopUp>
           <div key={zimmer.Id} className="gebuchteSZ-component">
             <h2 className="gebuchteSZ-zimmerName">{zimmer.zimmerName}</h2>
             <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>

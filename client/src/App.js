@@ -1,14 +1,11 @@
 import "./App.css";
 import React from "react";
-import { Dropdown } from 'bootstrap';
-import './components/CSS/popUp.css'
+import { Dropdown } from "bootstrap";
 import Navbar from "./components/header";
 import Home from "./components/home";
 import "./index.css";
-import Footer from "./components/footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GebuchteSZ from "./components/gebuchteSitzungszimmer";
-
 
 function App() {
   return (
@@ -24,7 +21,6 @@ function App() {
             ></Route>
             <Route exact path="/" element={<Home />}></Route>
           </Routes>
-          <Footer />
         </div>
       </div>
     </Router>
