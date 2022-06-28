@@ -2,6 +2,7 @@ import express from "express";
 const app = express();
 import { bookRooms } from "./dataManipulation/bookRooms.js";
 import { getRoomData } from "./dataManipulation/getRooms.js";
+import { deleteBuchung } from "./dataManipulation/deleteBuchung.js";
 import cors from "cors";
 import soRouter from "./routes/createAppointments.js";
 import szRouter from "./routes/sitzungszimmer.js";
@@ -26,11 +27,17 @@ app.use("/sitzungszimmer", szRouter);
 app.use("/bookedRooms", bookedSZRouter);
 
 app.post("/", async (req, res) => {
-  const startDate = req.body.startDate;
-  const endDate = req.body.endDate;
-  const zimmerName = req.body.zimmerName;
-  const cancelZimmerID = req.body.cancelZimmerID;
-  bookRooms(startDate, endDate, zimmerName, cancelZimmerID);
+  if (req.body.type === "create") {
+    const startDate = req.body.startDate;
+    const endDate = req.body.endDate;
+    const zimmerName = req.body.zimmerName;
+    bookRooms(startDate, endDate, zimmerName);
+  } else if (req.body.type === "delete") {
+    const startDate = req.body.startDate;
+    const endDate = req.body.endDate;
+    const zimmerName = req.body.zimmerName;
+    deleteBuchung(startDate, endDate, zimmerName);
+  }
   getRoomData();
 });
 
