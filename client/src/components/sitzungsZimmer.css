@@ -206,3 +206,13 @@
   .closePopUpButton {
   }
 }
+
+@media (max-width: 1300px) {
+  .edit-cancel-buttons {
+    flex-direction: column;
+  }
+
+  .buchung-Button {
+    width: 100%;
+  }
+}
