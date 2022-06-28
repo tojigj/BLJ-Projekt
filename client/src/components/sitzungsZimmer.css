@@ -1,0 +1,218 @@
+.popUp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.popUp-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.popUp-Content {
+  position: fixed;
+  background: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 1px 1px 3px silver;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  min-height: 50%;
+  width: 40%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.BuchenPopUpButton {
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  margin: 0px 15px 15px 0px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+  background-color: #00b8cf;
+  min-width: 80%;
+  margin-top: 10%;
+  min-height: 10%;
+}
+
+.Buchung-Title {
+  top: 0;
+  display: flex;
+  font-weight: bold;
+  align-items: center;
+}
+
+.showInfo-Sz {
+  background-color: blue;
+  color: white;
+  padding: 5px 10px;
+}
+
+.closePopUpButton {
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px 10px 10px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+  background-color: black;
+  width: 10%;
+  top: 0;
+  right: 0;
+  min-height: 10%;
+  position: absolute;
+  text-align: center;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.popUp-zimmername {
+  margin-top: 10%;
+  font-weight: bold;
+}
+
+.popUp-standort {
+  text-align: left;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.popUp-stockwerk {
+  text-align: left;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.popUp-maxP {
+  text-align: left;
+}
+
+.divider-div {
+  width: 100%;
+  display: flex;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.popUp-PicName {
+  min-width: 60%;
+  justify-content: center; 
+  display: flex;
+  padding: 20px;
+  height: 70px;
+  flex-direction: row;
+  text-align: center;
+}
+
+.popUp-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 30%;
+  background-color: #cbd5e1;
+  margin-right: 10px;
+  padding: 40px;
+  height: 100%;
+}
+
+.popUp-pic {
+  background-color: black;
+  min-width: 30%;
+  height: 40%;
+  position: fixed;
+  margin-bottom: 20%;
+}
+
+.popUp-Footer {
+  display: flex;
+  height: 20px;
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+}
+
+.zimmerCommunication{
+  display: none;
+}
+
+.appointments-component {
+  padding: 10px;
+  background-color: silver;
+  margin: 10px;
+  width: 45%;
+  border-radius: 5px;
+}
+
+.all-appointments {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.buchung-Button {
+  width: 90%;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 10px 20px;
+  flex-direction: row;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+  background-color: black;
+  border-radius: 5px;
+  width: 90%;
+  transition: 200ms padding;
+}
+
+.buchung-Button:hover {
+  background-color: #404040;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.buchung-Button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.edit-cancel-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+@media (min-width: 1366px) {
+  .closePopUpButton {
+  }
+}
+
+@media (max-width: 1300px) {
+  .edit-cancel-buttons {
+    flex-direction: column;
+  }
+
+  .buchung-Button {
+    width: 100%;
+  }
+}

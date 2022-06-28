@@ -15,7 +15,7 @@
 
 /* "Weitere Filter" button*/
 .dropdown-button {
-  width: 30rem;
+  width: 15rem;
   border: none;
   color: white;
   cursor: pointer;
@@ -25,13 +25,6 @@
   user-select: none;
   background-color: black;
   margin-top: 35px;
-}
-
-.dropdown-main{
-  background-color: firebrick;
-  width: 30rem;
-  height: 33rem;
-  padding-top: 1px;
 }
 
 @media screen and (max-width: 1050px) {

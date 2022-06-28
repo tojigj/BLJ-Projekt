@@ -283,7 +283,7 @@ const Home = () => {
       </div>
       <div className="shown-filters">{showSelectedFilters()}</div>
       <div className="home">
-      <div className="suchausgabe">{shownZimmer()}</div>
+        <div className="suchausgabe">{shownZimmer()}</div>
       </div>
     </div>
   );
