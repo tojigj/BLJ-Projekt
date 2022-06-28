@@ -4,6 +4,7 @@ import GebuchteSZ from "./gebuchteSitzungszimmer";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import DatePicker from "react-datepicker";
+import "./CSS/appointmentpopUp.css";
 
 const PopUp = ({ handleClose, show, children }) => {
   const [selectedStartDate, setSelectedStartDate] = useState();
@@ -28,7 +29,6 @@ const PopUp = ({ handleClose, show, children }) => {
   const setZimmerNameData = () => {
     axios
       .post(url, {
-        zimmerName: zimmerNameSZ,
         startDate:
           selectedStartDate.toLocaleDateString() + " " + selectedStartTime,
         endDate: selectedEndDate.toLocaleDateString() + " " + selectedEndTime,
@@ -46,70 +46,70 @@ const PopUp = ({ handleClose, show, children }) => {
 
   return (
     <div className={checkStatePopup(show)}>
-      <div className="popUp-Content">
-        <button
-          type="button"
-          onClick={handleClose}
-          className="closePopUpButton"
-        >
-          X
-        </button>
-        <div className="divider-div">
-          <div className="popUp-info">
-            <h2 className="popUp-zimmername">{zimmerNameSZ}</h2>
-            {children}
-          </div>
-          <div className="popUp-booking-site">
-            <form className="popUp-createAppointment">
-              <DatePicker
-                selected={selectedStartDate}
-                required
-                dateFormat="dd/MM/yyyy"
-                onChange={(date) => {
-                  setSelectedStartDate(date);
-                }}
-                minDate={new Date()}
-                maxDate={selectedStartDate}
-                className="form-control date-box"
-              />
-              <DatePicker
-                selected={selectedEndDate}
-                required
-                dateFormat="dd/MM/yyyy"
-                onChange={(date) => {
-                  setSelectedEndDate(date);
-                }}
-                minDate={selectedStartDate}
-                className="form-control date-box"
-              />
-              <div className="zeit-buchung">
-                <input
+      <div className="appointment-popup">
+        <div className="popUp-Content appointment-popup-inner">
+          <h3>{zimmerNameSZ}</h3>
+          <button
+            type="button"
+            onClick={handleClose}
+            className="close-appointment-popup"
+          >
+            X
+          </button>
+          <div className="appointment-popup-content">
+            <div className="appointment-popup-left">{children}</div>
+            <div className="appointment-popup-right">
+              <form className="popUp-createAppointment">
+                <DatePicker
+                  selected={selectedStartDate}
                   required
-                  onChange={(event) => {
-                    setSelectedStartTime(event.target.value);
+                  dateFormat="dd/MM/yyyy"
+                  onChange={(date) => {
+                    setSelectedStartDate(date);
                   }}
-                  max={selectedEndTime}
-                  type="time"
-                  pattern="([1]?[0-9]|2[0-3]):[0-5][0-9]"
-                  className="form-control time-box"
-                ></input>
-                <input
+                  minDate={new Date()}
+                  maxDate={selectedStartDate}
+                  className="form-control date-box"
+                />
+                <DatePicker
+                  selected={selectedEndDate}
                   required
-                  onChange={(event) => {
-                    setSelectedEndTime(event.target.value);
+                  dateFormat="dd/MM/yyyy"
+                  onChange={(date) => {
+                    setSelectedEndDate(date);
                   }}
-                  min={selectedStartTime}
-                  type="time"
-                  className="form-control time-box"
-                ></input>
-                <button
-                  className="BuchenPopUpButton"
-                  onClick={() => setZimmerNameData()}
-                >
-                  Buchen
-                </button>
-              </div>
-            </form>
+                  minDate={selectedStartDate || new Date()}
+                  className="form-control date-box"
+                />
+                <div className="zeit-buchung">
+                  <input
+                    required
+                    onChange={(event) => {
+                      setSelectedStartTime(event.target.value);
+                    }}
+                    max={selectedEndTime}
+                    type="time"
+                    pattern="([1]?[0-9]|2[0-3]):[0-5][0-9]"
+                    className="form-control time-box"
+                  ></input>
+                  <input
+                    required
+                    onChange={(event) => {
+                      setSelectedEndTime(event.target.value);
+                    }}
+                    min={selectedStartTime}
+                    type="time"
+                    className="form-control time-box"
+                  ></input>
+                  <button
+                    className="BuchenPopUpButton"
+                    onClick={() => setZimmerNameData()}
+                  >
+                    Buchen
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   position: fixed;
   background: rgba(0, 0, 0, 0.6);
 }
@@ -19,10 +19,9 @@
   width: 40%;
   display: flex;
   overflow: auto;
-  min-height: 50%;
   position: fixed;
   flex-wrap: nowrap;
-  flex-direction: row;
+  flex-direction: column;
   background: white;
   align-items: center;
   justify-content: center;
@@ -43,13 +42,12 @@
   cursor: pointer;
   font-size: 15px;
   min-height: 10%;
-  margin-top: 40%;
   padding: 10px 10px;
   font-family: inherit;
   text-decoration: none;
   border-radius: 0.2rem;
   margin: 25px 15px 15px 0px;
-  background-color: #00b8cf;
+  background-color: black;
 }
 
 .showInfo-Sz {
@@ -86,7 +84,7 @@
 }
 
 .popUp-zimmername {
-  margin-top: 10%;
+  text-align: left;
   font-weight: bold;
 }
 
@@ -145,14 +143,6 @@
 }
 */
 
-.popUp-Footer {
-  display: flex;
-  height: 20px;
-  width: 100%;
-  background-color: black;
-  position: absolute;
-  bottom: 0;
-}
 
 .zimmerCommunication{
   display: none;

@@ -3,6 +3,7 @@ const app = express();
 import { bookRooms } from "./dataManipulation/bookRooms.js";
 import { getRoomData } from "./dataManipulation/getRooms.js";
 import { deleteBuchung } from "./dataManipulation/deleteBuchung.js";
+import { editBuchung } from "./dataManipulation/editBuchung.js";
 import cors from "cors";
 import soRouter from "./routes/createAppointments.js";
 import szRouter from "./routes/sitzungszimmer.js";
@@ -37,6 +38,13 @@ app.post("/", async (req, res) => {
     const endDate = req.body.endDate;
     const zimmerName = req.body.zimmerName;
     deleteBuchung(startDate, endDate, zimmerName);
+  } else if (req.body.type === "edit") {
+    const oldStartDate = req.body.oldStartDate;
+    const oldEndDate = req.body.oldEndDate;
+    const newStartDate = req.body.newStartDate;
+    const newEndDate = req.body.newEndDate;
+    const zimmerName = req.body.zimmerName;
+    editBuchung(oldStartDate, oldEndDate, newStartDate, newEndDate, zimmerName);
   }
   getRoomData();
 });

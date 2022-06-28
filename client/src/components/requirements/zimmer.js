@@ -53,21 +53,19 @@ export default class Zimmer extends React.Component {
         </div>
         {/*<div className="zimmer-zusammenhalt">
           <div className="zimmer-pic"></div>*/}
-          <div className="zimmer-component" onClick={this.showModal}>
-            <div className="zimmer-main">
-              <div className="zimmer-title">
-                <h2 className="zimmer-name">{this.state.zimmername}</h2>
-              </div>
-            </div>
-            <div className="zimmer-info">
-              <p className="zimmer-text">{this.state.standort}</p>
-              <p className="zimmer-text">Stockwerk {this.state.stockwerk}</p>
-              <p className="zimmer-text">
-                Personen Kapazität: {this.state.maxP}
-              </p>
+        <div className="zimmer-component" onClick={this.showModal}>
+          <div className="zimmer-main">
+            <div className="zimmer-title">
+              <h2 className="zimmer-name">{this.state.zimmername}</h2>
             </div>
           </div>
+          <div className="zimmer-info">
+            <p className="zimmer-text">{this.state.standort}</p>
+            <p className="zimmer-text">Stockwerk {this.state.stockwerk}</p>
+            <p className="zimmer-text">Personen Kapazität: {this.state.maxP}</p>
+          </div>
         </div>
+      </div>
       /*</div>*/
     );
   }
