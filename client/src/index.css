@@ -163,7 +163,7 @@ body {
   justify-content: center;
 }
 
-/*
+
 .zimmer-zusammenhalt{
   width: 86%;
   height: auto;
@@ -196,6 +196,7 @@ body {
   flex-direction: column;
   position: static;
   box-shadow: 1px 1px 2px silver;
+  transition: ease-in-out 0.2s;
 }
 
 .zimmer-pic {
@@ -208,7 +209,7 @@ body {
   display: flex;
   position: static;
 }
-*/
+
 
 .zimmer-component {
   width: 200px;
@@ -298,6 +299,7 @@ body {
     width: 100%;
     margin: 10px 10px;
   }
+
 }
 
 @media screen and (max-width: 1040px){
@@ -402,7 +404,7 @@ body {
 
 
 .buchung-Button {
-  width: 90%;
+  width: 70%;
   border: none;
   color: white;
   cursor: pointer;
@@ -414,7 +416,6 @@ body {
   font-family: inherit;
   background-color: black;
   border-radius: 5px;
-  width: 90%;
   transition: 200ms padding;
 }
 
@@ -435,4 +436,10 @@ body {
   justify-content: space-around;
   margin-top: 20px;
   gap: 10px;
+}
+
+@media screen and (max-width: 1300px) {
+  .edit-cancel-buttons {
+    flex-direction: column;
+  }
 }
