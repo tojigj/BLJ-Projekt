@@ -5,7 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 
-const PopUp = ({ handleClose, show, children, zimmerNameProp }) => {
+const PopUp = ({ handleClose, show, children }) => {
   const [selectedStartDate, setSelectedStartDate] = useState();
   const [selectedEndDate, setSelectedEndDate] = useState();
   const [selectedStartTime, setSelectedStartTime] = useState();

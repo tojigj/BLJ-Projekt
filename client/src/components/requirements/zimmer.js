@@ -35,11 +35,7 @@ export default class Zimmer extends React.Component {
   render() {
     return (
       <div className="main-sitzungszimmer">
-        <PopUp
-          show={this.state.show}
-          handleClose={this.hideModal}
-          zimmerNameProp={this.state.OnZimmerClick[this.state.id - 1]}
-        >
+        <PopUp show={this.state.show} handleClose={this.hideModal}>
           <div className="buchungsInfo">
             <div className="popUp-standort">
               <h5>Standort: {this.state.standort}</h5>

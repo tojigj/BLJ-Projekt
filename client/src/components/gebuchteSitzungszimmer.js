@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import PopUp from "./popUp.js";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
@@ -8,6 +8,10 @@ const port = 5001;
 const GebuchteSitzungszimmer = () => {
   const location = useLocation();
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
+  const [show, setShow] = useState();
+  const [zimmerName, setZimmerName] = useState();
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
   let url = "http://localhost:5001/";
 
   useEffect(() => {
@@ -38,6 +42,8 @@ const GebuchteSitzungszimmer = () => {
     window.location.reload(false);
   };
 
+  const editBuchung = (appointment, zimmerName) => {};
+
   const filteredData = sitzungsZimmer.filter((zimmer) => {
     if (zimmer.appointments.length !== 0) {
       return zimmer;
@@ -45,40 +51,66 @@ const GebuchteSitzungszimmer = () => {
     return null;
   });
 
+  const hideModal = () => {};
+
   const showGebuchteSZ = () => {
     return filteredData.map((zimmer) => {
       return (
-        <div key={zimmer.Id} className="gebuchteSZ-component">
-          <h2 className="gebuchteSZ-zimmerName">{zimmer.zimmerName}</h2>
-          <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>
-          <p className="gebuchteSZ-info">Stockwerk: {zimmer.stockwerk}</p>
-          <p className="gebuchteSZ-info">Max. Personen: {zimmer.maxPersonen}</p>
-          <div className="all-appointments">
-            {zimmer.appointments.map((appointment) => {
-              return (
-                <div className="appointments-component">
-                  <p className="appointments-startDate">
-                    Startdate: {appointment.startDate}
-                  </p>
-                  <p className="appointments-endDate">
-                    Enddate: {appointment.endDate}
-                  </p>
-                  <div className="edit-cancel-buttons">
-                    <button className="buchung-Button">Edit</button>
-                    <button
-                      className="buchung-Button"
-                      onClick={() =>
-                        deleteBuchung(appointment, zimmer.zimmerName)
-                      }
-                    >
-                      Cancel
-                    </button>
+        <>
+          <PopUp show={show} handleClose={hideModal()}>
+            <div className="buchungsInfo">
+              <div className="popUp-standort">
+                <h5>Zimmername: {zimmerName}</h5>
+              </div>
+              <div className="popUp-stockwerk">
+                <h5>Startdate: {startDate}</h5>
+              </div>
+              <div className="popUp-maxP">
+                <h5>Enddate: {endDate}</h5>
+              </div>
+            </div>
+          </PopUp>
+          <div key={zimmer.Id} className="gebuchteSZ-component">
+            <h2 className="gebuchteSZ-zimmerName">{zimmer.zimmerName}</h2>
+            <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>
+            <p className="gebuchteSZ-info">Stockwerk: {zimmer.stockwerk}</p>
+            <p className="gebuchteSZ-info">
+              Max. Personen: {zimmer.maxPersonen}
+            </p>
+            <div className="all-appointments">
+              {zimmer.appointments.map((appointment) => {
+                return (
+                  <div className="appointments-component">
+                    <p className="appointments-startDate">
+                      Startdate: {appointment.startDate}
+                    </p>
+                    <p className="appointments-endDate">
+                      Enddate: {appointment.endDate}
+                    </p>
+                    <div className="edit-cancel-buttons">
+                      <button
+                        className="buchung-Button"
+                        onClick={() =>
+                          editBuchung(appointment, zimmer.zimmerName)
+                        }
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="buchung-Button"
+                        onClick={() =>
+                          deleteBuchung(appointment, zimmer.zimmerName)
+                        }
+                      >
+                        Cancel
+                      </button>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
+        </>
       );
     });
   };
