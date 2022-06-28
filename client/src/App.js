@@ -1,19 +1,20 @@
 import "./App.css";
 import React from "react";
-import { Dropdown } from "bootstrap";
-import "./components/sitzungsZimmer.css";
-import Header from "./components/header";
+import { Dropdown } from 'bootstrap';
+import './components/CSS/popUp.css'
+import Navbar from "./components/header";
 import Home from "./components/home";
 import "./index.css";
 import Footer from "./components/footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GebuchteSZ from "./components/gebuchteSitzungszimmer";
 
+
 function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Navbar />
         <div className="app-content">
           <Routes>
             <Route

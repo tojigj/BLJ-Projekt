@@ -1,0 +1,65 @@
+.hideDropdown {
+  display: none;
+}
+
+/*Hintergrund für Dropdown*/
+.requirements {
+  width: 25rem;
+  height: 33rem;
+  padding-top: 1px;
+  margin-top: 20px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 3px 3px 7px 3px silver;
+}
+
+/* "Weitere Filter" button*/
+.dropdown-button {
+  width: 15rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 10px;
+  font-weight: bold;
+  user-select: none;
+  background-color: black;
+  margin-top: 35px;
+}
+
+@media screen and (max-width: 1050px) {
+  .dropdown-button {
+    width: 1rem;
+    padding: 11.5px 20px;
+    justify-content: center;
+  }
+}
+
+
+/*Suchbutton bei Weitere Filter*/
+.search_Button {
+  width: 90%;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 10px 20px;
+  flex-direction: row;
+  font-family: inherit;
+  margin: 30px 0 10px 0;
+  text-decoration: none;
+  transition: 200ms padding;
+  background-color: black;
+}
+
+/*Suchbutton bei Weitere Filter "Schwebe Effekt"*/
+.search_Button:hover {
+  transform: translateY(-3px);
+  background-color: #404040;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.search_Button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}

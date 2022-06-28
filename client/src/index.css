@@ -1,3 +1,6 @@
+/*Beschreibung CSS*/
+
+/*Body, Home, App*/
 * {
   margin: 0;
   font-family: Helvetica, sans-serif;
@@ -12,14 +15,12 @@ body {
   min-height: 100%;
 }
 
-
 .home-div {
   height: 80%;
 }
 
 .App {
-  height: 100%;
-  overflow: auto;
+  height: 90%;
 }
 
 .home {
@@ -34,34 +35,24 @@ body {
   justify-content: center;
 }
 
-.Header {
-  margin: 0;
-  width: 100%;
-  height: 4rem;
-  display: flex;
-  color: black;
-  align-items: center;
-  justify-content: center;
-  background-color: #d9d9d9;
-}
-
-
-img {
+/*footer*/
+.footer{
   left: 0;
-  width: 10%;
-  height: auto;
-  margin-left: 40px;
-  position: absolute;
+  bottom: 0;
+  height: 10vh;
+  width: 100%;
+  position: fixed;
+  background-color: #666666;
 }
 
-.requirements {
-  background-color: white;
-  width: 25rem;
-  height: 33rem;
-  border-radius: 5px;
-  box-shadow: 3px 3px 7px 3px silver;
-  padding-top: 1px;
-  margin-top: 20px;
+
+/*Meine Buchungen von Navbar*/
+.gebuchteSZLink{
+  left: 0;
+  color: inherit;
+  margin-left: 10%;
+  position: absolute;
+  text-decoration: none;
 }
 
 .text_Fields {
@@ -79,57 +70,14 @@ img {
   border: 1px solid #ced4da;
 }
 
-.Stockwerk {
+/*Nach Stockwerk Filterung, erscheint unter Suchausgabe, dass ausgwählte Stockwerk*/
+.stockwerk {
   width: 100%;
   height: 2rem;
 }
 
-.Search_Button {
-  width: 90%;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 15px;
-  padding: 10px 20px;
-  flex-direction: row;
-  margin: 0px 0 10px 0;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
-  background-color: black;
-  border-radius: 5px;
-  width: 90%;
-  transition: 200ms padding;
-}
-
-.Search_Button:hover {
-  background-color: #404040;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.Search_Button:active {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
 .standorte-label {
   margin-left: 10px;
-}
-
-.Header-Title{
-  text-decoration: none;
-  color: inherit;
-}
-
-.Footer_Class {
-  height: 8rem;
-  width: 100%;
-  background-color: black;
-  color: black;
-  margin-top: auto;
-  bottom: 0;
-  position: relative;
 }
 
 .search-part-box {
@@ -138,14 +86,14 @@ img {
 }
 
 .standorte-div {
-  margin: 30px 20px 10px 20px;
-  padding: 20px 0 20px 20px;
-  text-align: left;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
   display: flex;
-  flex-direction: column;
+  text-align: left;
   margin-top: 40px;
+  border-radius: 5px;
+  flex-direction: column;
+  padding: 20px 0 20px 20px;
+  margin: 30px 20px 10px 20px;
+  border: 1px solid #ced4da;
 }
 
 .standorte-label {
@@ -153,8 +101,8 @@ img {
 }
 
 .component-div {
-  margin: 20px 20px 10px 20px;
   display: flex;
+  margin: 20px 20px 10px 20px;
 }
 
 .search-part-box {
@@ -168,9 +116,6 @@ img {
 }
 
 .time-box {
-  padding: 5px 20px 5px 20px;
-  border: 1px solid #ced4da;
-  border-radius: 5px;
   width: 100%;
   border-radius: 5px;
   margin: 5px 0 5px 0;
@@ -178,10 +123,13 @@ img {
   border: 1px solid #ced4da;
 }
 
+/*SUVA von Navbar*/
 .suva-title {
-  position: absolute;
   right: 0;
+  color: inherit;
   margin-right: 10%;
+  position: absolute;
+  text-decoration: none;
 }
 
 .date-box {
@@ -204,7 +152,7 @@ img {
   margin: 10px 20px 10px 20px;
 }
 
-.Such-Ausgabe {
+.suchausgabe {
   width: 100%;
   height: 80%;
   height: 32rem;
@@ -215,6 +163,7 @@ img {
   justify-content: center;
 }
 
+/*
 .zimmer-zusammenhalt{
   width: 86%;
   height: auto;
@@ -259,23 +208,42 @@ img {
   display: flex;
   position: static;
 }
+*/
+
+.zimmer-component {
+  width: 200px;
+  height: auto;
+  padding: 5px;
+  display: flex;
+  cursor: pointer;
+  position: static;
+  flex-direction: column;
+  margin: 0 10px 20px 0px;
+  box-shadow: 1px 1px 2px silver;
+}
+
+.zimmer-component:hover{
+  margin: 10px 0px 10px 10px;
+  box-shadow: 6px 6px 14px silver;
+}
 
 .zimmer-info {
-  display: flex;
-  flex-direction: column;
   width: auto;
+  display: flex;
   align-items: left;
+  flex-direction: column;
 }
 
 .zimmer-main {
   width: 45%;
-  text-align: left;
   display: block;
   flex-wrap: wrap;
+  text-align: left;
 }
 
 .zimmer-name {
   width: 200px;
+  margin-bottom: 5px;
 }
 
 .zimmer-title{
@@ -289,46 +257,36 @@ img {
 
 .single-filter {
   padding: 3px 6px;
-  background-color: #d9d9d9;
   margin: 0 10px 0 10px;
+  background-color: #d9d9d9;
 }
 
 .zimmer-text {
   padding: 3px 6px;
-  background-color: #d9d9d9;
   text-align: left;
   margin: 5px auto 0 0;
-}
-
-.Footer_Class {
-  width: 100%;
-  height: 10vh;
-  color: black;
-  margin-top: auto;
-  margin: 5px 0 5px 0;
-  background-color: #666666;
+  background-color: #d9d9d9;
 }
 
 
 .search-bar {
   width: 30%;
+  padding: 10px;
   margin-top: 20px;
   border: solid 1px rgba(39, 39, 39, 0.3);
-  padding: 10px;
 }
 
 .search-bar-button {
-  display: inline-block;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  margin: 30px 0 10px 2px;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
-  background-color: black;
   width: 20rm;
-  transition: 200ms padding;
+  border: none;
+  color: white;
+  font-size: 15px;
+  padding: 12px 20px;
+  font-family: inherit;
+  text-decoration: none;
+  display: inline-block;
+  margin: 30px 0 10px 2px;
+  background-color: black;
 }
 
 .search-bar-button:hover {
@@ -342,6 +300,12 @@ img {
   }
 }
 
+@media screen and (max-width: 1040px){
+  .gebuchteSZLink{
+    display: none;
+  }
+}
+
 @media screen and (max-width: 1040px) {
   .zimmer-name {
     margin: 0;
@@ -349,14 +313,8 @@ img {
   .zimmer-info {
     flex-wrap: wrap;
   }
-  img {
-    width: 10%;
-    height: auto;
-    position: absolute;
-    left: 0;
-    margin-left: 40px;
-  }
 }
+
 
 @media screen and (max-width: 540px) {
   .home {
@@ -370,28 +328,15 @@ img {
   .zimmer-component {
     margin: 0 auto;
   }
-  img {
-    width: 13%;
-    height: auto;
-    position: absolute;
-    left: 0;
-    margin-left: 40px;
-  }
-  .suva-title {
-    display: none;
-  }
   .popUp-main {
     margin: auto;
     min-width: 80%;
     justify-content: center;
   }
-  .popUp-pic {
-    display: none;
-  }
   .leftSection-Popup {
-    position: absolute;
     bottom: 0;
     flex-wrap: wrap;
+    position: absolute;
   }
   .buchungsInfo {
     flex-wrap: wrap;
@@ -400,92 +345,44 @@ img {
 }
 
 .home-top {
-  position: absolute;
-  top: 5.75rem;
-  left: 70vw;
-  width: 70%;
   z-index: 1;
-}
-
-.dropdown-button {
-  width: 20%;
-  background-color: black;
-  color: white;
-  box-shadow: 3px 3px 7px silver;
-  height: 50px;
-  cursor: pointer;
-  font-weight: bold;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-content: space-around;
-}
-
-.dropdown-content {
-  display: block;
-}
-
-.showDropdown {
-  display: block;
-}
-
-.hideDropdown {
-  display: none;
-}
-
-.dropdownIcon {
-  position: fixed;
-  margin-left: 10rem;
-}
-
-.gebuchteSZLink{
-  text-decoration: none;
+  left: 70vw;
+  top: 5.75rem;
   position: absolute;
-  margin-left: 10%;
-  left: 0;
-  color: inherit;
-}
-
-.zimmerCommunication{
-  display: none;
-}
-
-.testClass{
-  color: blue;
 }
 
 .gebuchteSZ-main{
-  font-family: sans-serif;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 80px;
   gap: 30px;
+  /*my changes*/
+  display: flex;
+  margin: 0 auto;
+  padding-bottom: 80px;
+  justify-content: center;
+  font-family: sans-serif;
+  /*inocming changes*/
   flex-wrap: wrap;
 }
 
 .gebuchteSZ-component{
-  display: flex;
-  flex-direction: column;
-  margin-right:5px;
-  padding: 5px;
   width: 30%;
+  padding: 5px;
   height: auto;
-  box-shadow: 3px 3px 7px silver;
-  border-radius: 5px;
+  display: flex;
+  margin-right:5px;
   margin-top: 20px;
-
+  /*Unterenpart kontrolieren*/
+  border-radius: 5px;
+  flex-direction: column;
+  box-shadow: 3px 3px 7px silver;
 }
 
 .gebuchteSZ-info{
-  margin-right: 5px;
   padding: 3px 6px;
-  background-color: lightgray;
+  margin-right: 5px;
   border-radius: 5px;
+  background-color: lightgray;
 }
 
 .gebuchteSZ-zimmerName{
   margin-bottom: 70px;
 }
-

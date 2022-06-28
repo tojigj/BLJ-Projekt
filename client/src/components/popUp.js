@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./sitzungsZimmer.css";
+import "./CSS/popUp.css";
 import GebuchteSZ from "./gebuchteSitzungszimmer";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
