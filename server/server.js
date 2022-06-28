@@ -1,13 +1,11 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const cors = require("cors");
-const fs = require("fs");
-
-const jsonString = fs.readFileSync("./database.json");
-const dbData = JSON.parse(jsonString);
-
-const szRouter = require("./routes/sitzungszimmer");
-const soRouter = require("./routes/standorte");
+import { bookRooms } from "./dataManipulation/bookRooms.js";
+import { getRoomData } from "./dataManipulation/getRooms.js";
+import cors from "cors";
+import soRouter from "./routes/createAppointments.js";
+import szRouter from "./routes/sitzungszimmer.js";
+import bookedSZRouter from "./routes/bookedRoomsRoute.js";
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -23,20 +21,25 @@ app.use("/*", function (req, res, next) {
   next();
 });
 //Router
-app.use("/standorte", soRouter);
+app.use("/createAppointments", soRouter);
 app.use("/sitzungszimmer", szRouter);
+app.use("/bookedRooms", bookedSZRouter);
 
 app.post("/", async (req, res) => {
-  const zimmername = req.body.zimmerName;
-
-  dbData.Sitzungszimmer.map((item) => {
-    if (item.zimmerName === zimmername) {
-      item.gebucht = true;
-    }
-  });
-  fs.writeFileSync("./database.json", JSON.stringify(dbData));
+  const startDate = req.body.startDate;
+  const endDate = req.body.endDate;
+  const zimmerName = req.body.zimmerName;
+  const cancelZimmerID = req.body.cancelZimmerID;
+  bookRooms(startDate, endDate, zimmerName, cancelZimmerID);
+  getRoomData();
 });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+  app.get("*", (req, res) => {
+    req.sendFile(path.join(__dirname, "build", "index.html"));
+  });
+}
 app.get("/", async (req, res) => {});
 
 const port = process.env.PORT || 5001;

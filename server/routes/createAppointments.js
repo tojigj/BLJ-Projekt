@@ -1,13 +1,15 @@
 import express from "express";
 const router = express.Router();
-import { getRoomData } from "../dataManipulation/getRooms.js";
 import cors from "cors";
 router.use(cors());
+import { bookRooms } from "../dataManipulation/bookRooms.js";
 
-router.post("/", async (req, res) => {});
+router.post("/", async (req, res) => {
+  console.log("Hallo");
+});
 
 router.get("/", async (req, res) => {
-  res.send(getRoomData().Sitzungszimmer);
+  res.send("Hallo");
 });
 
 export default router;

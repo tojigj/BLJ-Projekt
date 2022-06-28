@@ -6,13 +6,29 @@
   font-family: Helvetica, sans-serif;
 }
 
+html, body, #root, .app-content {
+  height: 100%;
+  overflow: auto;
+}
+
+body {
+  min-height: 100%;
+}
+
+
+.home-div {
+  height: 80%;
+}
+
 .App {
   height: 100%;
+  overflow: auto;
 }
 
 .home {
   gap: 30px;
   width: 80%;
+  height: auto;
   display: flex;
   margin: 0 auto;
   flex-wrap: wrap;
@@ -123,10 +139,10 @@
   display: flex;
   height: 2.5rem;
   border-radius: 5px;
-  margin: 10px 0 15px 0;
+  margin: 0px 0 15px 0;
   padding: 0 20px 0 20px;
   border: 1px solid #ced4da;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color ease-in-out 300ms, box-shadow ease-in-out 300ms;
 }
 
 .date-box::before,
@@ -140,6 +156,7 @@
 
 .suchausgabe {
   width: 100%;
+  height: 80%;
   height: 32rem;
   display: flex;
   flex-wrap: wrap;
@@ -153,12 +170,36 @@
   width: 86%;
   height: auto;
   background-color: transparent;
+  transition: all 0.3s ease-in-out;
 }
 
 .zimmer-zusammenhalt:hover{
   box-shadow: 6px 6px 14px silver;
   margin: 10px 0px 10px 10px;
 }
+
+.popUp-createAppointment {
+  display: flex;
+  flex-direction: column;
+}
+
+.popUp-booking-site {
+  display: flex;
+  flex-direction: column;
+}
+
+.zimmer-component {
+  width: 200px;
+  height: auto;
+  padding: 5px;
+  cursor: pointer;
+  margin: 0 10px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  position: static;
+  box-shadow: 1px 1px 2px silver;
+}
+
 .zimmer-pic {
   width: 200px;
   height: 150px;
@@ -314,11 +355,14 @@
 
 .gebuchteSZ-main{
   gap: 30px;
+  /*my changes*/
   display: flex;
   margin: 0 auto;
   padding-bottom: 80px;
   justify-content: center;
   font-family: sans-serif;
+  /*inocming changes*/
+  flex-wrap: wrap;
 }
 
 .gebuchteSZ-component{
@@ -328,6 +372,7 @@
   display: flex;
   margin-right:5px;
   margin-top: 20px;
+  /*Unterenpart kontrolieren*/
   border-radius: 5px;
   flex-direction: column;
   box-shadow: 3px 3px 7px silver;

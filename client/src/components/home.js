@@ -2,14 +2,20 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Section from "./section";
 import Zimmer from "./requirements/zimmer";
+import Moment from "moment";
+import { extendMoment } from "moment-range";
+
+const moment = extendMoment(Moment);
 
 let values = {
   person: 0,
   stockwerk: null,
   standort: [],
+  startDate: null,
+  endDate: null,
 };
 
-let shownFilters = ["", "", ""];
+let shownFilters = ["", "", "", ""];
 
 const port = 5001;
 const Home = () => {
@@ -97,6 +103,27 @@ const Home = () => {
         return item.standortName == values.standort[0];
       });
     }
+
+    shownFilters[3] = values.startDate
+      ? values.startDate + " - " + values.endDate
+      : null;
+    if (values.startDate && values.endDate) {
+      filteredZimmer = filteredZimmer.filter((item) => {
+        if (!item.appointments.length) return item;
+        const inputRange = moment.range(values.startDate, values.endDate);
+        for (let i = 0; i < item.appointments.length; i++) {
+          let dbRange = moment.range(
+            item.appointments[i].startDate,
+            item.appointments[i].endDate
+          );
+          if (dbRange.overlaps(inputRange)) {
+            return null;
+          } else {
+            return item;
+          }
+        }
+      });
+    }
     showSelectedFilters();
     setFilteredData(filteredZimmer);
     setShownData(filteredZimmer);
@@ -107,7 +134,8 @@ const Home = () => {
     if (
       (shownFilters[0] == "" || shownFilters[0] === 0) &&
       (!shownFilters[1] || shownFilters[1] == "") &&
-      (shownFilters[2] == "" || shownFilters[2] == [])
+      (shownFilters[2] == "" || shownFilters[2] == []) &&
+      (shownFilters[3] == "" || shownFilters[3] == null)
     ) {
       return;
     }
@@ -124,19 +152,24 @@ const Home = () => {
       filtersThatAreShown[2] = shownFilters[2];
     }
 
+    if (shownFilters[3] != "" && shownFilters[3] != null) {
+      filtersThatAreShown[3] = shownFilters[3];
+    }
+
     return filtersThatAreShown.map((item) => {
       return <div className="single-filter">{item}</div>;
     });
   };
 
-  const handleTyping = (value) => {
+  const handleTyping = (e) => {
+    e.preventDefault();
     const filteredSuche = sitzungsZimmer.filter((item) => {
       if (
         item.zimmerName
           .toLowerCase()
           .split(" ")
           .join("")
-          .includes(value.toString().split(" ").join("").toLowerCase())
+          .includes(e.target.value.toString().split(" ").join("").toLowerCase())
       ) {
         return item;
       }
@@ -146,6 +179,22 @@ const Home = () => {
 
   const handleFilterPersonen = (anzPersonen) => {
     values.person = anzPersonen;
+  };
+
+  const handleFilterStartDate = (startDate, startTime) => {
+    if (!startDate) {
+      values.startDate = null;
+    } else {
+      values.startDate = startDate.toDateString() + " " + startTime;
+    }
+  };
+
+  const handleFilterEndDate = (endDate, endTime) => {
+    if (!endDate) {
+      values.endDate = null;
+    } else {
+      values.endDate = endDate.toDateString() + " " + endTime;
+    }
   };
 
   const generateStockwerkData = () => {
@@ -192,31 +241,35 @@ const Home = () => {
 
   return (
     <div className="home-div">
-      <input
-        className="search-bar"
-        type="text"
-        placeholder="Suchen..."
-        onChange={(event) => {
-          setSearchItem(event.target.value);
-          handleTyping(event.target.value);
-        }}
-      />
-      <button
-        className="search-bar-button"
-        onClick={() => {
-          handleTextFilter();
-          handleFilterSuche();
-          submitFilters();
-        }}
-      >
-        Suchen
-      </button>
+      <form onSubmit={handleTyping}>
+        <input
+          className="search-bar"
+          type="text"
+          placeholder="Suchen..."
+          onChange={(event) => {
+            setSearchItem(event.target.value);
+            handleTyping(event);
+          }}
+        />
+        <button
+          className="search-bar-button"
+          onClick={() => {
+            handleTextFilter();
+            handleFilterSuche();
+            submitFilters();
+          }}
+        >
+          Suchen
+        </button>
+      </form>
       <div className="home-top">
         <Section
           stockwerke={generateStockwerkData()}
           onStockwerkChange={handleFilterStockwerke}
           onPersonenChange={handleFilterPersonen}
           onStandortChange={handleFilterStandorte}
+          onStartDateChange={handleFilterStartDate}
+          onEndDateChange={handleFilterEndDate}
           onSubmit={() => {
             handleFilterSuche();
             submitFilters();

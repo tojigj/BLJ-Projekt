@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Zimmer from "./requirements/zimmer";
+
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
@@ -13,52 +14,82 @@ const GebuchteSitzungszimmer = () => {
   let url = "http://localhost:5001/";
 
   useEffect(() => {
-    axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
-      setSitzungsZimmer(response.data);
-      setSavedSZ(response.data);
-    });
+    axios
+      .get(`http://localhost:${port}/sitzungszimmer/`)
+      .then((response) => {
+        setSitzungsZimmer(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:${port}/bookedRooms/`)
+      .then((response) => {
+        setSavedSZ(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
 
   axios
     .post(url, { zimmerName: location.state.zimmerName })
     .then((response) => {
       console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
     });
 
-  const filteredSuche = sitzungsZimmer.filter((zimmer) => {
-    if (zimmer.gebucht === true) {
+  const deleteRoom = (zimmerId) => {
+    axios
+      .post(url, { cancelZimmerID: zimmerId })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const filteredSuche = savedSZ.filter((zimmer) => {
+    if (zimmer.appointments.length !== 0) {
       return zimmer;
     }
   });
 
   const showGebuchteSZ = () => {
+    console.log(sitzungsZimmer);
     return filteredSuche.map((zimmer) => {
-      return (
-        <div className="gebuchteSZ-component">
-          <h2 className="gebuchteSZ-zimmerName">{zimmer.zimmerName}</h2>
-          <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>
-          <p className="gebuchteSZ-info">Stockwerk: {zimmer.stockwerk}</p>
-          <p className="gebuchteSZ-info">Max. Personen: {zimmer.maxPersonen}</p>
-        </div>
-      );
+      if (zimmer.appointments.length !== 0) {
+        return (
+          <div className="gebuchteSZ-component">
+            <h2 className="gebuchteSZ-zimmerName">{zimmer.zimmerName}</h2>
+            <p className="gebuchteSZ-info">Standort: {zimmer.standortName}</p>
+            <p className="gebuchteSZ-info">Stockwerk: {zimmer.stockwerk}</p>
+            <p className="gebuchteSZ-info">
+              Max. Personen: {zimmer.maxPersonen}
+            </p>
+            <p className="appointments-startDate">
+              Startdate: {zimmer.appointments[0].startDate}
+            </p>
+            <p className="appointments-endDate">
+              Enddate: {zimmer.appointments[0].endDate}
+            </p>
+            <button className="cancel-Buchung" onClick={deleteRoom(zimmer.id)}>
+              Cancel
+            </button>
+          </div>
+        );
+      }
     });
   };
 
-  testArr.push(showGebuchteSZ());
-  console.log(testArr + " this is a tessttt");
-
   // Alle gebuchte SZ in einen anderen Array und dann beim hauptrender ausgeben, anstatt mit der Function
-  return <div className="gebuchteSZ-main">{testArr} </div>; /* (
-    <div id="gebuchteSZ-list">
-      {filteredSuche.map((item, index) => (
-        <div className="gebuchteSZ-main">
-          <div className="gebuchteSZ-item" key={index}>
-            <div className="gebuchteSZ-name">{`Name: ${item.zimmerName}`}</div>
-            <div className="gebuchteSZ-standort">{`Standort: ${item.standort}`}</div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );*/
+  return <div className="gebuchteSZ-main">{showGebuchteSZ()} </div>;
 };
+
 export default GebuchteSitzungszimmer;

@@ -1,1 +1,226 @@
-{"Standorte":[{"ID":1,"StandortName":"Fluhmatt"},{"ID":2,"StandortName":"Rösslimatt"}],"Sitzungszimmer":[{"id":1,"zimmerName":"Beige 1","standortName":"Rösslimatt","stockwerk":0,"maxPersonen":7,"gebucht":true},{"id":2,"zimmerName":"Beige 2","standortName":"Rösslimatt","stockwerk":1,"maxPersonen":4,"gebucht":true},{"id":3,"zimmerName":"Rot 1","standortName":"Rösslimatt","stockwerk":1,"maxPersonen":3,"gebucht":true},{"id":4,"zimmerName":"Schiff","standortName":"Fluhmatt","stockwerk":0,"maxPersonen":35,"gebucht":true},{"id":5,"zimmerName":"Rot 2","standortName":"Fluhmatt","stockwerk":1,"maxPersonen":9,"gebucht":true}]}
+{
+  "Standorte": [
+    { "ID": 1, "StandortName": "Fluhmatt" },
+    { "ID": 2, "StandortName": "Rösslimatt" }
+  ],
+  "Sitzungszimmer": [
+    {
+      "id": 1,
+      "zimmerName": "Beige 1",
+      "standortName": "Rösslimatt",
+      "stockwerk": 0,
+      "maxPersonen": 7,
+      "gebucht": true,
+      "appointments": [
+        {
+          "startDate": "Thu Jun 02 2022 05:00",
+          "endDate": "Fri Jun 03 2022 09:30"
+        },
+        { "startDate": "", "endDate": "" }
+      ]
+    },
+    {
+      "id": 2,
+      "zimmerName": "Beige 2",
+      "standortName": "Rösslimatt",
+      "stockwerk": 1,
+      "maxPersonen": 4,
+      "gebucht": true,
+      "appointments": []
+    },
+    {
+      "id": 3,
+      "zimmerName": "Rot 1",
+      "standortName": "Rösslimatt",
+      "stockwerk": 1,
+      "maxPersonen": 3,
+      "gebucht": true,
+      "appointments": []
+    },
+    {
+      "id": 4,
+      "zimmerName": "Schiff",
+      "standortName": "Fluhmatt",
+      "stockwerk": 0,
+      "maxPersonen": 35,
+      "gebucht": true,
+      "appointments": [
+        {
+          "startDate": "Thu Jun 02 2022 10:20",
+          "endDate": "Thu Jun 02 2022 10:30"
+        },
+        {
+          "startDate": "Fri Jun 03 2022 10:20",
+          "endDate": "Fri Jun 03 2022 10:30"
+        },
+        {
+          "startDate": "Sat Jun 04 2022 10:30",
+          "endDate": "Sat Jun 04 2022 11:00"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "zimmerName": "Rot 2",
+      "standortName": "Fluhmatt",
+      "stockwerk": 1,
+      "maxPersonen": 9,
+      "gebucht": true,
+      "appointments": [
+        {
+          "startDate": "Wed Jun 08 2022 12:30",
+          "endDate": "Wed Jun 08 2022 13:30"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "zimmerName": "Blau 1",
+      "standortName": "Rösslimatt",
+      "stockwerk": 1,
+      "maxPersonen": 4,
+      "gebucht": false,
+      "appointments": [
+        {
+          "startDate": "Thu Jun 02 2022 23:00",
+          "endDate": "Thu Jun 02 2022 23:30"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "zimmerName": "Blau 2",
+      "standortName": "Rösslimatt",
+      "stockwerk": 1,
+      "maxPersonen": 4,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 8,
+      "zimmerName": "6405",
+      "standortName": "Rösslimatt",
+      "stockwerk": 6,
+      "maxPersonen": 5,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 9,
+      "zimmerName": "4012",
+      "standortName": "Rösslimatt",
+      "stockwerk": 4,
+      "maxPersonen": 12,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 10,
+      "zimmerName": "4011",
+      "standortName": "Rösslimatt",
+      "stockwerk": 4,
+      "maxPersonen": 12,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 11,
+      "zimmerName": "4010",
+      "standortName": "Rösslimatt",
+      "stockwerk": 4,
+      "maxPersonen": 10,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 12,
+      "zimmerName": "4013",
+      "standortName": "Rösslimatt",
+      "stockwerk": 4,
+      "maxPersonen": 26,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 13,
+      "zimmerName": "3002",
+      "standortName": "Rösslimatt",
+      "stockwerk": 3,
+      "maxPersonen": 5,
+      "gebucht": true,
+      "appointments": []
+    },
+    {
+      "id": 14,
+      "zimmerName": "3001",
+      "standortName": "Rösslimatt",
+      "stockwerk": 3,
+      "maxPersonen": 6,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 15,
+      "zimmerName": "VR Saal",
+      "standortName": "Fluhmatt",
+      "stockwerk": 1,
+      "maxPersonen": 80,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 16,
+      "zimmerName": "0218",
+      "standortName": "Fluhmatt",
+      "stockwerk": 2,
+      "maxPersonen": 8,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 17,
+      "zimmerName": "Projektraum IM",
+      "standortName": "Fluhmatt",
+      "stockwerk": 5,
+      "maxPersonen": 8,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 18,
+      "zimmerName": "5050",
+      "standortName": "Rösslimatt",
+      "stockwerk": 5,
+      "maxPersonen": 8,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 19,
+      "zimmerName": "FlexSpace",
+      "standortName": "Fluhmatt",
+      "stockwerk": 3,
+      "maxPersonen": 8,
+      "gebucht": true,
+      "appointments": []
+    },
+    {
+      "id": 20,
+      "zimmerName": "0434",
+      "standortName": "Fluhmatt",
+      "stockwerk": 4,
+      "maxPersonen": 10,
+      "gebucht": false,
+      "appointments": []
+    },
+    {
+      "id": 21,
+      "zimmerName": "0324",
+      "standortName": "Fluhmatt",
+      "stockwerk": 3,
+      "maxPersonen": 24,
+      "gebucht": false,
+      "appointments": []
+    }
+  ]
+}
