@@ -8,10 +8,12 @@ const moment = extendMoment.extendMoment(Moment);
 //Validierung
 export function bookRooms(startDate, endDate, zimmerName) {
   const data = getData();
+  console.log(zimmerName);
   let appointmentAdd = false;
   data.Sitzungszimmer.map((item) => {
     if (item.zimmerName) {
       if (item.zimmerName === zimmerName) {
+        console.log(startDate + " " + endDate);
         if (startDate && endDate) {
           const inputRange = moment.range(
             new Date(startDate),
