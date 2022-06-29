@@ -32,6 +32,7 @@ const PopUp = ({ handleClose, show, children }) => {
         startDate:
           selectedStartDate.toLocaleDateString() + " " + selectedStartTime,
         endDate: selectedEndDate.toLocaleDateString() + " " + selectedEndTime,
+        zimmerName: zimmerNameSZ,
         type: "create",
       })
       .then((response) => {
