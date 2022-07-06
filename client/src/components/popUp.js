@@ -107,7 +107,7 @@ const PopUp = ({ handleClose, show, children }) => {
                     className="form-control time-box"
                   ></input>
                   <button
-                    className="BuchenPopUpButton"
+                    className="buchung-Button"
                     onClick={(e) => setZimmerNameData(e)}
                   >
                     Buchen
