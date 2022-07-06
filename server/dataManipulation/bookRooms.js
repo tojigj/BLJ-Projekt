@@ -19,6 +19,7 @@ export function bookRooms(startDate, endDate, zimmerName) {
           );
           if (item.appointments.length === 0) {
             item.appointments = [{ startDate: startDate, endDate: endDate }];
+            appointmentAdd = true;
             return true;
           }
           for (let appointment of item.appointments) {
@@ -44,4 +45,5 @@ export function bookRooms(startDate, endDate, zimmerName) {
     }
   });
   writeDbData(data);
+  return appointmentAdd;
 }

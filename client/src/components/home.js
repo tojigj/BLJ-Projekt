@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./CSS/appointmentpopUp.css";
+import Popup from "./requirements/appointment-popUp";
 import Section from "./section";
 import Zimmer from "./requirements/zimmer";
 import Moment from "moment";
@@ -250,47 +252,49 @@ const Home = () => {
   };
 
   return (
-    <div className="home-div">
-      <form onSubmit={handleTyping}>
-        <input
-          className="search-bar"
-          type="text"
-          placeholder="Suchen..."
-          onChange={(event) => {
-            setSearchItem(event.target.value);
-            handleTyping(event);
-          }}
-        />
-        <button
-          className="search-bar-button"
-          onClick={() => {
-            handleTextFilter();
-            handleFilterSuche();
-            submitFilters();
-          }}
-        >
-          Suchen
-        </button>
-      </form>
-      <div className="home-top">
-        <Section
-          stockwerke={generateStockwerkData()}
-          onStockwerkChange={handleFilterStockwerke}
-          onPersonenChange={handleFilterPersonen}
-          onStandortChange={handleFilterStandorte}
-          onStartDateChange={handleFilterStartDate}
-          onEndDateChange={handleFilterEndDate}
-          onSubmit={() => {
-            handleFilterSuche();
-            submitFilters();
-          }}
-        />
+    <>
+      <div className="home-div">
+        <form onSubmit={handleTyping}>
+          <input
+            className="search-bar"
+            type="text"
+            placeholder="Suchen..."
+            onChange={(event) => {
+              setSearchItem(event.target.value);
+              handleTyping(event);
+            }}
+          />
+          <button
+            className="search-bar-button"
+            onClick={() => {
+              handleTextFilter();
+              handleFilterSuche();
+              submitFilters();
+            }}
+          >
+            Suchen
+          </button>
+        </form>
+        <div className="home-top">
+          <Section
+            stockwerke={generateStockwerkData()}
+            onStockwerkChange={handleFilterStockwerke}
+            onPersonenChange={handleFilterPersonen}
+            onStandortChange={handleFilterStandorte}
+            onStartDateChange={handleFilterStartDate}
+            onEndDateChange={handleFilterEndDate}
+            onSubmit={() => {
+              handleFilterSuche();
+              submitFilters();
+            }}
+          />
+        </div>
+        <div className="shown-filters">{showSelectedFilters()}</div>
+        <div className="home">
+          <div className="suchausgabe">{shownZimmer()}</div>
+        </div>
       </div>
-      <div className="shown-filters">{showSelectedFilters()}</div>
-      <div className="home">
-        <div className="suchausgabe">{shownZimmer()}</div>
-      </div>
-    </div>
+    </>
   );
 };
 
