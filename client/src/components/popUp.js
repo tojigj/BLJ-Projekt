@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./CSS/popUp.css";
+import Popup from "./requirements/appointment-popUp";
 import GebuchteSZ from "./gebuchteSitzungszimmer";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import DatePicker from "react-datepicker";
 import "./CSS/appointmentpopUp.css";
 
-const PopUp = ({ handleClose, show, children }) => {
+const PopUp = ({ handleClose, show, children, showErrorPopUp }) => {
   const [selectedStartDate, setSelectedStartDate] = useState();
   const [selectedEndDate, setSelectedEndDate] = useState();
   const [selectedStartTime, setSelectedStartTime] = useState();
@@ -36,13 +37,12 @@ const PopUp = ({ handleClose, show, children }) => {
         type: "create",
       })
       .then((response) => {
-        console.log(response);
+        localStorage.removeItem("pop_status");
+        localStorage.setItem("pop_status", 1);
+        navigate("/gebuchte-Sitzungszimmer");
       })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    navigate("/gebuchte-Sitzungszimmer");
+      .catch((error) => {});
+    showErrorPopUp();
   };
 
   return (

@@ -15,6 +15,7 @@ export default class Zimmer extends React.Component {
       show: false,
       openInfo: false,
       buchungsSignal: false,
+      onErrorPopup: false,
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -32,10 +33,18 @@ export default class Zimmer extends React.Component {
     this.setState({ openInfo: !this.state.openInfo });
   };
 
+  showErrorPopup = () => {
+    this.setState({ onErrorPopup: true });
+  };
+
   render() {
     return (
       <div className="main-sitzungszimmer">
-        <PopUp show={this.state.show} handleClose={this.hideModal}>
+        <PopUp
+          show={this.state.show}
+          handleClose={this.hideModal}
+          showErrorPopUp={this.showErrorPopup}
+        >
           <div className="buchungsInfo">
             <div className="popUp-standort">
               <h5>Standort: {this.state.standort}</h5>

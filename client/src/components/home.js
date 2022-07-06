@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./CSS/appointmentpopUp.css";
+import Popup from "./requirements/appointment-popUp";
 import Section from "./section";
 import Zimmer from "./requirements/zimmer";
 import Moment from "moment";
@@ -29,6 +31,7 @@ const Home = () => {
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
   const [shownData, setShownData] = useState([]);
   const [searchItem, setSearchItem] = useState([]);
+  const [showErrorPopup, setShowErrorPopup] = useState(false);
 
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
@@ -234,6 +237,9 @@ const Home = () => {
   const shownZimmer = () => {
     if (shownData.length) {
       return shownData.map((zimmer) => {
+        if (zimmer.onErrorPopup) {
+          setShowErrorPopup(true);
+        }
         return (
           <Zimmer
             key={zimmer.id}
@@ -250,47 +256,55 @@ const Home = () => {
   };
 
   return (
-    <div className="home-div">
-      <form onSubmit={handleTyping}>
-        <input
-          className="search-bar"
-          type="text"
-          placeholder="Suchen..."
-          onChange={(event) => {
-            setSearchItem(event.target.value);
-            handleTyping(event);
-          }}
-        />
-        <button
-          className="search-bar-button"
-          onClick={() => {
-            handleTextFilter();
-            handleFilterSuche();
-            submitFilters();
-          }}
-        >
-          Suchen
-        </button>
-      </form>
-      <div className="home-top">
-        <Section
-          stockwerke={generateStockwerkData()}
-          onStockwerkChange={handleFilterStockwerke}
-          onPersonenChange={handleFilterPersonen}
-          onStandortChange={handleFilterStandorte}
-          onStartDateChange={handleFilterStartDate}
-          onEndDateChange={handleFilterEndDate}
-          onSubmit={() => {
-            handleFilterSuche();
-            submitFilters();
-          }}
-        />
+    <>
+      <div className="home-div">
+        <form onSubmit={handleTyping}>
+          <input
+            className="search-bar"
+            type="text"
+            placeholder="Suchen..."
+            onChange={(event) => {
+              setSearchItem(event.target.value);
+              handleTyping(event);
+            }}
+          />
+          <button
+            className="search-bar-button"
+            onClick={() => {
+              handleTextFilter();
+              handleFilterSuche();
+              submitFilters();
+            }}
+          >
+            Suchen
+          </button>
+        </form>
+        <div className="home-top">
+          <Section
+            stockwerke={generateStockwerkData()}
+            onStockwerkChange={handleFilterStockwerke}
+            onPersonenChange={handleFilterPersonen}
+            onStandortChange={handleFilterStandorte}
+            onStartDateChange={handleFilterStartDate}
+            onEndDateChange={handleFilterEndDate}
+            onSubmit={() => {
+              handleFilterSuche();
+              submitFilters();
+            }}
+          />
+        </div>
+        <div className="shown-filters">{showSelectedFilters()}</div>
+        <div className="home">
+          <div className="suchausgabe">{shownZimmer()}</div>
+        </div>
       </div>
-      <div className="shown-filters">{showSelectedFilters()}</div>
-      <div className="home">
-        <div className="suchausgabe">{shownZimmer()}</div>
-      </div>
-    </div>
+      <Popup trigger={showErrorPopup} setTrigger={setShowErrorPopup}>
+        <h5>
+          Ein Fehler ist aufgetreten.
+          <br /> Der Eingegebene Termin überscheneidet sich mit einem anderen.{" "}
+        </h5>
+      </Popup>
+    </>
   );
 };
 

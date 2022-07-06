@@ -18,6 +18,7 @@ const GebuchteSitzungszimmer = () => {
   const [selectedEditEndDate, setSelectedEditEndDate] = useState();
   const [selectedStartTime, setSelectedStartTime] = useState();
   const [selectedEndTime, setSelectedEndTime] = useState();
+  const [showAppointmentPopup, setShowAppointmentPopup] = useState(false);
   let url = "http://localhost:5001/";
 
   useEffect(() => {
@@ -29,7 +30,10 @@ const GebuchteSitzungszimmer = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [location.state, url]);
+    const pop_status = localStorage.getItem("pop_status");
+    let isPop_status = pop_status == 1;
+    setShowAppointmentPopup(isPop_status);
+  }, [showAppointmentPopup, url]);
 
   const deleteBuchung = (appointment, zimmerName) => {
     axios
@@ -87,6 +91,24 @@ const GebuchteSitzungszimmer = () => {
       return (
         <>
           <div key={zimmer.Id} className="gebuchteSZ-component">
+            <Popup
+              trigger={showAppointmentPopup}
+              setTrigger={setShowAppointmentPopup}
+            >
+              <div className="popup-response">
+                <h2>Appointment Erstellt</h2>
+                <p>Ein Termin wurde erfolgreich hergestellt</p>
+              </div>
+              <button
+                onClick={() => {
+                  setShowAppointmentPopup(false);
+                  localStorage.setItem("pop_status", 0);
+                }}
+                className="buchung-Button-response"
+              >
+                Ok
+              </button>
+            </Popup>
             <Popup trigger={showPopup} setTrigger={setShowPopup}>
               <h3>{zimmerName}</h3>
               <div className="appointment-popup-content">
@@ -154,6 +176,8 @@ const GebuchteSitzungszimmer = () => {
             </p>
             <div className="all-appointments">
               {zimmer.appointments.map((appointment) => {
+                if (appointment.startDate > new Date()) {
+                }
                 return (
                   <div className="appointments-component">
                     <p className="appointments-startDate">
