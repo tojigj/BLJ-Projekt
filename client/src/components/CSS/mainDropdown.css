@@ -5,7 +5,7 @@
 /*Hintergrund für Dropdown*/
 .requirements {
   width: 25rem;
-  height: 33rem;
+  height: 35rem;
   padding-top: 1px;
   margin-top: 20px;
   border-radius: 5px;
@@ -16,6 +16,7 @@
 /* "Weitere Filter" button*/
 .dropdown-button {
   width: 15rem;
+  height: 2.8rem;
   border: none;
   color: white;
   cursor: pointer;
@@ -25,6 +26,12 @@
   user-select: none;
   background-color: black;
   margin-top: 35px;
+  border-radius: 5px;
+}
+
+.dropdown-button:hover {
+  background-color: #404040;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 1050px) {
