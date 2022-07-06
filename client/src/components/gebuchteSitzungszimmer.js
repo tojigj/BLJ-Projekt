@@ -44,12 +44,12 @@ const GebuchteSitzungszimmer = () => {
         type: "delete",
       })
       .then((response) => {
-        console.log(response);
+        console.log("hello man");
       })
       .catch((error) => {
-        console.log(error);
+        console.log("error");
       });
-    window.location.reload(false);
+    window.location.reload(true);
   };
 
   const editAppointment = () => {
@@ -70,7 +70,7 @@ const GebuchteSitzungszimmer = () => {
       .catch((error) => {
         console.log(error);
       });
-    window.location.reload(false);
+    window.location.reload(true);
   };
 
   const editBuchung = (appointment, zimmerName) => {

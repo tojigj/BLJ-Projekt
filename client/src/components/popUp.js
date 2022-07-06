@@ -7,11 +7,12 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import "./CSS/appointmentpopUp.css";
 
-const PopUp = ({ handleClose, show, children, showErrorPopUp }) => {
+const PopUp = ({ handleClose, show, children }) => {
   const [selectedStartDate, setSelectedStartDate] = useState();
   const [selectedEndDate, setSelectedEndDate] = useState();
   const [selectedStartTime, setSelectedStartTime] = useState();
   const [selectedEndTime, setSelectedEndTime] = useState();
+  const [showErrorPopUp, setShowErrorPopUp] = useState(false);
   const location = useLocation();
   let url = "http://localhost:5001/";
 
@@ -27,7 +28,8 @@ const PopUp = ({ handleClose, show, children, showErrorPopUp }) => {
 
   const zimmerNameSZ = children._self.props.zimmername;
 
-  const setZimmerNameData = () => {
+  const setZimmerNameData = (e) => {
+    e.preventDefault();
     axios
       .post(url, {
         startDate:
@@ -36,13 +38,15 @@ const PopUp = ({ handleClose, show, children, showErrorPopUp }) => {
         zimmerName: zimmerNameSZ,
         type: "create",
       })
-      .then((response) => {
-        localStorage.removeItem("pop_status");
-        localStorage.setItem("pop_status", 1);
-        navigate("/gebuchte-Sitzungszimmer");
+      .then(function (response) {
+        if (response.data === true) {
+          localStorage.removeItem("pop_status");
+          localStorage.setItem("pop_status", 1);
+          navigate("/gebuchte-Sitzungszimmer");
+        }
+        setShowErrorPopUp(true);
       })
-      .catch((error) => {});
-    showErrorPopUp();
+      .catch(function (error) {});
   };
 
   return (
@@ -104,7 +108,7 @@ const PopUp = ({ handleClose, show, children, showErrorPopUp }) => {
                   ></input>
                   <button
                     className="BuchenPopUpButton"
-                    onClick={() => setZimmerNameData()}
+                    onClick={(e) => setZimmerNameData(e)}
                   >
                     Buchen
                   </button>
@@ -114,6 +118,12 @@ const PopUp = ({ handleClose, show, children, showErrorPopUp }) => {
           </div>
         </div>
       </div>
+      <Popup trigger={showErrorPopUp} setTrigger={setShowErrorPopUp}>
+        <h5>
+          Ein Fehler ist aufgetreten.
+          <br /> Der Eingegebene Termin überscheneidet sich mit einem anderen.{" "}
+        </h5>
+      </Popup>
     </div>
   );
 };

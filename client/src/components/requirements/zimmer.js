@@ -15,7 +15,7 @@ export default class Zimmer extends React.Component {
       show: false,
       openInfo: false,
       buchungsSignal: false,
-      onErrorPopup: false,
+      onErrorPopup: true,
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);

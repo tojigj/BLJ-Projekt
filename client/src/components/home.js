@@ -31,7 +31,6 @@ const Home = () => {
   const [sitzungsZimmer, setSitzungsZimmer] = useState([]);
   const [shownData, setShownData] = useState([]);
   const [searchItem, setSearchItem] = useState([]);
-  const [showErrorPopup, setShowErrorPopup] = useState(false);
 
   useEffect(() => {
     axios.get(`http://localhost:${port}/sitzungszimmer/`).then((response) => {
@@ -237,9 +236,6 @@ const Home = () => {
   const shownZimmer = () => {
     if (shownData.length) {
       return shownData.map((zimmer) => {
-        if (zimmer.onErrorPopup) {
-          setShowErrorPopup(true);
-        }
         return (
           <Zimmer
             key={zimmer.id}
@@ -298,12 +294,6 @@ const Home = () => {
           <div className="suchausgabe">{shownZimmer()}</div>
         </div>
       </div>
-      <Popup trigger={showErrorPopup} setTrigger={setShowErrorPopup}>
-        <h5>
-          Ein Fehler ist aufgetreten.
-          <br /> Der Eingegebene Termin überscheneidet sich mit einem anderen.{" "}
-        </h5>
-      </Popup>
     </>
   );
 };
