@@ -7,7 +7,10 @@ const Popup = (props) => {
       <div className="appointment-popup-inner">
         <button
           className="close-appointment-popup"
-          onClick={() => props.setTrigger(false)}
+          onClick={() => {
+            props.setTrigger(false);
+            localStorage.setItem("pop_status", 0);
+          }}
         >
           X
         </button>

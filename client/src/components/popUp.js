@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./CSS/popUp.css";
+import Popup from "./requirements/appointment-popUp";
 import GebuchteSZ from "./gebuchteSitzungszimmer";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
@@ -11,6 +12,7 @@ const PopUp = ({ handleClose, show, children }) => {
   const [selectedEndDate, setSelectedEndDate] = useState();
   const [selectedStartTime, setSelectedStartTime] = useState();
   const [selectedEndTime, setSelectedEndTime] = useState();
+  const [showErrorPopUp, setShowErrorPopUp] = useState(false);
   const location = useLocation();
   let url = "http://localhost:5001/";
 
@@ -26,7 +28,8 @@ const PopUp = ({ handleClose, show, children }) => {
 
   const zimmerNameSZ = children._self.props.zimmername;
 
-  const setZimmerNameData = () => {
+  const setZimmerNameData = (e) => {
+    e.preventDefault();
     axios
       .post(url, {
         startDate:
@@ -35,14 +38,15 @@ const PopUp = ({ handleClose, show, children }) => {
         zimmerName: zimmerNameSZ,
         type: "create",
       })
-      .then((response) => {
-        console.log(response);
+      .then(function (response) {
+        if (response.data === true) {
+          localStorage.removeItem("pop_status");
+          localStorage.setItem("pop_status", 1);
+          navigate("/gebuchte-Sitzungszimmer");
+        }
+        setShowErrorPopUp(true);
       })
-      .catch((error) => {
-        console.log(error);
-      });
-
-    navigate("/gebuchte-Sitzungszimmer");
+      .catch(function (error) {});
   };
 
   return (
@@ -103,8 +107,8 @@ const PopUp = ({ handleClose, show, children }) => {
                     className="form-control time-box"
                   ></input>
                   <button
-                    className="BuchenPopUpButton"
-                    onClick={() => setZimmerNameData()}
+                    className="buchung-Button"
+                    onClick={(e) => setZimmerNameData(e)}
                   >
                     Buchen
                   </button>
@@ -114,6 +118,12 @@ const PopUp = ({ handleClose, show, children }) => {
           </div>
         </div>
       </div>
+      <Popup trigger={showErrorPopUp} setTrigger={setShowErrorPopUp}>
+        <h5>
+          Ein Fehler ist aufgetreten.
+          <br /> Der Eingegebene Termin überscheneidet sich mit einem anderen.{" "}
+        </h5>
+      </Popup>
     </div>
   );
 };
