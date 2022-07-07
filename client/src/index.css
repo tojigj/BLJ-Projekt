@@ -1,5 +1,4 @@
 /*Beschreibung CSS*/
-
 /*Body, Home, App*/
 * {
   margin: 0;
@@ -44,7 +43,6 @@ body {
   position: fixed;
   background-color: #666666;
 }
-
 
 /*Meine Buchungen von Navbar*/
 .gebuchteSZLink{
@@ -172,8 +170,8 @@ body {
 }
 
 .zimmer-zusammenhalt:hover{
-  box-shadow: 6px 6px 14px silver;
   margin: 10px 0px 10px 10px;
+  box-shadow: 6px 6px 14px silver;
 }
 
 .popUp-createAppointment {
@@ -190,24 +188,24 @@ body {
   width: 200px;
   height: auto;
   padding: 5px;
-  cursor: pointer;
-  margin: 0 10px 20px 0px;
   display: flex;
-  flex-direction: column;
+  cursor: pointer;
   position: static;
-  box-shadow: 1px 1px 2px silver;
+  flex-direction: column;
+  margin: 0 10px 20px 0px;
   transition: ease-in-out 0.2s;
+  box-shadow: 1px 1px 2px silver;
 }
 
 .zimmer-pic {
   width: 200px;
+  padding: 5px;
   height: 150px;
+  display: flex;
+  cursor: pointer;
+  position: static;
   margin-right: 23px;
   background-color: black;  
-  cursor: pointer;
-  padding: 5px;
-  display: flex;
-  position: static;
 }
 
 
@@ -322,9 +320,9 @@ body {
 
 @media screen and (max-width: 540px) {
   .home {
-    flex-wrap: wrap;
-    margin: 0 auto;
     gap: 0;
+    margin: 0 auto;
+    flex-wrap: wrap;
   }
   .zimmer-info {
     flex-wrap: wrap;
@@ -357,14 +355,16 @@ body {
 
 .gebuchteSZ-main{
   gap: 30px;
-  /*my changes*/
   display: flex;
   margin: 0 auto;
+  flex-wrap: wrap;
   padding-bottom: 80px;
   justify-content: center;
   font-family: sans-serif;
-  /*inocming changes*/
-  flex-wrap: wrap;
+}
+
+h5{
+  text-align: left;
 }
 
 .gebuchteSZ-component{
@@ -392,11 +392,13 @@ body {
 }
 
 .appointments-component {
+  width:100%;
+  margin: 6px;
   padding: 10px;
-  background-color: silver;
-  margin: 10px;
-  width: 45%;
+  display: flex;
   border-radius: 5px;
+  flex-direction: column;
+  background-color: silver;
 }
 
 .all-appointments {
@@ -412,13 +414,12 @@ body {
   cursor: pointer;
   font-size: 15px;
   padding: 10px 20px;
-  flex-direction: row;
-  text-decoration: none;
-  font-size: 15px;
-  font-family: inherit;
-  background-color: black;
   border-radius: 5px;
+  flex-direction: row;
+  font-family: inherit;
+  text-decoration: none;
   transition: 200ms padding;
+  background-color: black;
 }
 
 .buchung-Button:hover {
@@ -433,11 +434,11 @@ body {
 }
 
 .edit-cancel-buttons {
+  gap: 10px;
   display: flex;
+  margin-top: 20px;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 20px;
-  gap: 10px;
 }
 
 @media screen and (max-width: 1300px) {

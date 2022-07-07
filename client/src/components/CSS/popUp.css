@@ -1,6 +1,4 @@
 /*Dieses CSS ist für das Design des PopUps zuständig.*/
-
-
 /*Hintergrund für PopUp*/
 .popUp {
   top: 0;
@@ -21,9 +19,9 @@
   overflow: auto;
   position: fixed;
   flex-wrap: nowrap;
-  flex-direction: column;
   background: white;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   transform: translate(-50%, -50%);
   box-shadow: 1px 1px 3px silver;
@@ -90,14 +88,14 @@
 
 .popUp-standort {
   text-align: left;
-  margin-bottom: 10px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .popUp-stockwerk {
   text-align: left;
-  margin-bottom: 10px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .popUp-maxP {
@@ -106,7 +104,6 @@
 
 .divider-div {
   width: 100%;
-  display: flex;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -121,6 +118,25 @@
   min-width: 30%;
   flex-direction: column;
   background-color: #cbd5e1;
+}
+
+.zimmerCommunication{
+  display: none;
+}
+
+@media screen and (max-width: 9px){
+  .BuchenPopUpButton{
+    margin-top: 40%;
+    padding: 10px 10px;
+    font-family: inherit;
+    border-radius: 0.2rem;
+    margin: 25px 15px 15px 0px;
+  }
+
+}
+@media (min-width: 1366px) {
+  .closePopUpButton {
+  }
 }
 
 /*Platzhalter für Sitzungszimmer-Foto auf PopUp Oberfläche*/
@@ -142,25 +158,3 @@
   text-align: center;
 }
 */
-
-
-.zimmerCommunication{
-  display: none;
-}
-
-
-
-@media screen and (max-width: 9px){
-  .BuchenPopUpButton{
-    margin-top: 40%;
-    padding: 10px 10px;
-    font-family: inherit;
-    border-radius: 0.2rem;
-    margin: 25px 15px 15px 0px;
-  }
-
-}
-@media (min-width: 1366px) {
-  .closePopUpButton {
-  }
-}

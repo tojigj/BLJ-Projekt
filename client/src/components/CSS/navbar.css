@@ -156,13 +156,17 @@
     }
 }
 
-@media screen and (max-width: 430px){
+@media screen and (max-width: 500px){
     .nav-items {
         right: -1rem;
         top: 0.5rem;
     }
     .navbar-logo{
         font-size: 0.9rem;
+    }
+    .nav-item {
+        right: 0.5rem;
+        top: 1rem;
     }
 }
 

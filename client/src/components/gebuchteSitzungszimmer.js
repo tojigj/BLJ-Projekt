@@ -185,7 +185,7 @@ const GebuchteSitzungszimmer = () => {
                       className="buchung-Button"
                       onClick={() => editAppointment()}
                     >
-                      edit
+                      Edit
                     </button>
                   </form>
                 </div>
