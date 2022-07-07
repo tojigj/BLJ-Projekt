@@ -19,6 +19,7 @@ const GebuchteSitzungszimmer = () => {
   const [selectedStartTime, setSelectedStartTime] = useState();
   const [selectedEndTime, setSelectedEndTime] = useState();
   const [showAppointmentPopup, setShowAppointmentPopup] = useState(false);
+  const [showCancelPopup, setShowCancelPopup] = useState(false);
   let url = "http://localhost:5001/";
 
   useEffect(() => {
@@ -33,6 +34,10 @@ const GebuchteSitzungszimmer = () => {
     const pop_status = localStorage.getItem("pop_status");
     let isPop_status = pop_status == 1;
     setShowAppointmentPopup(isPop_status);
+
+    const pop_cancel_status = localStorage.getItem("pop_cancel_status");
+    let isPop_cancel_status = pop_cancel_status == 1;
+    setShowCancelPopup(isPop_cancel_status);
   }, [showAppointmentPopup, url]);
 
   const deleteBuchung = (appointment, zimmerName) => {
@@ -103,6 +108,24 @@ const GebuchteSitzungszimmer = () => {
                 onClick={() => {
                   setShowAppointmentPopup(false);
                   localStorage.setItem("pop_status", 0);
+                }}
+                className="buchung-Button-response"
+              >
+                Ok
+              </button>
+            </Popup>
+            <Popup
+              trigger={showCancelPopup}
+              setTrigger={setShowAppointmentPopup}
+            >
+              <div className="popup-response">
+                <h2>Appointment gelöscht</h2>
+                <p>Ein Termin wurde erfolgreich gelöscht</p>
+              </div>
+              <button
+                onClick={() => {
+                  setShowCancelPopup(false);
+                  localStorage.setItem("pop_cancel_status", 0);
                 }}
                 className="buchung-Button-response"
               >
@@ -198,9 +221,10 @@ const GebuchteSitzungszimmer = () => {
                       </button>
                       <button
                         className="buchung-Button"
-                        onClick={() =>
-                          deleteBuchung(appointment, zimmer.zimmerName)
-                        }
+                        onClick={() => {
+                          deleteBuchung(appointment, zimmer.zimmerName);
+                          localStorage.setItem("pop_cancel_status", 1);
+                        }}
                       >
                         Cancel
                       </button>
