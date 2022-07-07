@@ -13,28 +13,38 @@
   box-shadow: 3px 3px 7px 3px silver;
 }
 
-/* "Weitere Filter" button*/
+
+.dropdown-main{
+  width: 10rem;
+}
+
 .dropdown-button {
-  width: 15rem;
   border: none;
+  width: 10rem;
   color: white;
   cursor: pointer;
   font-size: 15px;
-  padding: 10px;
-  font-weight: bold;
   user-select: none;
+  font-family: inherit;
   background-color: black;
-  margin-top: 35px;
+  padding: 12px 20px;
+  font-weight: bold;
+  margin: 13px 0 10px 2px;
+  display: inline-block;
 }
+
 
 @media screen and (max-width: 1050px) {
   .dropdown-button {
-    width: 1rem;
-    padding: 11.5px 20px;
-    justify-content: center;
+    width: 10rem;
   }
 }
 
+@media screen and (max-width: 650px) {
+  .dropdown-button {
+    width: 5rem;
+  }
+}
 
 /*Suchbutton bei Weitere Filter*/
 .search_Button {
